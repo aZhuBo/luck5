@@ -26,38 +26,5 @@
 		</a>
 	</nav>
 	
-	
-	
-	<script type="text/javascript" charset="utf-8">
-	  	mui.init();
-		// 底部选项卡切换
-		mui.plusReady(function() {
-			//定义一个容器，存储底部选项卡关联的界面
-			var pages = ["index_dome.html", "xiao1.html", "xiao2.html", "xiao3.html"];
-			//获取当前窗口对象
-			var ws = plus.webview.currentWebview();
-			//设置页面窗口样式
-			var pageStyle = {
-				top: "0px",
-				bottom: "50px"
-			};
-			//循环数据，为每个页面创建webview窗口对象。
-			for (var i = 0; i < pages.length; i++) {
-				//将每次循环体提取的页面创建为view窗口；
-				var item = plus.webview.create(pages[i], pages[i], pageStyle);
-				//将每个webviem窗口对象追加
-				ws.append(item);
-			}
-			//设置默认打开窗口
-			plus.webview.show(pages[0]);
-			//选项卡事件监听
-			mui(".mui-bar-tab").on("tap", "a", function() {
-				//获取被点击a标签的href属性值
-				var href = this.getAttribute("href");
-				//展示对应的页面
-				plus.webview.show(href);
-			});
-		});
-	</script>
 </body>
 </html>
