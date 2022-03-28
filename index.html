@@ -7,24 +7,63 @@
     <title></title>
     <script src="js/mui.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
+	
+	<!-- icon -->
+	<link rel="stylesheet" href="footericon/iconfont.css">
     
 </head>
 <body>
 	<!-- 底部选项卡mta -->
 	<nav class="mui-bar mui-bar-tab">
 		<a class="mui-tab-item mui-active" href="#">
-			<span class="mui-icon mui-icon-qq"></span>
+			<span class="mui-icon iconfont icon-zuoti"></span>
 			<span class="mui-tab-label">练习</span>
 		</a>
 		<a class="mui-tab-item" href="#">
-			<span class="mui-icon mui-icon-weixin"></span>
+			<span class="mui-icon iconfont icon-lianxi_"></span>
 			<span class="mui-tab-label">每日答题</span>
 		</a>
-		<a class="mui-tab-item" href="examples/myappindex.html">
-			<span class="mui-icon mui-icon-weibo"></span>
+		<a class="mui-tab-item" href="#">
+			<span class="mui-icon iconfont icon-wode"></span>
 			<span class="mui-tab-label">我的</span>
 		</a>
 	</nav>
+	
+	
+	
+	<script type="text/javascript">
+	  	mui.init();
+		// 底部选项卡切换
+		mui.plusReady(function () {
+		    // 定义一个容器存储底部选项卡的所有页面
+			var pages = ["#.html","#.html","#.html"];
+			// 获取当前窗口对象
+			var ws = plus.webview.currentWebview();
+			
+			// 设置窗口样式
+			var pageStyle = {
+				top:"0px",
+				bottom:"50px"
+			}
+			
+			// 循环创建窗口对象
+			for(var i = 0 ; i < pages.length ; i++){
+				var item = plus.webview.create(pages[i],pages[i],pageStyle);
+				ws.append(item);
+			}
+			// 设置默认打开窗口
+			plus.webview.show(pages[0]);
+			
+			// 选项卡事件监听
+			mui(".mui-bar-tab").on("tap","a",function(){
+				// 获取被点击a标签的href属性值
+				var href = this.getAttribute('href');
+				// 展示页面
+				plus.webview.show(href);
+			});
+			
+		});
+	</script>
 	
 </body>
 </html>
