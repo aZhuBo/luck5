@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3283195 */
+  src: url('iconfont.woff2?t=1648448763029') format('woff2'),
+       url('iconfont.woff?t=1648448763029') format('woff'),
+       url('iconfont.ttf?t=1648448763029') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wode:before {
+  content: "\e608";
+  color: orangered;
+}
+
+.icon-lianxi_:before {
+  content: "\e618";
+  color: orangered;
+}
+
+.icon-zuoti:before {
+  content: "\e62a";
+  color: orangered;
+}
+
