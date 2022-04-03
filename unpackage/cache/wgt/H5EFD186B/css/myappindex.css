@@ -1,0 +1,80 @@
+
+.new-mine {
+	background: #fff;
+}
+
+.new-mine-title {
+	width: 100%;
+	padding: 2%;
+	background-color: #fff;
+	border-bottom: solid 1px #efefef;
+	font-weight: bold;
+}
+
+.new-mine-title span {
+	font-size: 17px;
+	margin-right: 3%;
+}
+
+/*new-mine-grade*/
+.new-mine-grade {
+	padding-bottom: 50px;
+}
+
+.mine-photo {
+	width: 100%;
+	background-image: url(../images/myappindexbie.jpg);
+	height: 18rem;
+	background-repeat: no-repeat;
+
+	text-align: center;
+	position: relative;
+	color: #fff;
+}
+
+.mine-photo img {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	border: solid 1px #fff;
+	margin-top: 20%;
+}
+
+.mine-photo-list {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	display: flex;
+	justify-content: space-around;
+	padding: 0;
+	height: 2.8rem;
+	background: rgba(0, 0, 0, .8);
+	padding: 1%;
+}
+
+.mine-photo-list li {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+}
+
+.mine-photo-list li p,
+.mine-photo-list li h4 {
+	font-size: 16px;
+	color: #fff;
+}
+
+.mine-photo-list li h4 {
+	margin: 0;
+}
+
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.mui-content{height: 100%;}
