@@ -10,36 +10,105 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="../css/myappindex.css" />
+		
 	</head>
 
-	<body class="mui-plus mui-statusbar mui-statusbar-offset">
+	<body class="mui-plus mui-statusbar ">
+<!-- 		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">标题</h1>
+		</header> -->
 		<header class="mui-bar mui-bar-nav">
 			<h1 class="mui-title">个人中心</h1>
 		</header>
-
 		<div class="nav-bottom">
 			<div class="new-mine">
 				<div class="mine-photo min-photo-bgimg">
 					<img src="../images/myappindex1.jpg" />
-					<h4>上进小菜猪</h4>
+					<h4><span id="name"></span></h4>
 					<ul class="mine-photo-list">
 						<li><a>
 								<p>我的段位</p>
-								<h4>塑料</h4>
+								<h4><span id="duanwei"></span></h4>
 							</a></li>
 						<li>
 							<p>目前积分</p>
-							<h4><label>1000</label></h4>
+							<h4><span id="jifeng"></span></h4>
 						</li>
 						<li>
-							<p>已注册天数</p>
-							<h4><label>0</label></h4>
+							<p>当前登录账号</p>
+							<h4><span id="username"></span></h4>
 						</li>
 					</ul>
 				</div>
-
 			</div>
+			<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							Item 1
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							 Item 2
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" >
+							 <a id="login_out">退出登录</a>
+						</a>
+					</li>
+				</ul>
 		</div>
+		<div id='div'></div>
+		<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+		//禁止返回登录页面
+		mui.init({
+			beforeback: function() {
+				return false;
+			}
+		});
+		</script>
+		
+		<script type="text/jscript">
+			mui.init();
+			mui.post('http://192.168.31.127:9527/myappindex',{
+					},function data1(data){
+						var b=data.jifen;
+						console.log("从服务端返回数据,准备判断");
+						console.log(JSON.stringify(data));
+						var a= data.jifen;
+						var b= data.duanwei;
+						var c= data.name;
+						var d= data.username;
+						document.getElementById('jifeng').innerHTML = a;
+						document.getElementById('duanwei').innerHTML = b;
+						document.getElementById('name').innerHTML = c;
+						document.getElementById('username').innerHTML = d;
+					},'json'
+			);
+			document.getElementById('login_out').addEventListener('tap', function() {
+				console.log("登出按钮");
+				mui.post('http://192.168.31.127:9527/login_out',{
+					"flag":1,
+				}, function(data) {
+				console.log("从服务端返回数据,准备判断");
+				console.log(JSON.stringify(data));
+				mui.toast(data.msg);
+				
+			}, 'json');
+				mui.openWindow({
+					url: './login.html', //通过URL传参
+				createNew: true
+				})
+			});
+			
+		</script>
+		<div id='div'></div>
+
+
 		<script src="../js/mui.min.js"></script>
 	</body>
 </html>
