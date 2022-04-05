@@ -3,7 +3,9 @@ from setting import db
 
 app = Flask(__name__)
 
+# session密匙
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 # 登录
 @app.route("/login",methods=['POST','GET'])
 def login():
@@ -26,22 +28,23 @@ def login():
 @app.route("/login_out",methods=['POST','GET'])
 def login_out():
     flag=request.form.get('flag')
-
+    #session清空
     session['username'] = False
-    print(session['username'])
     return jsonify({"msg":"已成功退出账号！","status": 200})
 
 # 个人主页
 @app.route("/myappindex",methods=['POST','GET'])
 def myappindex():
-    print("++++++",session['username'])
+    #防报错赋初值
     username="暂未登录"
     name="暂未登录"
     jifeng="暂未登录"
     duanwei="暂未登录"
-    #找到现在登录的账户
+    #找到现在登录的账户-》session
     res={"username":session['username']}
+    # 以username为主键，找到数据库里对应的那行
     find=db.mongo.find_one(res)
+    #将数据库找到的那行数据拿出来
     username=find['username']
     name=find['name']
     jifeng=int(find['jifeng'])
@@ -59,32 +62,66 @@ def myappindex():
 def register():
     #student = { 'id': '20170101', 'name': 'Jordan', 'age': 20, 'gender': 'male'}
     # result = collection.insert_one(student)
+    #获取前端请求表单
     username=request.form.get('username')
     password=request.form.get('password')
     againpassword=request.form.get('againpassword')
-    print(againpassword,password,username)
-
+    name=request.form.get('name')
+    #将用户名和密码做为一个字典集，方便在数据库寻找现在用户名里有没有这个用户
     ches={
         "username":username,
-        "password":password,
     }
     find=db.mongo.find_one(ches)
-    print(find)
+    # 如何find不为空说明该用户名已存在
     if find:
         return jsonify({"stayus": 200,"mag":"该用户名已存在!"})
+    #俩次输入的密码不相同
     if(password!=againpassword):
         return jsonify({"stayus": 200,"mag":"俩次输入的密码不相同！"})
+    #符合条件存入数据库
     if(password==againpassword and find==None):
         collection= db['test']
         dier={
             "username":username,
             "password":password,
-            "name":"暂未设置",
+            "name":name,
             "jifeng":"0"
         }
         db.mongo.insert(dier)
         return jsonify({"stayus": 200,"mag":"恭喜您，注册成功！"})
 
+# 信息修改
+@app.route("/mylist",methods=['POST','GET'])
+def mylist():
+    #把现在登录状态呢的username拿出来
+    res={"username":session['username']}
+    #find现在储存着现在登录的行数据库信息
+    find=db.mongo.find_one(res)
+    #把前端表单转换为字典集
+    user_info=request.form.to_dict()
+    #把前端传来的username变为一个字典
+    username= {"username":request.form.get('username')}
+    # 判断现在前端改的新username数据库里面有没有。有的话不能修改
+    judge=db.mongo.find_one(username)
+    # judge可以修改
+    if(judge==None):
+        db.mongo.update_one(
+            {'_id':find['_id']},
+            {'$set':user_info
+             }
+        )
+        session['username'] = False
+        return jsonify({"stayus":200,"mag":"已成功修改，请重新登录！"})
+    # judge吧为空不可以修改
+    if judge:
+        return jsonify({"stayus":200,"mag":"此账号名已被占用，请重新填写！"})
+    #db.mongo.update_one(myquery,newvalues)
+    #print(db.mongo.update_one(myquery,newvalues))
+
+# 答题模板
+@app.route("/dati",methods=['POST','GET'])
+def dati():
+    pass
 
 if __name__=='__main__':
     app.run("0.0.0.0",9527,debug=True)
