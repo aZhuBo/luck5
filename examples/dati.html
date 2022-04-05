@@ -6,41 +6,61 @@
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/myappindex.css" />
 		<style>
-			/* .dati_css{
-			width: 60px;
-			height: 50px;
-		} */
+			#liawre_wer {
+				text-align: center;
+			}
+
+			#wrqrewrt_w {
+				background-color: #efeff4;
+			}
+
+			#wrqrewrt_w a {
+				color: black;
+			}
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">答题</h1>
+			<h1 class="mui-title">一起来答题</h1>
 		</header>
 		<div class="mui-content">
-			
-			<ul class="mui-table-view" id="">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" id="mydati_day">每日答题</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						Item 2
-					</a>
-				</li>
+			<img src="../images/lunbo1.gif" width="100%" height="150px">
+			<div class="jianxi">
+			</div>
+			<div class="mui-content" id="liawre_wer">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell" id="wrqrewrt_w">
+						<img src="../images/dati1.png" id="mydati_day" width="300px">
+					</li>
+					<div class="jianxi">
+					</div>
 
-			</ul>
+					<li class="mui-table-view-cell" id="wrqrewrt_w">
+
+						<img src="../images/dati2.png" id="mydati_day" width="300px">
+					</li>
+				</ul>
+			</div>
 		</div>
 		<script src="../js/mui.js"></script>
 		<script type="text/javascript">
 			mui.init();
-			
+
 			document.getElementById('mydati_day').addEventListener('tap', function() {
 				console.log("每日答题");
 				mui.openWindow({
 					url: './questionPage.html', //通过URL传参
 				})
+			});
+		</script>
+		<script type="text/javascript">
+			mui.init();
+			var sliderObj = mui("#slider");
+			sliderObj.slider({
+				interval: 5000
 			});
 		</script>
 		<script src="../js/mui.min.js"></script>
