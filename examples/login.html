@@ -120,11 +120,19 @@
 
 	<script type="text/javascript">
 		//禁止返回登录页面
+		// mui.init({
+		// 	beforeback: function() {
+		// 		return false;
+		// 	}
+		// });
+		
 		mui.init({
-			beforeback: function() {
-				return false;
+			//该属性禁用了当前页面的返回功能，但是还是有双击退出app的功能
+			keyEventBind: {
+				backbutton: false  //关闭back按键监听
 			}
 		});
+
 	</script>
 	<script>
 		mui.init();
@@ -133,7 +141,7 @@
 			var username = document.getElementById("username").value;
 			var password = document.getElementById("password").value;
 			//提交
-			mui.post('http://192.168.31.127:9527/login', {
+			mui.post('http://81.70.23.51:5555/login', {
 				"username": username,
 				"password": password
 			}, function(data) {
@@ -154,7 +162,7 @@
 				}
 			}, 'json');
 		})
-
+		//注册
 		document.getElementById('reg').addEventListener('tap', function() {
 			console.log("注册按钮");
 			mui.openWindow({

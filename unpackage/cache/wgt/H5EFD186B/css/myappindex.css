@@ -1,6 +1,5 @@
-
 .new-mine {
-	background: #fff;
+	background: #FFFFFF;
 }
 
 .new-mine-title {
@@ -23,7 +22,10 @@
 
 .mine-photo {
 	width: 100%;
-	background-image: url(../images/myappindexbie.jpg);
+	
+	background-color: #0093E9;
+	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
 	height: 18rem;
 	background-repeat: no-repeat;
 
@@ -49,7 +51,7 @@
 	justify-content: space-around;
 	padding: 0;
 	height: 2.8rem;
-	background: rgba(0, 0, 0, .8);
+	
 	padding: 1%;
 }
 
@@ -69,12 +71,14 @@
 .mine-photo-list li h4 {
 	margin: 0;
 }
-
-.ui-page-login,
-body {
-	width: 100%;
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
+.mui-table-view-cell{
+	background: white;
 }
-.mui-content{height: 100%;}
+.mui-table-view-cell li{
+	list-style-image: url('sqpurple.gif');
+}
+.jianxi{
+	background:#EEEEEE;
+	height: 15px;
+	position: relative;
+}

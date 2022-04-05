@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<!-- 本页是底部footer,app入口文件 -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    <script src="js/mui.min.js"></script>
-    <link href="css/mui.min.css" rel="stylesheet"/>
-	
-	<!-- icon -->
-	<link rel="stylesheet" href="footericon/iconfont.css">
-<!--    <script type="text/jscript">
+	<head>
+		<!-- 本页是底部footer,app入口文件 -->
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+
+		<!-- icon -->
+		<link rel="stylesheet" href="footericon/iconfont.css">
+		<!--    <script type="text/jscript">
 	mui.plusReady(function(){  
 		 // 在这里调用plus api  
 		 var self = plus.webview.currentWebview();
@@ -19,70 +20,87 @@
 		 console.log ("我的用户名为"+name);
 	});
 	</script> -->
-</head>
-<body>
-	<div class="mui-content">
-		你好
-	</div>
-	<!-- 底部选项卡mta -->
-	<nav class="mui-bar mui-bar-tab">
-		<a class="mui-tab-item mui-active" href="#">
-			<span class="mui-icon iconfont icon-zuoti"></span>
-			<span class="mui-tab-label">练习</span>
-		</a>
-		<a class="mui-tab-item" href="#">
-			<span class="mui-icon iconfont icon-lianxi_"></span>
-			<span class="mui-tab-label">每日答题</span>
-		</a>
-		<a class="mui-tab-item" href="examples/myappindex.html">
-			<span class="mui-icon iconfont icon-wode"></span>
-			<span class="mui-tab-label">我的</span>
-		</a>
-	</nav>
-	
-	
-	<script type="text/javascript">
-	//禁止返回登录页面
-	mui.init({
-		beforeback: function() {
-			return false;
-		}
-	});
+	</head>
+	<body>
+		<div class="mui-content">
+			你好
+		</div>
+		<!-- 底部选项卡mta -->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#">
+				<span class="mui-icon iconfont icon-zuoti"></span>
+				<span class="mui-tab-label">练习</span>
+			</a>
+			<a class="mui-tab-item" href="examples/dati.html">
+				<span class="mui-icon iconfont icon-lianxi_"></span>
+				<span class="mui-tab-label">每日答题</span>
+			</a>
+			<a class="mui-tab-item" href="examples/myappindex.html">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
 
-	</script>
-	<script type="text/javascript">
-	  	mui.init();
-		mui.plusReady(function() {	
-			//定义一个容器，存储底部选项卡关联的界面
-			var pages = ["#","#","examples/myappindex.html"];
-			//获取当前窗口对象
-			var ws = plus.webview.currentWebview();
-			//设置页面窗口样式
-			var pageStyle = {
-				top: "0px",
-				bottom: "50px"
-			};
-			var name = ws.username;
-			console.log ("我的用户名为"+name);
-			//循环数据，为每个页面创建webview窗口对象。
-			for (var i = 0; i < pages.length; i++) {
-				//将每次循环体提取的页面创建为view窗口；
-				var item = plus.webview.create(pages[i], pages[i], pageStyle);
-				//将每个webviem窗口对象追加
-				ws.append(item);
-				console.log (item);
+
+		<script type="text/javascript">
+			//禁止返回登录页面
+			// mui.init({
+			// 	//该属性禁用了当前页面的返回功能，但是还是有双击退出app的功能
+			// 	keyEventBind: {
+			// 		backbutton: false  //关闭back按键监听
+			// 	}
+			// });
+			// mui.init({
+			// 	beforeback: function() {
+			// 		return false;
+			// 	}
+			// });
+			//备份mui.back，mui.back已将窗口关闭逻辑封装的比较完善（预加载及父子窗口），因此最好复用mui.back
+			var old_back = mui.back;
+			mui.back = function(){
+			  var btn = ["确定","取消"];
+			  mui.confirm('确认退出应用？','抽题系统',btn,function(e){
+			    if(e.index==0){
+			        //执行mui封装好的窗口关闭逻辑；
+			        plus.runtime.quit();
+			    }
+			  });
 			}
-			//设置默认打开窗口
-			plus.webview.show(pages[3]);
-			//选项卡事件监听
-			mui(".mui-bar-tab").on("tap", "a", function() {
-				//获取被点击a标签的href属性值
-				var href = this.getAttribute("href");
-				//展示对应的页面
-				plus.webview.show(href);
+		</script>
+
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				//定义一个容器，存储底部选项卡关联的界面
+				var pages = ["#", "examples/dati.html", "examples/myappindex.html"];
+				//获取当前窗口对象
+				var ws = plus.webview.currentWebview();
+				//设置页面窗口样式
+				var pageStyle = {
+					top: "0px",
+					bottom: "50px"
+				};
+				var name = ws.username;
+				console.log("我的用户名为" + name);
+				//循环数据，为每个页面创建webview窗口对象。
+				for (var i = 0; i < pages.length; i++) {
+					//将每次循环体提取的页面创建为view窗口；
+					var item = plus.webview.create(pages[i], pages[i], pageStyle);
+					//将每个webviem窗口对象追加
+					ws.append(item);
+					console.log(item);
+				}
+				//设置默认打开窗口
+				plus.webview.show(pages[3]);
+				//选项卡事件监听
+				mui(".mui-bar-tab").on("tap", "a", function() {
+					//获取被点击a标签的href属性值
+					var href = this.getAttribute("href");
+					//展示对应的页面
+					plus.webview.show(href);
+				});
 			});
-		});
-	</script>
-	
-</body>
+		</script>
+
+	</body>
 </html>
