@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<style>
+			/* .dati_css{
+			width: 60px;
+			height: 50px;
+		} */
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">答题</h1>
+		</header>
+		<div class="mui-content">
+			
+			<ul class="mui-table-view" id="">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="mydati_day">每日答题</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						Item 2
+					</a>
+				</li>
+
+			</ul>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			document.getElementById('mydati_day').addEventListener('tap', function() {
+				console.log("每日答题");
+				mui.openWindow({
+					url: './questionPage.html', //通过URL传参
+				})
+			});
+		</script>
+		<script src="../js/mui.min.js"></script>
+	</body>
+
+</html>

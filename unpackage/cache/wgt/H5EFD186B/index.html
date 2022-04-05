@@ -30,7 +30,7 @@
 			<span class="mui-icon iconfont icon-zuoti"></span>
 			<span class="mui-tab-label">练习</span>
 		</a>
-		<a class="mui-tab-item" href="#">
+		<a class="mui-tab-item" href="examples/dati.html">
 			<span class="mui-icon iconfont icon-lianxi_"></span>
 			<span class="mui-tab-label">每日答题</span>
 		</a>
@@ -41,12 +41,20 @@
 	</nav>
 	
 	
-	
+	<script type="text/javascript">
+	//禁止返回登录页面
+	mui.init({
+		beforeback: function() {
+			return false;
+		}
+	});
+
+	</script>
 	<script type="text/javascript">
 	  	mui.init();
 		mui.plusReady(function() {	
 			//定义一个容器，存储底部选项卡关联的界面
-			var pages = ["#","#","examples/myappindex.html"];
+			var pages = ["#","examples/dati.html","examples/myappindex.html"];
 			//获取当前窗口对象
 			var ws = plus.webview.currentWebview();
 			//设置页面窗口样式

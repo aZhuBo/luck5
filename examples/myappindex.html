@@ -85,7 +85,7 @@
 
 		<script type="text/jscript">
 			mui.init();
-			mui.post('http://192.168.31.127:9527/myappindex', {}, function data1(data) {
+			mui.post('http://81.70.23.51:5555/myappindex', {}, function data1(data) {
 				var b = data.jifen;
 				console.log("从服务端返回数据,准备判断");
 				console.log(JSON.stringify(data));
@@ -100,7 +100,7 @@
 			}, 'json');
 			document.getElementById('login_out').addEventListener('tap', function() {
 				console.log("登出按钮");
-				mui.post('http://192.168.31.127:9527/login_out', {
+				mui.post('http://81.70.23.51:5555/login_out', {
 					"flag": 1,
 				}, function(data) {
 					console.log("从服务端返回数据,准备判断");
