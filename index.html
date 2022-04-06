@@ -27,9 +27,9 @@
 		</div>
 		<!-- 底部选项卡mta -->
 		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#">
+			<a class="mui-tab-item mui-active" href="examples/frist_yes.html">
 				<span class="mui-icon iconfont icon-zuoti"></span>
-				<span class="mui-tab-label">练习</span>
+				<span class="mui-tab-label">首页</span>
 			</a>
 			<a class="mui-tab-item" href="examples/dati.html">
 				<span class="mui-icon iconfont icon-lianxi_"></span>
@@ -72,7 +72,7 @@
 			mui.init();
 			mui.plusReady(function() {
 				//定义一个容器，存储底部选项卡关联的界面
-				var pages = ["#", "examples/dati.html", "examples/myappindex.html"];
+				var pages = ["examples/frist_yes.html", "examples/dati.html", "examples/myappindex.html"];
 				//获取当前窗口对象
 				var ws = plus.webview.currentWebview();
 				//设置页面窗口样式
@@ -91,7 +91,7 @@
 					console.log(item);
 				}
 				//设置默认打开窗口
-				plus.webview.show(pages[3]);
+				plus.webview.show(pages[0]);
 				//选项卡事件监听
 				mui(".mui-bar-tab").on("tap", "a", function() {
 					//获取被点击a标签的href属性值

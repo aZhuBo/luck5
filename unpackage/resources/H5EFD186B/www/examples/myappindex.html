@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>search</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/myappindex.css" />
+
+	</head>
+
+	<body class="mui-plus mui-statusbar ">
+		<!-- 		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">标题</h1>
+		</header> -->
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">个人中心</h1>
+		</header>
+		<div class="nav-bottom">
+			<div class="new-mine">
+				<div class="mine-photo min-photo-bgimg">
+					<img src="../images/myappindex1.jpg" />
+					<h4><span id="name"></span></h4>
+					<ul class="mine-photo-list">
+						<li><a>
+								<p>我的段位</p>
+								<h4><span id="duanwei"></span></h4>
+							</a></li>
+						<li>
+							<p>目前积分</p>
+							<h4><span id="jifeng"></span></h4>
+						</li>
+						<li>
+							<p>当前登录账号</p>
+							<h4><span id="username"></span></h4>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="jianxi">
+			</div>
+			
+			<ul class="mui-table-view" id="">
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list5.png" width="20px">
+					<a class="mui-navigate-right" id="mylist">我的信息</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list1.png" width="20px">
+						<a class="mui-navigate-right" id="pai_hang">排行榜</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list2.png" width="20px">
+					<a class="mui-navigate-right" id="tong_zhi">通知</a>
+				</li>
+				<div class="jianxi">
+				</div>
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list4.png" width="20px">
+						<a class="mui-navigate-right" id="about">关于我们</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list3.png" width="20px">
+						<a class="mui-navigate-right" id="login_out">退出登录</a>
+				</li>
+			</ul>
+		</div>
+		<div id='div'></div>
+		<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			//禁止返回登录页面
+			mui.init({
+				beforeback: function() {
+					return false;
+				}
+			});
+		</script>
+
+		<script type="text/jscript">
+			mui.init();
+			mui.post('http://81.70.23.51:5555/myappindex', {}, function data1(data) {
+				var b = data.jifen;
+				console.log("从服务端返回数据,准备判断");
+				console.log(JSON.stringify(data));
+				var a = data.jifen;
+				var b = data.duanwei;
+				var c = data.name;
+				var d = data.username;
+				document.getElementById('jifeng').innerHTML = a;
+				document.getElementById('duanwei').innerHTML = b;
+				document.getElementById('name').innerHTML = c;
+				document.getElementById('username').innerHTML = d;
+			}, 'json');
+			document.getElementById('login_out').addEventListener('tap', function() {
+				console.log("登出按钮");
+				mui.post('http://81.70.23.51:5555/login_out', {
+					"flag": 1,
+				}, function(data) {
+					console.log("从服务端返回数据,准备判断");
+					console.log(JSON.stringify(data));
+					mui.toast(data.msg);
+
+				}, 'json');
+				mui.openWindow({
+					url: './login.html', //通过URL传参
+					createNew: true
+				})
+			});
+			//排行榜
+			document.getElementById('pai_hang').addEventListener('tap', function() {
+				console.log("排行榜");
+				mui.openWindow({
+					url: './paihang.html', //通过URL传参
+				})
+			});
+			//通知
+			document.getElementById('tong_zhi').addEventListener('tap', function() {
+				console.log("通知");
+				mui.openWindow({
+					url: './tong_zhi.html', //通过URL传参
+				})
+			});
+
+			// 关于我们
+			document.getElementById('about').addEventListener('tap', function() {
+				console.log("关于我们");
+				mui.openWindow({
+					url: './about.html', //通过URL传参
+				})
+			});
+			
+			//我的信息
+			document.getElementById('mylist').addEventListener('tap', function() {
+				console.log("我的信息");
+				mui.openWindow({
+					url: './mylist.html', //通过URL传参
+				})
+			});
+		</script>
+		<script src="../js/mui.min.js"></script>
+	</body>
+</html>
