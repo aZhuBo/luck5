@@ -124,10 +124,12 @@ def mylist():
     #db.mongo.update_one(myquery,newvalues)
     #print(db.mongo.update_one(myquery,newvalues))
 
-# 答题模板
-@app.route("/dati",methods=['POST','GET'])
-def dati():
-    pass
+# 积分处理模块
+@app.route("/jifeng",methods=['POST','GET'])
+def jifeng():
+    jifeng=request.form.get('jifeng')
+    print(jifeng)
+    return jsonify({"stayus":200,"mag":"成功传递！"})
 
 
 class JSONEncoder(json.JSONEncoder):

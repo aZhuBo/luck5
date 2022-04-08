@@ -86,8 +86,7 @@
 		<script type="text/jscript">
 			mui.init();
 			mui.post('http://81.70.23.51:5555/myappindex', {}, function data1(data) {
-				var b = data.jifen;
-				console.log("从服务端返回数据,准备判断");
+				console.log("后端返回数据,准备判断");
 				console.log(JSON.stringify(data));
 				var a = data.jifen;
 				var b = data.duanwei;
