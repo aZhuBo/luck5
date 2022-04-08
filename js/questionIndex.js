@@ -441,6 +441,11 @@ function TiMu(data1) {
 		console.log(afterChoice)
 		console.log(questionChoice)
 		alert("本次得分："+sum+'分')
+		mui.post('http://81.70.23.51:5555/jifeng',{
+			"jifeng": sum,
+		},function da1(da1){
+			console.log(JSON.stringify(da1));	
+		},'json');
 	}
 	// 18
 	document.querySelectorAll(".entrance-bottom-frame-line-button")[17].onclick = function() {
@@ -477,6 +482,11 @@ function TiMu(data1) {
 		console.log(afterChoice)
 		console.log(questionChoice)
 		alert("本次得分："+sum+'分')
+		mui.post('http://81.70.23.51:5555/jifeng',{
+			"jifeng": sum,
+		},function da1(da1){
+			console.log(JSON.stringify(da1));	
+		},'json');
 	}
 	// 19
 	document.querySelectorAll(".entrance-bottom-frame-line-button")[18].onclick = function() {
@@ -513,6 +523,11 @@ function TiMu(data1) {
 		console.log(afterChoice)
 		console.log(questionChoice)
 		alert("本次得分："+sum+'分')
+		mui.post('http://81.70.23.51:5555/jifeng',{
+			"jifeng": sum,
+		},function da1(da1){
+			console.log(JSON.stringify(da1));	
+		},'json');
 	}
 	// 20
 	document.querySelectorAll(".entrance-bottom-frame-line-button")[19].onclick = function() {
@@ -550,7 +565,11 @@ function TiMu(data1) {
 		console.log(questionChoice);
 		alert("本次得分："+sum+'分');
 		
-		
+		mui.post('http://81.70.23.51:5555/jifeng',{
+			"jifeng": sum,
+		},function da1(da1){
+			console.log(JSON.stringify(da1));	
+		},'json');
 		// if()
 	}
 
