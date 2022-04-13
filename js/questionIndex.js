@@ -1,7 +1,8 @@
 // 延时函数
 function sleep(time) {
     var startTime = new Date().getTime() + parseInt(time, 10);
-    while(new Date().getTime() < startTime) {}
+    while (new Date().getTime() < startTime) {
+    }
 };
 
 
@@ -89,15 +90,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -117,17 +120,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -147,17 +150,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -177,17 +180,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -206,17 +209,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -235,17 +238,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -264,17 +267,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -293,17 +296,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -322,17 +325,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -351,17 +354,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -380,17 +383,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -409,17 +412,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -438,17 +441,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -467,17 +470,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -496,17 +499,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+           setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -525,17 +528,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
             alert("答题完成！！！")
         }
@@ -554,17 +557,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
 
         }
@@ -611,17 +614,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
 
         }
@@ -664,17 +667,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
 
         }
@@ -717,17 +720,17 @@ function TiMu(data1) {
 
         if (timu_id < document.querySelectorAll(".entrance-bottom-frame-line").length - 1) {
             frame_left += -100
-            document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
-
-            timu_id++;
-            select1++;
-            document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
-                " 题"
-
-            // 显示新的题目
-            addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
-            // 老的题目删除掉
-            removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            setTimeout(function () {
+                document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+                timu_id++;
+                select1++;
+                document.querySelector(".topic-frameli").innerHTML = "第 " + "<div>" + select1 + "</div>" + "/" + timu +
+                    " 题"
+                // 显示新的题目
+                addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
+                // 老的题目删除掉
+                removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
+            }, 2000);
         } else {
 
         }
