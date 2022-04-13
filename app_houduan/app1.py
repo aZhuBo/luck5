@@ -132,6 +132,7 @@ def jifeng():
     return jsonify({"stayus":200,"mag":"成功传递！"})
 
 
+# decoder类，将ObjectId对象转化为字符串
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
         if isinstance(o, ObjectId):
