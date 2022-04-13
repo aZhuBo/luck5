@@ -117,10 +117,12 @@
     font-size: 0.3rem;
 }
 
+/*
 .entrance-bottom-frame-line-button:hover {
     color: white;
     background: #f86d07
 }
+*/
 
 .entrance-bottom-frame-line.active {
     pointer-events: auto;
