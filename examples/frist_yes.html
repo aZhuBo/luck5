@@ -144,6 +144,7 @@
 		document.getElementById('dati_everyday').addEventListener('tap', function() {
 			console.log("每日答题");
 			mui.openWindow({
+				createNew: true,
 				url: './questionPage.html', //通过URL传参
 			})
 		});

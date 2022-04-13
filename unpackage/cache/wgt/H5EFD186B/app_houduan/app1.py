@@ -1,7 +1,11 @@
 from flask import Flask,request,jsonify,session
 from setting import db
+from Question import questionGet
+from flask_cors import CORS
 
 app = Flask(__name__)
+# js跨域问题解决
+CORS(app, supports_credentials=True)
 
 # session密匙
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -118,10 +122,19 @@ def mylist():
     #db.mongo.update_one(myquery,newvalues)
     #print(db.mongo.update_one(myquery,newvalues))
 
-# 答题模板
-@app.route("/dati",methods=['POST','GET'])
-def dati():
-    pass
+# 积分处理模块
+@app.route("/jifeng",methods=['POST','GET'])
+def jifeng():
+    jifeng=request.form.get('jifeng')
+    print(jifeng)
+    return jsonify({"stayus":200,"mag":"成功传递！"})
+
+# 每日答题
+@app.route("/questionBack",methods=['POST','GET'])
+def questionBack():
+    titleList = questionGet()
+    return jsonify(titleList)
+
 
 if __name__=='__main__':
     app.run("0.0.0.0",9527,debug=True)
