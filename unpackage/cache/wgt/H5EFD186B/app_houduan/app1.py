@@ -1,7 +1,9 @@
 from flask import Flask,request,jsonify,session
 from setting import db
 from Question import questionGet
+from bson import ObjectId
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 # js跨域问题解决
@@ -129,12 +131,20 @@ def jifeng():
     print(jifeng)
     return jsonify({"stayus":200,"mag":"成功传递！"})
 
+
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)
+
+
 # 每日答题
 @app.route("/questionBack",methods=['POST','GET'])
 def questionBack():
     titleList = questionGet()
-    return jsonify(titleList)
+    return json.dumps(titleList,cls=JSONEncoder)
 
 
 if __name__=='__main__':
-    app.run("0.0.0.0",9527,debug=True)
+    app.run("0.0.0.0",5555,debug=True)

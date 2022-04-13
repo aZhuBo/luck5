@@ -112,15 +112,19 @@
 
 				}, 'json');
 				mui.openWindow({
+					createNew: true,
 					url: './login.html', //通过URL传参
-					createNew: true
+					
+					
 				})
 			});
+			
 			//排行榜
 			document.getElementById('pai_hang').addEventListener('tap', function() {
 				console.log("排行榜");
 				mui.openWindow({
 					url: './paihang.html', //通过URL传参
+					
 				})
 			});
 			//通知
@@ -128,6 +132,7 @@
 				console.log("通知");
 				mui.openWindow({
 					url: './tong_zhi.html', //通过URL传参
+					
 				})
 			});
 
@@ -136,6 +141,7 @@
 				console.log("关于我们");
 				mui.openWindow({
 					url: './about.html', //通过URL传参
+					
 				})
 			});
 			
@@ -143,7 +149,9 @@
 			document.getElementById('mylist').addEventListener('tap', function() {
 				console.log("我的信息");
 				mui.openWindow({
+
 					url: './mylist.html', //通过URL传参
+					
 				})
 			});
 		</script>
