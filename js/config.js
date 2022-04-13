@@ -20,7 +20,7 @@ function plusReady() {
 	plus.navigator.setStatusBarStyle('light');
 	//改功能效果不好，暂不启用
 	//updateSplashScreen()
-	firstNotice();
+	//firstNotice();
 }
 
 //更新启动图片
@@ -59,16 +59,16 @@ function updateSplashScreen() {
 	}
 }
 
-function firstNotice() {
-	var state =plus.storage.getItem('first');
-	if(!state) { 
-		plus.nativeUI.confirm("请注意：\n本程序为开源应用，仅为学习开发之用。", function(e) {
-			if(e.index == 0) {
-				plus.storage.setItem('first', 'true');
-			} else {
-				//退出应用程序（仅安卓支持）
-				plus.runtime.quit();
-			}
-		});
-	}
-}
+// function firstNotice() {
+// 	var state =plus.storage.getItem('first');
+// 	if(!state) { 
+// 		plus.nativeUI.confirm("请注意：\n本程序为开源应用，仅为学习开发之用。", function(e) {
+// 			if(e.index == 0) {
+// 				plus.storage.setItem('first', 'true');
+// 			} else {
+// 				//退出应用程序（仅安卓支持）
+// 				plus.runtime.quit();
+// 			}
+// 		});
+// 	}
+// }
