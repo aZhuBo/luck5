@@ -452,6 +452,7 @@ function TiMu(data1) {
 		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
 		}, function da1(da1) {
+			mui.toast(da1.mag);
 			console.log(JSON.stringify(da1));
 		}, 'json');
 	}
@@ -497,6 +498,7 @@ function TiMu(data1) {
 		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
 		}, function da1(da1) {
+			mui.toast(da1.mag);
 			console.log(JSON.stringify(da1));
 		}, 'json');
 	}
@@ -542,6 +544,7 @@ function TiMu(data1) {
 		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
 		}, function da1(da1) {
+			mui.toast(da1.mag);
 			console.log(JSON.stringify(da1));
 		}, 'json');
 	}
@@ -587,6 +590,7 @@ function TiMu(data1) {
 		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
 		}, function da1(da1) {
+			mui.toast(da1.mag);
 			console.log(JSON.stringify(da1));
 		}, 'json');
 		// if()
