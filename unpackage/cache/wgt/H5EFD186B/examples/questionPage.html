@@ -14,8 +14,9 @@
 		<div class="topic">
 			<header class="mui-bar mui-bar-nav">
 				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<h1 class="mui-title">每日练习</h1>
+				<h1 class="mui-title">每日答题</h1>
 			</header>
+			<br /><br />
 
 			<div class="entrance-bottom">
 				<div class="topic-frameli"></div>
@@ -29,8 +30,23 @@
 	<script src="../js/mui.js"></script>
 	<script src="../js/questionIndex.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		window.onload = function() {
-			TiMu()
-		}
+		mui.init();
+		mui.post('http://81.70.23.51:5555/questionBack',{},function data1(data1){
+			// console.log(JSON.stringify(data1));
+			// var a = JSON.stringify(data1[1].choice)
+			// var b = JSON.stringify(data1[2].choice);
+			// var c = JSON.stringify(data1[3].choice);
+			// var d = JSON.stringify(data1[4].choice);
+			// var e = JSON.stringify(data1[5].choice);
+			// console.log(a);
+			// var aa= typeof(a);
+			// console.log(aa);
+
+			TiMu(data1);
+
+		},'json');
+		//window.onload = function() {
+		//	TiMu()
+		//}
 	</script>
 </html>
