@@ -424,7 +424,7 @@ function TiMu(data1) {
 			// 老的题目删除掉
 			removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
 		} else {
-			alert("答题完成")
+			
 		}
 		var afterChoice = new Array();
 		var sum = 0;
@@ -433,19 +433,28 @@ function TiMu(data1) {
 		afterChoice[2] = data1[2].choice;
 		afterChoice[3] = data1[3].choice;
 		afterChoice[4] = data1[4].choice;
-		for(var i=0;i<5;i++){
-			if(afterChoice[i]==questionChoice[i]){
+		for (var i = 0; i < 5; i++) {
+			if (afterChoice[i] == questionChoice[i]) {
 				sum++;
 			}
 		}
-		console.log(afterChoice)
-		console.log(questionChoice)
-		alert("本次得分："+sum+'分')
-		mui.post('http://81.70.23.51:5555/jifeng',{
+		console.log(afterChoice);
+		console.log(questionChoice);
+		// alert("本次得分1："+sum+'分',function(){
+		// 	alert("xxxx");
+		//     //window.location.href = "../index.html";
+		// })
+		alert("本次得分：" + sum + '分');
+		mui.openWindow({
+			createNew: true,
+			url: '../index.html', //通过URL传参
+		})
+		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
-		},function da1(da1){
-			console.log(JSON.stringify(da1));	
-		},'json');
+		}, function da1(da1) {
+			mui.toast(da1.mag);
+			console.log(JSON.stringify(da1));
+		}, 'json');
 	}
 	// 18
 	document.querySelectorAll(".entrance-bottom-frame-line-button")[17].onclick = function() {
@@ -465,7 +474,7 @@ function TiMu(data1) {
 			// 老的题目删除掉
 			removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
 		} else {
-			alert("答题完成")
+			
 		}
 		var afterChoice = new Array();
 		var sum = 0;
@@ -474,19 +483,24 @@ function TiMu(data1) {
 		afterChoice[2] = data1[2].choice;
 		afterChoice[3] = data1[3].choice;
 		afterChoice[4] = data1[4].choice;
-		for(var i=0;i<5;i++){
-			if(afterChoice[i]==questionChoice[i]){
+		for (var i = 0; i < 5; i++) {
+			if (afterChoice[i] == questionChoice[i]) {
 				sum++;
 			}
 		}
 		console.log(afterChoice)
 		console.log(questionChoice)
-		alert("本次得分："+sum+'分')
-		mui.post('http://81.70.23.51:5555/jifeng',{
+		alert("本次得分：" + sum + '分');
+		mui.openWindow({
+			createNew: true,
+			url: '../index.html', //通过URL传参
+		})
+		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
-		},function da1(da1){
-			console.log(JSON.stringify(da1));	
-		},'json');
+		}, function da1(da1) {
+			mui.toast(da1.mag);
+			console.log(JSON.stringify(da1));
+		}, 'json');
 	}
 	// 19
 	document.querySelectorAll(".entrance-bottom-frame-line-button")[18].onclick = function() {
@@ -506,7 +520,7 @@ function TiMu(data1) {
 			// 老的题目删除掉
 			removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
 		} else {
-			alert("答题完成")
+			
 		}
 		var afterChoice = new Array();
 		var sum = 0;
@@ -515,19 +529,24 @@ function TiMu(data1) {
 		afterChoice[2] = data1[2].choice;
 		afterChoice[3] = data1[3].choice;
 		afterChoice[4] = data1[4].choice;
-		for(var i=0;i<5;i++){
-			if(afterChoice[i]==questionChoice[i]){
+		for (var i = 0; i < 5; i++) {
+			if (afterChoice[i] == questionChoice[i]) {
 				sum++;
 			}
 		}
 		console.log(afterChoice)
 		console.log(questionChoice)
-		alert("本次得分："+sum+'分')
-		mui.post('http://81.70.23.51:5555/jifeng',{
+		alert("本次得分：" + sum + '分');
+		mui.openWindow({
+			createNew: true,
+			url: '../index.html', //通过URL传参
+		})
+		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
-		},function da1(da1){
-			console.log(JSON.stringify(da1));	
-		},'json');
+		}, function da1(da1) {
+			mui.toast(da1.mag);
+			console.log(JSON.stringify(da1));
+		}, 'json');
 	}
 	// 20
 	document.querySelectorAll(".entrance-bottom-frame-line-button")[19].onclick = function() {
@@ -547,7 +566,7 @@ function TiMu(data1) {
 			// 老的题目删除掉
 			removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
 		} else {
-			alert("答题完成")
+			
 		}
 		var afterChoice = new Array();
 		var sum = 0;
@@ -556,20 +575,24 @@ function TiMu(data1) {
 		afterChoice[2] = data1[2].choice;
 		afterChoice[3] = data1[3].choice;
 		afterChoice[4] = data1[4].choice;
-		for(var i=0;i<5;i++){
-			if(afterChoice[i]==questionChoice[i]){
+		for (var i = 0; i < 5; i++) {
+			if (afterChoice[i] == questionChoice[i]) {
 				sum++;
 			}
 		}
 		console.log(afterChoice);
 		console.log(questionChoice);
-		alert("本次得分："+sum+'分');
-		
-		mui.post('http://81.70.23.51:5555/jifeng',{
+		alert("本次得分：" + sum + '分');
+		mui.openWindow({
+			createNew: true,
+			url: '../index.html', //通过URL传参
+		})
+		mui.post('http://81.70.23.51:5555/jifeng', {
 			"jifeng": sum,
-		},function da1(da1){
-			console.log(JSON.stringify(da1));	
-		},'json');
+		}, function da1(da1) {
+			mui.toast(da1.mag);
+			console.log(JSON.stringify(da1));
+		}, 'json');
 		// if()
 	}
 

@@ -24,6 +24,11 @@ def questionGet():
     for i in range(5):
         titleList.append(collection.find_one({'id': str(questionList[i])}))
 
+
+    print(titleList[0])
+
     return titleList
+
+questionGet()
 
 

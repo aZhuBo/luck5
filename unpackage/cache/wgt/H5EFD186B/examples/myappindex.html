@@ -78,14 +78,14 @@
 		<div id='div'></div>
 		<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
 
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 			//禁止返回登录页面
 			mui.init({
 				beforeback: function() {
 					return false;
 				}
 			});
-		</script>
+		</script> -->
 
 		<script type="text/jscript">
 			mui.init();
@@ -121,6 +121,7 @@
 				console.log("排行榜");
 				mui.openWindow({
 					url: './paihang.html', //通过URL传参
+					
 				})
 			});
 			//通知
@@ -128,6 +129,7 @@
 				console.log("通知");
 				mui.openWindow({
 					url: './tong_zhi.html', //通过URL传参
+					
 				})
 			});
 
@@ -136,6 +138,7 @@
 				console.log("关于我们");
 				mui.openWindow({
 					url: './about.html', //通过URL传参
+					
 				})
 			});
 			
@@ -143,7 +146,9 @@
 			document.getElementById('mylist').addEventListener('tap', function() {
 				console.log("我的信息");
 				mui.openWindow({
+
 					url: './mylist.html', //通过URL传参
+					
 				})
 			});
 		</script>
