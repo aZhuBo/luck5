@@ -73,7 +73,7 @@ function TiMu(data1) {
     // querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素。
     document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
     document.querySelector(".topic-frameli").innerHTML = "第" + "<div>" + select1 + "</div>" + "/" + timu + " 题"
-	
+
 
     // 题目阵开始
     // 手动狗头🐕🐕U•ェ•*U
