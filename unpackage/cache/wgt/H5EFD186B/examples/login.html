@@ -148,12 +148,9 @@
 				if (data.code == 0) {
 					window.localStorage.setItem("uid", data._id);
 					mui.openWindow({
+						createNew: true,
 						url: "../index.html",
-						id: "../index.html",
-						extras: {
-							username: data.name,
-						},
-						createNew: true
+						
 					})
 				}
 			}, 'json');

@@ -112,10 +112,13 @@
 
 				}, 'json');
 				mui.openWindow({
+					createNew: true,
 					url: './login.html', //通过URL传参
-					createNew: true
+					
+					
 				})
 			});
+			
 			//排行榜
 			document.getElementById('pai_hang').addEventListener('tap', function() {
 				console.log("排行榜");
