@@ -55,6 +55,15 @@ function TiMu(data1) {
 			timu++
 
 
+<<<<<<< HEAD
+=======
+    // 用户选择的题目数组
+    var questionChoice = new Array();
+    // querySelector() 方法返回文档中匹配指定 CSS 选择器的一个元素。
+    document.querySelector(".entrance-bottom-frame").style.marginLeft = frame_left + "%"
+    document.querySelector(".topic-frameli").innerHTML = "第" + "<div>" + select1 + "</div>" + "/" + timu + " 题"
+
+>>>>>>> bf6b99922e35d2891dc03d4ca57930dc8f576833
 
 		}
 
