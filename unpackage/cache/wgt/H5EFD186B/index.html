@@ -22,9 +22,7 @@
 	</script> -->
 	</head>
 	<body>
-		<div class="mui-content">
-			你好
-		</div>
+
 		<!-- 底部选项卡mta -->
 		<nav class="mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="examples/frist_yes.html">
@@ -45,19 +43,6 @@
 
 
 		<script type="text/javascript">
-			//禁止返回登录页面
-			// mui.init({
-			// 	//该属性禁用了当前页面的返回功能，但是还是有双击退出app的功能
-			// 	keyEventBind: {
-			// 		backbutton: false  //关闭back按键监听
-			// 	}
-			// });
-			// mui.init({
-			// 	beforeback: function() {
-			// 		return false;
-			// 	}
-			// });
-			//备份mui.back，mui.back已将窗口关闭逻辑封装的比较完善（预加载及父子窗口），因此最好复用mui.back
 			var old_back = mui.back;
 			mui.back = function() {
 				var btn = ["确定", "取消"];
@@ -71,6 +56,7 @@
 		</script>
 
 		<script type="text/javascript">
+
 			mui.init();
 			mui.plusReady(function() {
 				//定义一个容器，存储底部选项卡关联的界面
@@ -83,7 +69,6 @@
 					bottom: "50px"
 				};
 				var name = ws.username;
-				console.log("我的用户名为" + name);
 				//循环数据，为每个页面创建webview窗口对象。
 				for (var i = 0; i < pages.length; i++) {
 					//将每次循环体提取的页面创建为view窗口；

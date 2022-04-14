@@ -7,6 +7,7 @@ function sleep(time) {
 
 
 function TiMu(data1) {
+	alert("注意事项：本次答题开始，题目总数5道，答对一分，答错不得分。选择成功后2s自动跳转下一题，耐心等待跳转请勿点击。（每天仅可答题三次，取三次最高分，大于三次不计分）")
 
     // 循环遍历题目列表
     for (var i in data1) {
@@ -100,7 +101,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -130,7 +131,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -160,7 +161,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -190,7 +191,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -219,7 +220,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -248,7 +249,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -277,7 +278,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -306,7 +307,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -335,7 +336,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -364,7 +365,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -393,7 +394,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -422,7 +423,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -451,7 +452,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -480,7 +481,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -509,7 +510,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -538,7 +539,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
             alert("答题完成！！！")
         }
@@ -567,7 +568,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
 
         }
@@ -589,16 +590,18 @@ function TiMu(data1) {
         // 	alert("xxxx");
         //     //window.location.href = "../index.html";
         // })
-        alert("本次得分：" + sum + '分');
-        mui.openWindow({
-            createNew: true,
-            url: '../index.html', //通过URL传参
-        })
-        mui.post('http://81.70.23.51:5555/jifeng', {
-            "jifeng": sum,
-        }, function da1(da1) {
-            console.log(JSON.stringify(da1));
-        }, 'json');
+		setTimeout(function () {
+			alert("本次得分：" + sum + '分');
+			mui.openWindow({
+			    createNew: true,
+			    url: '../index.html', //通过URL传参
+			})
+			mui.post('http://81.70.23.51:5555/jifeng', {
+			    "jifeng": sum,
+			}, function da1(da1) {
+			    console.log(JSON.stringify(da1));
+			}, 'json');
+		    		}, 1500);
     }
     // 18
     document.querySelectorAll(".entrance-bottom-frame-line-button")[17].onclick = function () {
@@ -624,7 +627,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
 
         }
@@ -642,16 +645,18 @@ function TiMu(data1) {
         }
         console.log(afterChoice)
         console.log(questionChoice)
-        alert("本次得分：" + sum + '分');
-        mui.openWindow({
-            createNew: true,
-            url: '../index.html', //通过URL传参
-        })
-        mui.post('http://81.70.23.51:5555/jifeng', {
-            "jifeng": sum,
-        }, function da1(da1) {
-            console.log(JSON.stringify(da1));
-        }, 'json');
+		setTimeout(function () {
+			alert("本次得分：" + sum + '分');
+			mui.openWindow({
+			    createNew: true,
+			    url: '../index.html', //通过URL传参
+			})
+			mui.post('http://81.70.23.51:5555/jifeng', {
+			    "jifeng": sum,
+			}, function da1(da1) {
+			    console.log(JSON.stringify(da1));
+			}, 'json');
+		    		}, 1500);
     }
     // 19
     document.querySelectorAll(".entrance-bottom-frame-line-button")[18].onclick = function () {
@@ -677,7 +682,7 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
 
         }
@@ -695,16 +700,19 @@ function TiMu(data1) {
         }
         console.log(afterChoice)
         console.log(questionChoice)
-        alert("本次得分：" + sum + '分');
-        mui.openWindow({
-            createNew: true,
-            url: '../index.html', //通过URL传参
-        })
-        mui.post('http://81.70.23.51:5555/jifeng', {
-            "jifeng": sum,
-        }, function da1(da1) {
-            console.log(JSON.stringify(da1));
-        }, 'json');
+		setTimeout(function () {
+			alert("本次得分：" + sum + '分');
+			mui.openWindow({
+			    createNew: true,
+			    url: '../index.html', //通过URL传参
+			})
+			mui.post('http://81.70.23.51:5555/jifeng', {
+			    "jifeng": sum,
+			}, function da1(da1) {
+			    console.log(JSON.stringify(da1));
+			}, 'json');
+		    		}, 1500);
+
     }
     // 20
     document.querySelectorAll(".entrance-bottom-frame-line-button")[19].onclick = function () {
@@ -730,35 +738,41 @@ function TiMu(data1) {
                 addClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id], active)
                 // 老的题目删除掉
                 removeClass(document.querySelectorAll(".entrance-bottom-frame-line")[timu_id - 1], active)
-            }, 2000);
+            }, 1500);
         } else {
 
         }
-        var afterChoice = new Array();
-        var sum = 0;
-        afterChoice[0] = data1[0].choice;
-        afterChoice[1] = data1[1].choice;
-        afterChoice[2] = data1[2].choice;
-        afterChoice[3] = data1[3].choice;
-        afterChoice[4] = data1[4].choice;
-        for (var i = 0; i < 5; i++) {
-            if (afterChoice[i] == questionChoice[i]) {
-                sum++;
-            }
-        }
-        console.log(afterChoice);
-        console.log(questionChoice);
-        alert("本次得分：" + sum + '分');
-        mui.openWindow({
-            createNew: true,
-            url: '../index.html', //通过URL传参
-        })
-        mui.post('http://81.70.23.51:5555/jifeng', {
-            "jifeng": sum,
-        }, function da1(da1) {
-            console.log(JSON.stringify(da1));
-        }, 'json');
-        // if()
+		
+			var afterChoice = new Array();
+			var sum = 0;
+			afterChoice[0] = data1[0].choice;
+			afterChoice[1] = data1[1].choice;
+			afterChoice[2] = data1[2].choice;
+			afterChoice[3] = data1[3].choice;
+			afterChoice[4] = data1[4].choice;
+			for (var i = 0; i < 5; i++) {
+			    if (afterChoice[i] == questionChoice[i]) {
+			        sum++;
+			    }
+			}
+			setTimeout(function () {
+				alert("本次得分：" + sum + '分');
+				mui.openWindow({
+				    createNew: true,
+				    url: '../index.html', //通过URL传参
+				})
+				mui.post('http://81.70.23.51:5555/jifeng', {
+				    "jifeng": sum,
+				}, function da1(da1) {
+				    console.log(JSON.stringify(da1));
+				}, 'json');
+				}, 1500);
+			console.log(afterChoice);
+			console.log(questionChoice);
+
+			// if()
+		 
+
     }
 
 }

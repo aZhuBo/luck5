@@ -21,7 +21,7 @@
 				</a>
 				<div class="css-center">
 					<div class="css-search-box">
-						<i class="icon icon-search"></i>
+						
 						<input type="text" placeholder="大家都在搜索">
 					</div>
 				</div>
@@ -107,7 +107,7 @@
 				</div>
 				<div class="css-flex css-flex-ad">
 					<div class="css-flex-box">
-						<span id="lianxi"><img src="../images/ad_01.gif" alt=""></span>
+						<span id="lianxi_everyday"><img src="../images/ad_01.gif" alt=""></span>
 					</div>
 					<div class="css-flex-box">
 						<span id="dati_everyday"><img src="../images/ad_02.gif" alt=""></span>
@@ -140,6 +140,14 @@
 	</script>
 	<script type="text/javascript">
 		mui.init();
+		// 每日练习
+		document.getElementById('lianxi_everyday').addEventListener('tap', function() {
+			console.log("每日练习");
+			mui.openWindow({
+				createNew: true,
+				url: './lianxi_questionPage.html', //通过URL传参
+			})
+		});
 		// 每日答题
 		document.getElementById('dati_everyday').addEventListener('tap', function() {
 			console.log("每日答题");
