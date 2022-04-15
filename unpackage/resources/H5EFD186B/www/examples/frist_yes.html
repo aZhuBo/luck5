@@ -1,141 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>首页</title>
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta content="telephone=no" name="format-detection">
-    <link rel="stylesheet" type="text/css" href="../css/swiper-3.4.1.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/stylefrist.css">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<link rel="stylesheet" type="text/css" href="../css/swiper-3.4.1.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/stylefrist.css">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+	</head>
+	<body>
 
-<section class="css-flexView">
-    <header class="css-navBar css-navBar-fixed">
-        <a href="javascript:;" class="css-navBar-item">
-            <i class="icon icon-return"></i>
-        </a>
-        <div class="css-center">
-            <div class="css-search-box">
-                <i class="icon icon-search"></i>
-                <input type="text" placeholder="大家都在搜索">
-            </div>
-        </div>
-        <a href="javascript:;" class="css-navBar-item">
-            <i class="icon icon-add"></i>
-        </a>
-    </header>
-    <section class="css-scrollView">
-        <div class="m-slider" data-ydui-slider="">
-            <div class="slider-wrapper">
-                <div class="slider-item">
-                    <a href="javascript:;">
-                        <img src="../images/banner_01.gif" alt="">
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <a href="javascript:;">
-                        <img src="../images/banner_01.gif" alt="">
-                    </a>
-                </div>
-                <div class="slider-item">
-                    <a href="javascript:;">
-                        <img src="../images/banner_01.gif" alt="">
-                    </a>
-                </div>
-            </div>
-            <div class="slider-pagination"></div>
-        </div>
- <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="css-palace css-palace-one">
-                        <a href="javascript:;" class="css-palace-grid">
-                            <div class="css-palace-grid-icon">
-                                <img src="../images/one1.png" alt="">
-                            </div>
-                            <div class="css-palace-grid-text">
-                                <h2>学校官网</h2>
-                            </div>
-                        </a>
-                        <a href="javascript:;" class="css-palace-grid">
-                            <div class="css-palace-grid-icon">
-                                <img src="../images/one2.png" alt="">
-                            </div>
-                            <div class="css-palace-grid-text">
-                                <h2>关于我们</h2>
-                            </div>
-                        </a>
-                        <a href="javascript:;" class="css-palace-grid">
-                            <div class="css-palace-grid-icon">
-                                <img src="../images/one3.png" alt="">
-                            </div>
-                            <div class="css-palace-grid-text">
-                                <h2>知网</h2>
-                            </div>
-                        </a>
-                        <a href="javascript:;" class="css-palace-grid">
-                            <div class="css-palace-grid-icon">
-                                <img src="../images/one4.png" alt="">
-                            </div>
-                            <div class="css-palace-grid-text">
-                                <h2>IMUSTCTF</h2>
-                            </div>
-                        </a>
-                        <a href="javascript:;" class="css-palace-grid">
-                            <div class="css-palace-grid-icon">
-                                <img src="../images/one5.png" alt="">
-                            </div>
-                            <div class="css-palace-grid-text">
-                                <h2>图书馆</h2>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-            </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-        </div>
+		<section class="css-flexView">
+			<header class="css-navBar css-navBar-fixed">
+				<a href="javascript:;" class="css-navBar-item">
+					<i class="icon icon-return"></i>
+				</a>
+				<div class="css-center">
+					<div class="css-search-box">
+						
+						<input type="text" placeholder="大家都在搜索">
+					</div>
+				</div>
+				<a href="javascript:;" class="css-navBar-item">
+					<i class="icon icon-add"></i>
+				</a>
+			</header>
+			<section class="css-scrollView">
+				<div class="m-slider" data-ydui-slider="">
+					<div class="slider-wrapper">
+						<div class="slider-item">
+							<a href="javascript:;">
+								<img src="../images/banner_01.png" alt="">
+							</a>
+						</div>
+						<div class="slider-item">
+							<a href="javascript:;">
+								<img src="../images/banner_01.png" alt="">
+							</a>
+						</div>
+						<div class="slider-item"> 
+							<a href="javascript:;">
+								<img src="../images/banner_01.png" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="slider-pagination"></div>
+				</div>
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="css-palace css-palace-one">
+								<a href="javascript:;" class="css-palace-grid" id="school">
+									<div class="css-palace-grid-icon">
+										<img src="../images/one1.png" alt="">
+									</div>
+									<div class="css-palace-grid-text">
+										<h2>学校官网</h2>
+									</div>
+								</a>
+								<a href="javascript:;" class="css-palace-grid" id="about">
+									<div class="css-palace-grid-icon">
+										<img src="../images/one2.png" alt="">
+									</div>
+									<div class="css-palace-grid-text">
+										<h2>关于我们</h2>
+									</div>
+								</a>
+								<a href="javascript:;" class="css-palace-grid" id="zhiwang">
+									<div class="css-palace-grid-icon">
+										<img src="../images/one3.png" alt="">
+									</div>
+									<div class="css-palace-grid-text">
+										<h2>知网</h2>
+									</div>
+								</a>
+								<a href="javascript:;" class="css-palace-grid" id="IMUSTCTF">
+									<div class="css-palace-grid-icon">
+										<img src="../images/one4.png" alt="">
+									</div>
+									<div class="css-palace-grid-text">
+										<h2>IMUSTCTF</h2>
+									</div>
+								</a>
+								<a href="javascript:;" class="css-palace-grid" id="library">
+									<div class="css-palace-grid-icon">
+										<img src="../images/one5.png" alt="">
+									</div>
+									<div class="css-palace-grid-text">
+										<h2>图书馆</h2>
+									</div>
+								</a>
+							</div>
+						</div>
 
-        <div class="css-title">
-            <h2>题目汇总</h2>
-        </div>
-        <div class="css-flex css-flex-ad">
-            <div class="css-flex-box">
-                <img src="../images/ad_01.gif" alt="">
-            </div>
-            <div class="css-flex-box">
-                <img src="../images/ad_02.gif" alt="">
-            </div>
-        </div>
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+
+				<div class="css-title">
+					<h2>题目汇总</h2>
+				</div>
+				<div class="css-flex css-flex-ad">
+					<div class="css-flex-box">
+						<span id="lianxi_everyday"><img src="../images/ad_01.gif" alt=""></span>
+					</div>
+					<div class="css-flex-box">
+						<span id="dati_everyday"><img src="../images/ad_02.gif" alt=""></span>
+					</div>
+				</div>
+ 
+				<div class="css-title">
+					<h2>开发测试</h2>
+				</div> 
+				<div class="css-flex css-flex-ad">
+					<div class="css-flex-box">
+						<span id="ches_everyday"><img src="../images/ches.gif" alt=""></span>
+						
+					</div>
+					<div class="css-flex-box">
+						<img src="../images/ches.gif" alt="">
+					</div>
+				</div>
+			</section>
+		</section>
+	</body>
+	<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/slider.js"></script>
+	<script type="text/javascript" src="../js/swiper-3.4.1.jquery.min.js"></script>
+	<script type="text/javascript">
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			paginationClickable: true
+		});
+	</script>
+	<script type="text/javascript">
+		mui.init();
+		// 测试
+		document.getElementById('ches_everyday').addEventListener('tap', function() {
+			console.log("每日练习");
+			mui.openWindow({
+				createNew: true,
+				url: './ches_questionPage.html', //通过URL传参  
+			})
+		});
+		// 每日练习
+		document.getElementById('lianxi_everyday').addEventListener('tap', function() {
+			console.log("每日练习");
+			mui.openWindow({
+				createNew: true,
+				url: './lianxi_questionPage.html', //通过URL传参  
+			})
+		});
+		// 每日答题
+		document.getElementById('dati_everyday').addEventListener('tap', function() {
+			console.log("每日答题");
+			mui.openWindow({
+				createNew: true,
+				url: './questionPage.html', //通过URL传参
+			})
+		});
+		//学校
+		document.getElementById('school').addEventListener('tap', function() {
+			console.log("学校");
+			mui.openWindow({url:'./school.html',
+			createNew: true
+			})
+		});
+
+		//关于我们
+		document.getElementById('about').addEventListener('tap', function() {
+			console.log("关于我们");
+			mui.openWindow({
+				url: './about.html', //通过URL传参		
+			})
+		});
 		
-		<div class="css-title">
-		    <h2>日常练习</h2>
-		</div>
-		<div class="css-flex css-flex-ad">
-		    <div class="css-flex-box">
-		        <img src="../images/ad_01.gif" alt="">
-		    </div>
-		    <div class="css-flex-box">
-		        <img src="../images/ad_02.gif" alt="">
-		    </div>
-		</div>
-    </section>
-</section>
-</body>
-<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="../js/slider.js"></script>
-<script type="text/javascript" src="../js/swiper-3.4.1.jquery.min.js"></script>
-<script type="text/javascript">
-    var swiper = new Swiper('.swiper-container',{
-        pagination: '.swiper-pagination',
-        paginationClickable: true
-    });
-</script>
+		//知网
+		document.getElementById('zhiwang').addEventListener('tap', function() {
+			console.log("知网");
+			mui.openWindow({//zhiwang.html
+				url: './zhiwang.html', //通过URL传参		
+				createNew: true
+			})
+		});
+		//imustctf
+		document.getElementById('IMUSTCTF').addEventListener('tap', function() {
+			console.log("IMUSTCTF");
+			mui.openWindow({
+				url: './imustctf.html', //通过URL传参		
+				createNew: true
+			})
+		});
+		//library
+		document.getElementById('library').addEventListener('tap', function() {
+			console.log("library");
+			mui.openWindow({//library.html
+				url: './library.html', //通过URL传参	
+					createNew: true
+			})
+		});
+		
+	</script>
 </html>
-
-
-

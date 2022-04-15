@@ -114,17 +114,18 @@
 					</div>
 				</div>
  
-	<!-- 			<div class="css-title">
-					<h2>日常练习</h2>
-				</div>
+				<div class="css-title">
+					<h2>开发测试</h2>
+				</div> 
 				<div class="css-flex css-flex-ad">
 					<div class="css-flex-box">
-						<img src="../images/ad_01.gif" alt="">
+						<span id="ches_everyday"><img src="../images/ches.gif" alt=""></span>
+						
 					</div>
 					<div class="css-flex-box">
-						<img src="../images/ad_02.gif" alt="">
+						<img src="../images/ches.gif" alt="">
 					</div>
-				</div> -->
+				</div>
 			</section>
 		</section>
 	</body>
@@ -140,6 +141,14 @@
 	</script>
 	<script type="text/javascript">
 		mui.init();
+		// 测试
+		document.getElementById('ches_everyday').addEventListener('tap', function() {
+			console.log("每日练习");
+			mui.openWindow({
+				createNew: true,
+				url: './ches_questionPage.html', //通过URL传参  
+			})
+		});
 		// 每日练习
 		document.getElementById('lianxi_everyday').addEventListener('tap', function() {
 			console.log("每日练习");

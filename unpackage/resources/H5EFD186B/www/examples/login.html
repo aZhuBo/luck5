@@ -141,19 +141,16 @@
 				"username": username,
 				"password": password
 			}, function(data) {
-				console.log("从服务端返回数据,准备判断");
-				console.log(data.code);
-				console.log(JSON.stringify(data));
+				// console.log("从服务端返回数据,准备判断");
+				// console.log(data.code);
+				// console.log(JSON.stringify(data));
 				mui.toast(data.msg);
 				if (data.code == 0) {
 					window.localStorage.setItem("uid", data._id);
 					mui.openWindow({
+						createNew: true,
 						url: "../index.html",
-						id: "../index.html",
-						extras: {
-							username: data.name,
-						},
-						createNew: true
+						
 					})
 				}
 			}, 'json');
@@ -162,6 +159,7 @@
 		document.getElementById('reg').addEventListener('tap', function() {
 			console.log("注册按钮");
 			mui.openWindow({
+				createNew: true,
 				url: './register.html', //通过URL传参
 			})
 		});
