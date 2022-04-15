@@ -7,29 +7,39 @@
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
-		<meta http-equiv="refresh" content="5" url="https://www.imust.edu.cn/"> 
-		
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">内蒙古科技大学</h1>
+			<h1 class="mui-title">内蒙古科技大学(23点——7点维护)</h1>
+
 		</header>
-		<div class="mui-content">
-			<a href="https://www.imust.edu.cn/" target="_blank"><img src="../images/ad_01.gif"></a>
-		</div>
+
 		<script src="../js/mui.js"></script>
 		<script type="text/javascript">
-			//禁止返回登录页面
+		
+			// function MyAutoRun()
+			// {
+			// 	//以下是您的函数的代码，请自行修改先！
+			// 	mui.openWindow({
+			// 		url: 'http://www.w3schools.com', //通过URL传参
+				
+			// 	})
+			// 	alert("函数自动执行哦！");
+			// }
+			// window.onload = MyAutoRun(); //仅需要加这一句
+			//window.open("http://www.w3schools.com","_parent");
 			mui.init({
-				beforeback: function() {
-					return true;
-				}
-			});
-		</script>
-		<script type="text/javascript">
-			mui.init()
+						subpages: [{
+							url: 'https://www.imust.edu.cn/',
+							
+							styles: {
+								top: '45px', //mui标题栏默认高度为45px；
+								bottom: '0px' //默认为0px，可不定义；
+							}
+						}]
+					});
 		</script>
 	</body>
 
