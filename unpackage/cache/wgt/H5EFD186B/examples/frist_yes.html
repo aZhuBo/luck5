@@ -34,17 +34,17 @@
 					<div class="slider-wrapper">
 						<div class="slider-item">
 							<a href="javascript:;">
-								<img src="../images/banner_01.gif" alt="">
+								<img src="../images/banner_01.png" alt="">
 							</a>
 						</div>
 						<div class="slider-item">
 							<a href="javascript:;">
-								<img src="../images/banner_01.gif" alt="">
+								<img src="../images/banner_01.png" alt="">
 							</a>
 						</div>
-						<div class="slider-item">
+						<div class="slider-item"> 
 							<a href="javascript:;">
-								<img src="../images/banner_01.gif" alt="">
+								<img src="../images/banner_01.png" alt="">
 							</a>
 						</div>
 					</div>
@@ -113,16 +113,17 @@
 						<span id="dati_everyday"><img src="../images/ad_02.gif" alt=""></span>
 					</div>
 				</div>
-
+ 
 				<div class="css-title">
-					<h2>日常练习</h2>
-				</div>
+					<h2>开发测试</h2>
+				</div> 
 				<div class="css-flex css-flex-ad">
 					<div class="css-flex-box">
-						<img src="../images/ad_01.gif" alt="">
+						<span id="ches_everyday"><img src="../images/ches.gif" alt=""></span>
+						
 					</div>
 					<div class="css-flex-box">
-						<img src="../images/ad_02.gif" alt="">
+						<img src="../images/ches.gif" alt="">
 					</div>
 				</div>
 			</section>
@@ -140,12 +141,20 @@
 	</script>
 	<script type="text/javascript">
 		mui.init();
+		// 测试
+		document.getElementById('ches_everyday').addEventListener('tap', function() {
+			console.log("每日练习");
+			mui.openWindow({
+				createNew: true,
+				url: './ches_questionPage.html', //通过URL传参  
+			})
+		});
 		// 每日练习
 		document.getElementById('lianxi_everyday').addEventListener('tap', function() {
 			console.log("每日练习");
 			mui.openWindow({
 				createNew: true,
-				url: './lianxi_questionPage.html', //通过URL传参
+				url: './lianxi_questionPage.html', //通过URL传参  
 			})
 		});
 		// 每日答题
@@ -159,7 +168,7 @@
 		//学校
 		document.getElementById('school').addEventListener('tap', function() {
 			console.log("学校");
-			mui.openWindow({url:'https://www.imust.edu.cn/',
+			mui.openWindow({url:'./school.html',
 			createNew: true
 			})
 		});
@@ -175,24 +184,24 @@
 		//知网
 		document.getElementById('zhiwang').addEventListener('tap', function() {
 			console.log("知网");
-			mui.openWindow({
-				url: 'https://www.cnki.net/', //通过URL传参		
+			mui.openWindow({//zhiwang.html
+				url: './zhiwang.html', //通过URL传参		
 				createNew: true
 			})
 		});
 		//imustctf
-		document.getElementById('zhiwang').addEventListener('tap', function() {
+		document.getElementById('IMUSTCTF').addEventListener('tap', function() {
 			console.log("IMUSTCTF");
 			mui.openWindow({
-				url: 'http://imustctf.top/', //通过URL传参		
+				url: './imustctf.html', //通过URL传参		
 				createNew: true
 			})
 		});
 		//library
 		document.getElementById('library').addEventListener('tap', function() {
 			console.log("library");
-			mui.openWindow({
-				url: 'https://library.imust.edu.cn/', //通过URL传参	
+			mui.openWindow({//library.html
+				url: './library.html', //通过URL传参	
 					createNew: true
 			})
 		});

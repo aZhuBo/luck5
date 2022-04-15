@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>每日答题</title>
+		<title>每日练习</title>
 
 		<meta name="viewport"
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -10,12 +10,88 @@
 		<link rel="stylesheet" type="text/css" href="../css/questionReset.css" />
 		<script type="text/javascript" src="../js/questionRem.js"></script>
 		<link href="../css/mui.css" rel="stylesheet" />
+		<style>
+		#xiayiti1{
+			float:right;
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#xiayiti2{
+			float:right;
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#xiayiti3{
+			float:right;
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#xiayiti4{
+			float:right;
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#xiayiti5{
+			float:right;
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#shangyiti1{
+			width: 120px;
+			height: 40px;
+			background:transparent;	/*按钮背景透明*/
+				border-width:0px;	/*边框透明*/
+				outline:none;	/*点击后没边框*/
+		}
+		#shangyiti2{
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#shangyiti3{
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#shangyiti4{
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		#shangyiti5{
+			color: white;
+			width: 120px;
+			height: 40px;
+			background-color: #0066CF;
+		}
+		 .entrance-bottom-frame-line-titlep2134 {
+		  font-size:20px;
+		
+		}
+		.entrance-bottom-frame-line-titlep21345 {
+		  font-size:20px;
+		
+		}
+		</style>
 	</head>
 	<body>
 		<div class="topic">
 			<header class="mui-bar mui-bar-nav">
 				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-				<h1 class="mui-title">每日答题</h1>
+				<h1 class="mui-title">每日练习</h1>
 			</header>
 			<br /><br />
 
@@ -29,11 +105,11 @@
 		</div>
 	</body>
 	<script src="../js/mui.js"></script>
-	<script src="../js/lianxi_questionIndex.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/ches_questionIndex.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		mui.init();
 		mui.post('http://81.70.23.51:5555/questionBack', {}, function data1(data1) {
-			console.log(JSON.stringify(data1[0]));
+			//console.log(JSON.stringify(data1[0]));
 			//mui.toast(data.msg);
 			//console.log(JSON.stringify(data1));
 			// var a = JSON.stringify(data1[1].choice)

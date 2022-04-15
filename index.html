@@ -40,7 +40,14 @@
 				<span class="mui-tab-label">我的</span>
 			</a>
 		</nav>
-
+<!-- 		<script type="text/javascript">
+			//禁止返回登录页面
+			mui.init({
+				beforeback: function() {
+					return false;
+				}
+			});
+		</script> -->
 
 		<script type="text/javascript">
 			var old_back = mui.back;
@@ -75,7 +82,7 @@
 					var item = plus.webview.create(pages[i], pages[i], pageStyle);
 					//将每个webviem窗口对象追加
 					ws.append(item);
-					console.log(item);
+					//console.log(item);
 				}
 				//设置默认打开窗口
 				plus.webview.show(pages[0]);

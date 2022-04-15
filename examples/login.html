@@ -141,9 +141,9 @@
 				"username": username,
 				"password": password
 			}, function(data) {
-				console.log("从服务端返回数据,准备判断");
-				console.log(data.code);
-				console.log(JSON.stringify(data));
+				// console.log("从服务端返回数据,准备判断");
+				// console.log(data.code);
+				// console.log(JSON.stringify(data));
 				mui.toast(data.msg);
 				if (data.code == 0) {
 					window.localStorage.setItem("uid", data._id);

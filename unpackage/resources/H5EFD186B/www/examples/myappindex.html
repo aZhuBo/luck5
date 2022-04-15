@@ -10,7 +10,11 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="../css/myappindex.css" />
-
+		<style>
+		#wsbiand{
+			background-color: #149de4;
+		}
+		</style>
 	</head>
 
 	<body class="mui-plus mui-statusbar ">
@@ -18,13 +22,13 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">标题</h1>
 		</header> -->
-		<header class="mui-bar mui-bar-nav">
+		<header class="mui-bar mui-bar-nav" id="wsbiand">
 			<h1 class="mui-title">个人中心</h1>
 		</header>
 		<div class="nav-bottom">
 			<div class="new-mine">
 				<div class="mine-photo min-photo-bgimg">
-					<img src="../images/myappindex1.jpg" />
+					<img src="../images/myappindex1.jpg" /> 
 					<h4><span id="name"></span></h4>
 					<ul class="mine-photo-list">
 						<li><a>
@@ -74,20 +78,31 @@
 		<div id='div'></div>
 		<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
 
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 			//禁止返回登录页面
 			mui.init({
 				beforeback: function() {
 					return false;
 				}
 			});
+		</script> -->
+		<script type="text/javascript">
+			var old_back = mui.back;
+			mui.back = function() {
+				var btn = ["确定", "取消"];
+				mui.confirm('确认退出应用？', '抽题系统', btn, function(e) {
+					if (e.index == 0) {
+						//执行mui封装好的窗口关闭逻辑；
+						plus.runtime.quit();
+					}
+				});
+			}
 		</script>
 
 		<script type="text/jscript">
 			mui.init();
 			mui.post('http://81.70.23.51:5555/myappindex', {}, function data1(data) {
-				var b = data.jifen;
-				console.log("从服务端返回数据,准备判断");
+				console.log("后端返回数据,准备判断");
 				console.log(JSON.stringify(data));
 				var a = data.jifen;
 				var b = data.duanwei;
@@ -109,15 +124,19 @@
 
 				}, 'json');
 				mui.openWindow({
+					createNew: true,
 					url: './login.html', //通过URL传参
-					createNew: true
+					
+					
 				})
 			});
+			
 			//排行榜
 			document.getElementById('pai_hang').addEventListener('tap', function() {
 				console.log("排行榜");
 				mui.openWindow({
 					url: './paihang.html', //通过URL传参
+					
 				})
 			});
 			//通知
@@ -125,6 +144,7 @@
 				console.log("通知");
 				mui.openWindow({
 					url: './tong_zhi.html', //通过URL传参
+					
 				})
 			});
 
@@ -133,6 +153,7 @@
 				console.log("关于我们");
 				mui.openWindow({
 					url: './about.html', //通过URL传参
+					
 				})
 			});
 			
@@ -140,7 +161,9 @@
 			document.getElementById('mylist').addEventListener('tap', function() {
 				console.log("我的信息");
 				mui.openWindow({
+
 					url: './mylist.html', //通过URL传参
+					
 				})
 			});
 		</script>

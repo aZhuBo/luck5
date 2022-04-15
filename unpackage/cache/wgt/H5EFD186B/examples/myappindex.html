@@ -28,7 +28,7 @@
 		<div class="nav-bottom">
 			<div class="new-mine">
 				<div class="mine-photo min-photo-bgimg">
-					<img src="../images/myappindex1.jpg" />
+					<img src="../images/myappindex1.jpg" /> 
 					<h4><span id="name"></span></h4>
 					<ul class="mine-photo-list">
 						<li><a>
@@ -86,6 +86,18 @@
 				}
 			});
 		</script> -->
+		<script type="text/javascript">
+			var old_back = mui.back;
+			mui.back = function() {
+				var btn = ["确定", "取消"];
+				mui.confirm('确认退出应用？', '抽题系统', btn, function(e) {
+					if (e.index == 0) {
+						//执行mui封装好的窗口关闭逻辑；
+						plus.runtime.quit();
+					}
+				});
+			}
+		</script>
 
 		<script type="text/jscript">
 			mui.init();
