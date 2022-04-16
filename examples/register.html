@@ -15,17 +15,17 @@
 				margin-top: 20px;
 			}
 			.mui-input-group label {
-				width: 22%;
+				width: 25%;
 			}
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 78%;
+				width: 75%;
 			}
-			.mui-checkbox input[type=checkbox],
+			/* .mui-checkbox input[type=checkbox],
 			.mui-radio input[type=radio] {
 				top: 6px;
-			}
+			} */
 			.mui-content-padded {
 				margin-top: 25px;
 			}
@@ -44,21 +44,25 @@
 		<div class="mui-content">
 			<form class="mui-input-group">
 				<div class="mui-input-row">
-					<label>账号</label>
-					<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+					<label>我是老师<input type="radio" name="lixi" value="0"/></label>
+					<label>我是学生<input type="radio" name="lixi" value="1" /></label>
 				</div>
-				<div class="mui-input-row">
-					<label>密码</label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
-				</div>
-				<div class="mui-input-row">
-					<label>密码</label>
-					<input id='againpassword' type="password" class="mui-input-clear mui-input" placeholder="请再次确认密码">
-				</div>
-				<div class="mui-input-row">
-					<label>昵称</label>
-					<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请填写昵称">
-				</div>
+			    <div class="mui-input-row">
+			    	<label>账号/学号</label>
+			    	<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号/学号">
+			    </div>
+			    <div class="mui-input-row">
+			    	<label>输入密码</label>
+			    	<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+			    </div>
+			    <div class="mui-input-row">
+			    	<label>确认密码</label>
+			    	<input id='againpassword' type="password" class="mui-input-clear mui-input" placeholder="请再次确认密码">
+			    </div>
+			    <div class="mui-input-row">
+			    	<label>输入昵称</label>
+			    	<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请填写昵称">
+			    </div>
 			</form>
 			<div class="mui-content-padded">
 				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
@@ -67,19 +71,44 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/app.js"></script>
 		<script>
+			 function getRadioValue(args){
+			var element = document.getElementsByName(args);
+			// 通过获取到name属性=hero的所dom对象
+			  for(var i=0; i<element.length; i ++){
+				    // 判断该单选框是否处于选中状态
+				    if(element[i].checked){
+						return element[i].value;
+				    }
+				}	
+			}
+			
+
 			mui.init();
+			// var flag;
+			// var list = document.querySelector('.mui-table-view.mui-table-view-radio');
+			// list.addEventListener('selected',function(e){
+			// 	flag=e.detail.el.innerText;
+				
+			// });
+			
 			document.getElementById('reg').addEventListener('tap', function() {
-				console.log("注册按钮");
+				var checkElement=getRadioValue("lixi");
+				
+				console.log(checkElement);
+				
 				var username = document.getElementById("username").value;
 				var password = document.getElementById("password").value;
 				var againpassword = document.getElementById("againpassword").value;
 				var name=document.getElementById("name").value;
+				var leixin= document.getElementById("username").value;
 				//提交
-				mui.post('http://81.70.23.51:5555/register', {
+				
+				mui.post('http://192.168.31.127:5555/register', {
 					"username": username,
 					"password": password,
 					"againpassword":againpassword,
 					"name":name,
+					"lixing":checkElement,
 				}, function(data) {
 					console.log("从服务端返回数据,准备判断");
 					console.log(data.mag);
@@ -94,6 +123,7 @@
 					
 				}, 'json');
 			})
+			
 		</script>
 	</body>
 
