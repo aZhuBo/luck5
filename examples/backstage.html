@@ -4,8 +4,36 @@
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			.mui-input-group label {
+				width: 20%;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 80%;
+			}
+			/* .mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			} */
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			
+		</style>
 	</head>
 
 	<body>
@@ -15,30 +43,79 @@
 		</header>
 		<div class="mui-content">
 			<form class="mui-input-group">
-			    <div class="mui-input-row">
-			    	<label>账号/学号</label><br/>
-			    	<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号/学号">
-			    </div>
-			    <div class="mui-input-row">
-			    	<label>输入密码</label>
-			    	<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
-			    </div>
-			    <div class="mui-input-row">
-			    	<label>确认密码</label>
-			    	<input id='againpassword' type="password" class="mui-input-clear mui-input" placeholder="请再次确认密码">
-			    </div>
-			    <div class="mui-input-row">
-			    	<label>输入昵称</label>
-			    	<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请填写昵称">
-			    </div>
+				<!-- <div class="mui-input-row">
+					<label>选择题<input type="radio" name="lixi" value="0"/></label>
+					<label>我是学生<input type="radio" name="lixi" value="1" /></label>
+				</div> -->
+				<div class="mui-input-row">
+					<label>题目：</label>
+					<input id='timu' type="text" class="mui-input-clear mui-input" placeholder="请输入题目">
+				</div>
+				<div class="mui-input-row">
+					<label>A选项</label>
+					<input id='A' type="text" class="mui-input-clear mui-input" placeholder="请输入A选项">
+				</div>
+				<div class="mui-input-row">
+					<label>B选项</label>
+					<input id='B' type="text" class="mui-input-clear mui-input" placeholder="请输入C选项">
+				</div>
+				<div class="mui-input-row">
+					<label>C选项</label>
+					<input id='C' type="text" class="mui-input-clear mui-input" placeholder="请输入B选项">
+				</div>
+				<div class="mui-input-row">
+					<label>D选项</label>
+					<input id='D' type="text" class="mui-input-clear mui-input" placeholder="请输入D选项">
+				</div>
+				<div class="mui-input-row">
+					<label>答案</label>
+					<input id='choice' type="text" class="mui-input-clear mui-input" placeholder="请输入答案">
+				</div>
+				<div class="mui-input-row">
+					<label>解析</label>
+					<input id='jiexi' type="text" class="mui-input-clear mui-input" placeholder="请输入解析">
+				</div>
 			</form>
 			<div class="mui-content-padded">
-				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">添加</button>
 			</div>
 		</div>
 		<script src="../js/mui.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			document.getElementById('reg').addEventListener('tap', function() {
+				
+				var timu = document.getElementById("timu").value;
+				var A = document.getElementById("A").value;
+				var B = document.getElementById("B").value;
+				var C =document.getElementById("C").value;
+				var D = document.getElementById("D").value;
+				var choice =document.getElementById("choice").value;
+				var jiexi=document.getElementById("jiexi").value;
+				//提交
+				
+				mui.post('http://192.168.31.127:5555/savechoice', {
+					"timu":timu,
+					"A":A,
+					"B":B,
+					"C":C,
+					"D":D,
+					"choice":choice,
+					"jiexi":jiexi,
+				}, function(data) {
+					console.log("从服务端返回数据,准备判断");
+					console.log(data.mag);
+					mui.toast(data.mag);
+						// mui.openWindow({
+						// 	url: "./login.html",
+						// 	id: "./login.html",
+						// 	createNew: false
+						// });
+					
+					
+					
+				}, 'json');
+			})
 		</script>
 	</body>
 
