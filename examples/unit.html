@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>选择单元</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+
+    <link rel="stylesheet" href="../css/unit_font-awesome.min.css">
+    <link rel="stylesheet" href="../css/unit_materialize.min.css">
+    <link rel="stylesheet" href="../css/unit_style.css">
+
+    <!--mui css-->
+    <link href="../css/mui.css" rel="stylesheet"/>
+
+</head>
+<body class="home">
+
+<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">单元选择</h1>
+</header>
+<br/><br/>
+<!-- note -->
+<div class="note">
+    <div class="container">
+        <h5>冶金传输原理</h5>
+        <p>《冶金传输原理》，本课程分动量传输、热量传输和质量传输3篇，共14章，系统地介绍了三传的基本理论及三者的类似机理、相互关系；同时介绍了利用相似原理来处理试验数据和进行模型试验的方法。</p>
+    </div>
+</div>
+<!-- end note -->
+
+<br/><br/>
+
+<!--选择单元-->
+<div class="services">
+    <div class="container">
+        <div class="app-title">
+            <h4>选择单元</h4>
+        </div>
+        <div class="row">
+            <div class="col s6" id="unit1">
+                <div class="entry">
+                    <i class="fa color-1"></i>
+                    <h5>第一单元</h5>
+                    <p>动量传输（示例）</p>
+                </div>
+            </div>
+            <div class="col s6" id="unit2">
+                <div class="entry">
+                    <i class="fa color-2"></i>
+                    <h5>第二单元</h5>
+                    <p>动量传输的基本方程</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6" id="unit3">
+                <div class="entry">
+                    <i class="fa color-3"></i>
+                    <h5>第三单元</h5>
+                    <p>管道中的流动</p>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="entry">
+                    <i class="fa color-4"></i>
+                    <h5>第四单元(无题)</h5>
+                    <p>热量传输</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <div class="entry">
+                    <i class="fa color-1"></i>
+                    <h5>第五单元(无题)</h5>
+                    <p>辐射换热</p>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="entry">
+                    <i class="fa color-2"></i>
+                    <h5>第六单元(无题)</h5>
+                    <p>质量传输</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/mui.js"></script>
+<!--点击事件发生-->
+<script>
+    // 单元事件触发
+    var aDiv = document.getElementById("unit1")
+    aDiv.onclick = function () {
+        window.location.href = 'questionPage.html?' + 'unit=' + '1'
+    }
+
+    var aDiv2 = document.getElementById("unit2")
+    aDiv2.onclick = function () {
+        window.location.href = 'questionPage.html?' + 'unit=' + '2'
+    }
+
+    var aDiv3 = document.getElementById("unit3")
+    aDiv3.onclick = function () {
+        window.location.href = 'questionPage.html?' + 'unit=' + '3'
+    }
+</script>
+</body>
+
+</html>
