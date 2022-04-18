@@ -77,6 +77,10 @@
 					<img class="mui-pull-left" src="../images/list3.png" width="20px">
 					<a class="mui-navigate-right" id="login_out">退出登录</a>
 				</li>
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list3.png" width="20px">
+					<a class="mui-navigate-right" id="cheshi">开发测试</a>
+				</li>
 			</ul>
 		</div>
 		<div id='div'></div>
@@ -141,6 +145,14 @@
 				})
 			});
 
+			//测试
+			document.getElementById('cheshi').addEventListener('tap', function() {
+				
+				mui.openWindow({
+					url: './cheshi.html', //通过URL传参
+
+				})
+			});
 			//排行榜
 			document.getElementById('pai_hang').addEventListener('tap', function() {
 				console.log("排行榜");
@@ -170,7 +182,7 @@
 			// 后台
 			setTimeout(function() {
 				document.getElementById('backstage').addEventListener('tap', function() {
-					
+
 					if (String(lingshi) == '0') {
 						mui.openWindow({
 							url: './backstage.html', //通过URL传参
