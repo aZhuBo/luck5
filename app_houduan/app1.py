@@ -381,7 +381,38 @@ def classpaiming():
     #print(append)
     return json.dumps(append,cls=JSONEncoder)
 
+# 签到模块
+@app.route("/sign",methods=['POST','GET'])
+def sign():
+    find_name={"username":session['username']}
+    judge=db.mongo.find_one(find_name)
+    try:
+        judge['sign_day']
+    except:
+        db.mongo.update_one(
+            find_name,
+            {'$set':{"sign_day":None}
+             }
+        )
+    flag = request.form.get('flag')
+    now = str(datetime.date.today())
+    sign_str=''
+    if(now in str(judge['sign_day'])):
+        return jsonify({"stayus":200,"mag":"今天已经签到过了哦！","flagx":'0'})
+    else:
+        if(judge['sign_day']==None):
+            sign_str=now
+        elif(judge['sign_day']!=None):
+            sign_str=judge['sign_day']
+            sign_str=sign_str+";"+now
 
+        sign_jifeng=judge['jifeng']+8
+        db.mongo.update_one(
+            find_name,
+            {'$set':{"sign_day":sign_str,"jifeng":sign_jifeng}
+             }
+        )
+        return jsonify({"stayus":200,"mag":"成功签到，计入积分！","flagx":'1'})
 
 if __name__=='__main__':
     app.run("0.0.0.0",5555,debug=True)
