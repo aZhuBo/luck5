@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- 本页是底部footer,app入口文件 -->
-		<meta charset="utf-8">
-		<meta name="viewport"
-			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
-		<script src="js/mui.min.js"></script>
-		<link href="css/mui.min.css" rel="stylesheet" />
 
+    <head>
+        <meta charset="utf-8">
+        <title>Hello MUI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="stylesheet" href="css/mui.min.css">
 		<!-- icon -->
 		<link rel="stylesheet" href="footericon/iconfont.css">
-		<!--    <script type="text/jscript">
-	mui.plusReady(function(){  
-		 // 在这里调用plus api  
-		 var self = plus.webview.currentWebview();
-		 var name = self.username;
-		 // var version = self.version;
-		 console.log ("我的用户名为"+name);
-	});
-	</script> -->
-	</head>
-	<body>
+		
+		<style>
+			* {
+				touch-action: none;
+			}
+		</style>
+        <style>
+            html,
+            body {
+                background-color: #efeff4;
+            }
+        </style>
+    </head>
 
-		<!-- 底部选项卡mta -->
-		<nav class="mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="examples/frist_yes.html">
+    <body>
+       
+        <nav class="mui-bar mui-bar-tab">
+
+			<a class="mui-tab-item mui-active sadwqe" href="./examples/frist_yes.html">
 				<span class="mui-icon iconfont icon-zuoti"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item" href="">
+			<a class="mui-tab-item " href="">
 				<span id="tianxia">
 					<span class="mui-icon iconfont icon-lianxi_"></span>
 					<span class="mui-tab-label">天下事</span> </span>
-
 			</a>
-			<a class="mui-tab-item" href="examples/myappindex.html">
+        
+			<a class="mui-tab-item sadwqe" href="./examples/myappindex.html">
 				<span class="mui-icon iconfont icon-wode"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
-		</nav>
-<!-- 		<script type="text/javascript">
-			//禁止返回登录页面
-			mui.init({
-				beforeback: function() {
-					return false;
-				}
-			});
-		</script> -->
-
+        </nav>
+        <script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			var old_back = mui.back;
 			mui.back = function() {
@@ -60,40 +56,46 @@
 					}
 				});
 			}
+			
+		
 		</script>
+        <script type="text/javascript" charset="utf-8">
 
-		<script type="text/javascript">
-
-			mui.init();
-			mui.plusReady(function() {
-				//定义一个容器，存储底部选项卡关联的界面
-				var pages = ["examples/frist_yes.html", "examples/myappindex.html"];
-				//获取当前窗口对象
-				var ws = plus.webview.currentWebview();
-				//设置页面窗口样式
-				var pageStyle = {
-					top: "0px",
-					bottom: "50px"
-				};
-				var name = ws.username;
-				//循环数据，为每个页面创建webview窗口对象。
-				for (var i = 0; i < pages.length; i++) {
-					//将每次循环体提取的页面创建为view窗口；
-					var item = plus.webview.create(pages[i], pages[i], pageStyle);
-					//将每个webviem窗口对象追加
-					ws.append(item);
-					//console.log(item);
-				}
-				//设置默认打开窗口
-				plus.webview.show(pages[0]);
-				//选项卡事件监听
-				mui(".mui-bar-tab").on("tap", "a", function() {
-					//获取被点击a标签的href属性值
-					var href = this.getAttribute("href");
-					//展示对应的页面
-					plus.webview.show(href);
-				});
-			});
+            mui.plusReady(function(){
+                var pages = ["examples/frist_yes.html", "examples/myappindex.html"];
+                var arr = document.getElementsByClassName("sadwqe")
+                var styles = {
+                    top:"0px",
+                    bottom:"50px"
+                }
+                var pageArr = [];
+                var title=document.getElementById('title');
+                var slef = plus.webview.currentWebview();
+                for(var i=0; i<arr.length; i++){
+                    // 有几个选项卡，需要创建几个子页面
+                    var page = plus.webview.create(pages[i],pages[i],styles);
+                    pageArr.push(page);
+                    !function(i){
+                        arr[i].addEventListener("tap",function(){
+                            // 让当前页面(i)显示，不是当前页面隐藏
+                            for(var j=0; j<pageArr.length; j++){
+                                if(j!=i) pageArr[j].hide();
+                                else pageArr[j].show();
+                            }
+                            // 设置标题
+                            //title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+                            /* 让新创建的webview，追加合并到当前的窗口上。合并成一个窗口。
+                             * 目的：将父子窗口合并成一个页面，实现同开同关的效果。 避免点击返回安监室，子页面先关闭，而父页面的头部和尾部没有关闭的BUG。
+                             */
+                            slef.append(pageArr[i]);
+                            
+                        })
+                    }(i);
+                }
+                // 默认触发第0个选项卡的tap事件。
+                mui.trigger(arr[0],"tap");
+            });
+			
 			//天下事
 			document.getElementById('tianxia').addEventListener('tap', function() {
 				console.log("天下事");
@@ -101,7 +103,7 @@
 					url: './tianxia.html', //通过URL传参
 				})
 			});
-		</script>
+        </script>
+    </body>
 
-	</body>
 </html>

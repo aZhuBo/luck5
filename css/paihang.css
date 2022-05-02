@@ -316,7 +316,8 @@ a {
 }
 
 .aui-flex-box p {
-    overflow: hidden;
+	
+   overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -473,15 +474,31 @@ a {
     overflow: hidden;
     margin:0 12px 0 8px;
 }
+.aui-ranking-img1{
+	width:50px;
+    height:10px;
+    border-radius:100px;
+    overflow: hidden;
+    margin:0 12px 0 8px;
+	
+}
 
 
 .aui-ranking-text {
     width:30px;
 }
+.aui-ranking-num1{
+	width:60px;
+    color:royalblue;
+    font-size:13px;
+	text-align: center;
+	
+}
 
 .aui-ranking-num{
+	width:2px;
     color:#ff703e;
-    font-size:22px;
+    font-size:15px;
 }
 .aui-ranking-icon {
     width:40px;
