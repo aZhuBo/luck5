@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>题小满师资力量</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	<link rel="stylesheet" href="../../css/mui.min.css">
+	
+	<style type="text/css">
+		.demo{padding: 2em 0;}
+		.our-team{
+		    padding: 30px 0 40px;
+		    background: #f7f5ec;
+		    text-align: center;
+		    overflow: hidden;
+		    position: relative;
+		}
+		.our-team .pic{
+		    display: inline-block;
+		    width: 130px;
+		    height: 130px;
+		    margin-bottom: 50px;
+		    z-index: 1;
+		    position: relative;
+		}
+		.our-team .pic:before{
+		    content: "";
+		    width: 100%;
+		    height: 0;
+		    border-radius: 50%;
+		    background: #ee4266;
+		    position: absolute;
+		    bottom: 135%;
+		    right: 0;
+		    left: 0;
+		    opacity: 0.2;
+		    transform: scale(3);
+		    transition: all 0.3s linear 0s;
+		}
+		.our-team:hover .pic:before{ height: 100%; }
+		.our-team .pic:after{
+		    content: "";
+		    width: 100%;
+		    height: 100%;
+		    border-radius: 50%;
+		    background: #ee4266;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    z-index: -1;
+		}
+		.our-team .pic img{
+		    width: 100%;
+		    height: auto;
+		    border-radius: 50%;
+		    transform: scale(1);
+		    transition: all 0.9s ease 0s;
+		}
+		.our-team:hover .pic img{
+		    box-shadow: 0 0 0 14px #f7f5ec;
+		    transform: scale(0.7);
+		}
+		.our-team .team-content{ margin-bottom: 30px; }
+		.our-team .title{
+		    font-size: 22px;
+		    font-weight: 700;
+		    color: #4e5052;
+		    letter-spacing: 1px;
+		    text-transform: capitalize;
+		    margin-bottom: 5px;
+		}
+		.our-team .post{
+		    display: block;
+		    font-size: 15px;
+		    color: #4e5052;
+		    text-transform:capitalize;
+		}
+		.our-team .social{
+		    width: 100%;
+		    padding: 0;
+		    margin: 0;
+		    background: #eb1768;
+		    position: absolute;
+		    bottom: -100px;
+		    left: 0;
+		    transition: all 0.5s ease 0s;
+		}
+		.our-team:hover .social{ bottom: 0; }
+		.our-team .social li{ display: inline-block; }
+		.our-team .social li a{
+		    display: block;
+		    padding: 10px;
+		    font-size: 17px;
+		    color: #fff;
+		    transition: all 0.3s ease 0s;
+		}
+		.our-team .social li a:hover{
+		    color: #eb1768;
+		    background: #f7f5ec;
+		}
+		@media only screen and (max-width: 990px){
+		    .our-team{ margin-bottom: 30px; }
+		}
+		.adasd{
+			background-color: #66677c;
+		}
+		.asdadw{
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav adasd">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title asdadw">题小满_师资力量</h1>
+	</header>
+	<div class="mui-content">
+		<div class="htmleaf-container">
+			<header class="htmleaf-header">
+				<h1>题小满师资力量 <span>Our Team Style</span></h1>
+				<div class="htmleaf-links">
+					<a class="htmleaf-icon icon-htmleaf-home-outline" href="#"  target="_blank"><span> </span></a>
+					<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="#"  target="_blank"><span> </span></a>
+				</div>
+			</header>
+			<div class="demo">
+			        <div class="container">
+			            <div class="row">
+			                <div class="col-md-3 col-sm-6">
+			                    <div class="our-team">
+			                        <div class="pic">
+			                            <img src="images/1.jpg">
+			                        </div>
+			                        <div class="team-content">
+			                            <h3 class="title">兰老师</h3>
+			                            <Span class="post">副教授</Span>
+										 <span>主要研究领域为：大数据、算法。承担内蒙古自然科学基金、创新基金等科研项目，目前在国内外相关期刊发表学术论文10余篇。</span>
+										<h4>联系方式：电话：150XXXXXX</h4>
+										<h4>微信：XXXXX</h4>
+									</div>
+			                        <ul class="social">
+			                            <li><a href="#" class="fa fa-facebook"></a></li>
+			                            <li><a href="#" class="fa fa-twitter"></a></li>
+			                            <li><a href="#" class="fa fa-google-plus"></a></li>
+			                            <li><a href="#" class="fa fa-linkedin"></a></li>
+			                        </ul>
+			                    </div>
+			                </div>
+		
+			                <div class="col-md-3 col-sm-6">
+			                    <div class="our-team">
+			                        <div class="pic">
+			                            <img src="images/2.jpg">
+			                        </div>
+			                        <div class="team-content"> 
+			                            <h3 class="title">丁老师</h3>
+			                            <Span class="post">工程硕士，讲师</Span>
+										<span>研究方向、科研成果：数据库技术、人机交互技术</span>
+										<h4>联系方式：电话：150XXXXXX</h4>
+										<h4>微信：XXXXX</h4>
+			                        </div>
+			                        <ul class="social">
+			                            <li><a href="#" class="fa fa-facebook"></a></li>
+			                            <li><a href="#" class="fa fa-twitter"></a></li>
+			                            <li><a href="#" class="fa fa-google-plus"></a></li>
+			                            <li><a href="#" class="fa fa-linkedin"></a></li>
+			                        </ul>
+			                    </div>
+			                </div>
+		
+			                <div class="col-md-3 col-sm-6">
+			                    <div class="our-team">
+			                        <div class="pic">
+			                            <img src="images/3.jpg">
+			                        </div>
+			                        <div class="team-content">
+			                            <h3 class="title">李老师</h3>
+			                            <Span class="post">硕士，助理实验师，讲师</Span>
+										<span>主要研究领域为：智能天线、涡旋电磁波。目前在国内外相关期刊发表学术论文3篇，申请专利一项。</span>
+										<h4>联系方式：电话：150XXXXXX</h4>
+										<h4>微信：XXXXX</h4>
+									</div>
+			                        <ul class="social">
+			                            <li><a href="#" class="fa fa-facebook"></a></li>
+			                            <li><a href="#" class="fa fa-twitter"></a></li>
+			                            <li><a href="#" class="fa fa-google-plus"></a></li>
+			                            <li><a href="#" class="fa fa-linkedin"></a></li>
+			                        </ul>
+			                    </div>
+			                </div>
+		
+			                <div class="col-md-3 col-sm-6">
+			                    <div class="our-team">
+			                        <div class="pic">
+			                            <img src="images/4.jpg">
+			                        </div>
+			                        <div class="team-content">
+			                            <h3 class="title">黄老师</h3>
+			                            <Span class="post">硕士，讲师</Span>
+										<span>主要研究领域为：模式识别与智能图像处理，深度学习与神经网络，人工智能在智能化矿山建设的应用与研究。承担内蒙古科技大学创新基金、内蒙古科技大学校级教改项目等科研项目多项，在国内外相关期刊发表学术论文多篇。内蒙古模式识别与智能图像处理重点实验室成员。</span>
+										<h4>联系方式：电话：150XXXXXX</h4>
+										<h4>微信：XXXXX</h4> 
+									</div>
+			                        <ul class="social">
+			                            <li><a href="#" class="fa fa-facebook"></a></li>
+			                            <li><a href="#" class="fa fa-twitter"></a></li>
+			                            <li><a href="#" class="fa fa-google-plus"></a></li>
+			                            <li><a href="#" class="fa fa-linkedin"></a></li>
+			                        </ul>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+	</div>
+	
+	 
+	</div>
+	<script src="../../js/mui.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

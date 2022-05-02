@@ -10,82 +10,93 @@
     <link rel="stylesheet" type="text/css" href="../css/questionReset.css"/>
     <script type="text/javascript" src="../js/questionRem.js"></script>
     <link href="../css/mui.css" rel="stylesheet"/>
-	<style>
-	#xiayiti1{
-		float:right;
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#xiayiti2{
-		float:right;
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#xiayiti3{
-		float:right;
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#xiayiti4{
-		float:right;
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#xiayiti5{
-		float:right;
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#shangyiti1{
-		width: 120px;
-		height: 40px;
-		background:transparent;	/*按钮背景透明*/
-			border-width:0px;	/*边框透明*/
-			outline:none;	/*点击后没边框*/
-	}
-	#shangyiti2{
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#shangyiti3{
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#shangyiti4{
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	#shangyiti5{
-		color: white;
-		width: 120px;
-		height: 40px;
-		background-color: #0066CF;
-	}
-	 .entrance-bottom-frame-line-titlep2134 {
-	  font-size:20px;
-	
-	}
-	.entrance-bottom-frame-line-titlep21345 {
-	  font-size:20px;
-	
-	}
-	</style>
+    <style>
+        #xiayiti1 {
+            float: right;
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #xiayiti2 {
+            float: right;
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #xiayiti3 {
+            float: right;
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #xiayiti4 {
+            float: right;
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #xiayiti5 {
+            float: right;
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #shangyiti1 {
+            width: 120px;
+            height: 40px;
+            background: transparent; /*按钮背景透明*/
+            border-width: 0px; /*边框透明*/
+            outline: none; /*点击后没边框*/
+        }
+
+        #shangyiti2 {
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #shangyiti3 {
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #shangyiti4 {
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        #shangyiti5 {
+            color: white;
+            width: 120px;
+            height: 40px;
+            background-color: #0066CF;
+        }
+
+        .entrance-bottom-frame-line-titlep2134 {
+            font-size: 20px;
+
+        }
+
+        .entrance-bottom-frame-line-titlep21345 {
+            font-size: 20px;
+
+        }
+    </style>
 </head>
 <body>
 <div class="topic">
@@ -102,24 +113,28 @@
         </div>
     </div>
 
-		</div>
-	</body>
-	<script src="../js/mui.js"></script>
-	<script src="../js/questionIndex.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		mui.init();
-		mui.post('http://81.70.23.51:5555/questionBack', {}, function data1(data1) {
-			mui.toast(data1.msg);
-			//mui.toast(data.msg);
-			//console.log(JSON.stringify(data1));
-			// var a = JSON.stringify(data1[1].choice)
-			// var b = JSON.stringify(data1[2].choice);
-			// var c = JSON.stringify(data1[3].choice);
-			// var d = JSON.stringify(data1[4].choice);
-			// var e = JSON.stringify(data1[5].choice);
-			// console.log(a);
-			// var aa= typeof(a);
-			// console.log(aa);
+</div>
+</body>
+<script src="../js/mui.js"></script>
+<script src="../js/questionIndex.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var unit = location.search;
+    // 数据处理
+    unit = unit.slice(unit.indexOf("=") + 1)
+
+    mui.init();
+    mui.post('http://81.70.23.51:5555/questionBack', {"unit":unit,}, function data1(data1) {
+        mui.toast(data1.msg);
+        //mui.toast(data.msg);
+        //console.log(JSON.stringify(data1));
+        // var a = JSON.stringify(data1[1].choice)
+        // var b = JSON.stringify(data1[2].choice);
+        // var c = JSON.stringify(data1[3].choice);
+        // var d = JSON.stringify(data1[4].choice);
+        // var e = JSON.stringify(data1[5].choice);
+        // console.log(a);
+        // var aa= typeof(a);
+        // console.log(aa);
 
         TiMu(data1);
 

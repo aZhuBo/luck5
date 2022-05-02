@@ -19,13 +19,13 @@
 			}
 		
 			.mui-input-group label {
-				width: 22%;
+				width: 30%;
 			}
 		
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 78%;
+				width: 70%;
 			}
 		
 			.mui-checkbox input[type=checkbox],
@@ -83,6 +83,42 @@
 				background-color: #ddd;
 			}
 		</style>
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			.mui-input-group label {
+				width: 25%;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 75%;
+			}
+			/* .mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			} */
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			.dsfwer{
+				background-color: #007aff;
+				
+			}
+			.das23ad{
+				color: white;
+			}
+			.retd{
+				color: white;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -94,16 +130,21 @@
 		<div class="mui-content">
 			<form id='mylist' class="mui-input-group">
 				<div class="mui-input-row">
+					<label>类型</label>
+					<label>老师<input type="radio" name="lixi" value="0"/></label>
+					<label>学生<input type="radio" name="lixi" value="1" /></label>
+				</div>
+				<div class="mui-input-row">
 					<label>账号</label>
-					<input id="username" type="text" class="mui-input-clear mui-input" placeholder="请输入新账号">
+					<input id="username" type="text" class="mui-input-clear mui-input" placeholder="请输入新账号(不填写为不修改此项)">
 				</div>
 				<div class="mui-input-row">
 					<label>密码</label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入新密码">
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入新密码(不填写为不修改此项)">
 				</div>
 				<div class="mui-input-row">
 					<label>昵称</label>
-					<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请输入新姓名">
+					<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请输入新姓名(不填写为不修改此项)">
 				</div>
 			</form>
 			<div class="mui-content-padded">
@@ -114,9 +155,20 @@
 		
 		<script src="../js/mui.js"></script>
 		<script type="text/javascript">
+		function getRadioValue(args){
+		var element = document.getElementsByName(args);
+		// 通过获取到name属性=hero的所dom对象
+		  for(var i=0; i<element.length; i ++){
+			    // 判断该单选框是否处于选中状态
+			    if(element[i].checked){
+					return element[i].value;
+			    }
+			}	
+		}
 			mui.init();
 			document.getElementById('true_gai').addEventListener('tap', function() {
-				console.log("确认修改");
+				var checkElement=getRadioValue("lixi");
+				console.log(checkElement);
 				var username = document.getElementById("username").value;
 				var password = document.getElementById("password").value;
 				var name = document.getElementById("name").value;
@@ -125,6 +177,7 @@
 					"username": username,
 					"password": password,
 					"name":name,
+					"lixing":checkElement,
 				}, function(data) {
 					console.log("从服务端返回数据,准备判断");
 					
