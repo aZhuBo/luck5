@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-host = '127.0.0.1'
+host = '81.70.23.51'
 client = MongoClient(host, 5429)
 db = client.admin
 #user_client = pymongo.MongoClient(host='127.0.0.1', port=5429)

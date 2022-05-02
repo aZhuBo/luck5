@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>蓝色简约排行榜页面模板</title>
+		<title>排行榜</title>
 		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
 		<meta content="yes" name="apple-mobile-web-app-capable" />
 		<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 		<meta content="telephone=no" name="format-detection" />
 		<link rel="stylesheet" type="text/css" href="../css/paihang.css" />
 		<link href="../css/mui.css" rel="stylesheet" />
-		<style>
+		<style> 
 			.dfserw {
 				background-color: #4e84fd;
 			}
@@ -30,216 +30,250 @@
 					<i class="icon icon-more"></i>
 				</a>
 			</header>
+			<div class="mui-content">
+				<section class="aui-scrollView">
 
-			<section class="aui-scrollView">
-				<div>
-					<img src="../images/banner5.png" alt="">
-				</div>
-
-					<!-- <ul class="tab-nav b-line">
-						<li class="tab-nav-item tab-active">
-							<a href="javascript:;">
-								<span>日榜</span>
-							</a>
-						</li>
-						<li class="tab-nav-item ">
-							<a href="javascript:;">
-								<span>周榜</span>
-							</a>
-						</li>
-						<li class="tab-nav-item">
-							<a href="javascript:;">
-								<span>总榜</span>
-							</a>
-						</li>
-					</ul> -->
-					
-	<!-- 			<div class="aui-tab" data-ydui-tab>
-
-					<div class="tab-panel">
-						<div class="tab-panel-item tab-active">
-							<div class="aui-flex b-line">
-								<div class="aui-ranking-text one">
-									<em>1</em>
-								</div>
-								<div class="aui-ranking-img">
-
-								</div>
-								<div class="aui-ranking-name aui-flex-box">
-									<h2>宁静时代</h2>
-									<p>生命不息，奋斗不止</p>
-								</div>
-								<div class="aui-ranking-num">50000</div>
-								<div class="aui-ranking-icon">
-									<img src="img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="aui-flex b-line">
-								<div class="aui-ranking-text two">
-									<em>2</em>
-								</div>
-								<div class="aui-ranking-img">
-									<img src="img/user_01.png" alt="">
-								</div>
-								<div class="aui-ranking-name aui-flex-box">
-									<h2>宁静时代</h2>
-									<p>生命不息，奋斗不止</p>
-								</div>
-								<div class="aui-ranking-num">50000</div>
-								<div class="aui-ranking-icon">
-									<img src="img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="aui-flex b-line">
-								<div class="aui-ranking-text three">
-									<em>3</em>
-								</div>
-								<div class="aui-ranking-img">
-									<img src="img/user_01.png" alt="">
-								</div>
-								<div class="aui-ranking-name aui-flex-box">
-									<h2>宁静时代</h2>
-									<p>生命不息，奋斗不止</p>
-								</div>
-								<div class="aui-ranking-num">1000</div>
-								<div class="aui-ranking-icon">
-									<img src="img/icon.png" alt="">
-								</div>
-							</div>
-							<div class="aui-flex b-line">
-								<div class="aui-ranking-text">
-									<em>4</em>
-								</div>
-								<div class="aui-ranking-img">
-									<img src="img/user_01.png" alt="">
-								</div>
-								<div class="aui-ranking-name aui-flex-box">
-									<h2>宁静时代</h2>
-									<p>生命不息，奋斗不止</p>
-								</div>
-								<div class="aui-ranking-num">3000</div>
-								<div class="aui-ranking-icon">
-									<img src="img/icon.png" alt="">
-								</div>
-							</div>
-						</div>
-						
+					<div>
+						<img src="../images/banner5.png" alt="">
 					</div>
-				</div>
-				 -->
-				<div class="tab-panel">
-				
-				</div> 
-			</section>
+					<ul class="tab-nav b-line">
+						<li class="tab-nav-item ">
+							<a onclick="show1()">
+								<span>个人积分榜</span>
+							</a>
+						</li>
+
+						<li class="tab-nav-item ">
+							<a onclick="show2()">
+								<span>班级排行榜</span>
+							</a>
+						</li>
+
+
+					</ul>
+
+
+
+					<div id="div1">
+						<div class="tab-panel">
+						</div>
+					</div>
+					<div id="div2">
+						<div class="tab-panel classpass">
+							
+						</div>
+					</div>
+
+
+
+			</div>
+
 		</section>
+
 
 		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="../js/tab.js"></script>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
-		mui.init();
-		var pass;
-		mui.post('http://81.70.23.51:5555/paiming', {
-		}, function(data) {
-			console.log("从服务端返回数据,准备判断");
-			//console.log(JSON.stringify(data));
-			pass=data;
-		}, 'json');
-		
-		setTimeout(function() {
-			var div = document.createElement("div");
-			div.className = "tab-panel-item tab-active";
-			document.querySelector(".tab-panel").appendChild(div);
-			// console.log(pass[1]['name']);
-			for (var i in pass){
-				
-				console.log(i);
-				var div1 = document.createElement("div");
-				div1.className = "aui-flex b-line"+ i;
-				document.querySelector(".tab-active").appendChild(div1);
-				
-				if(i==0)
-				{
-					var div2 = document.createElement("div");
-					div2.className = "aui-ranking-text one";
-					document.querySelector(".b-line"+i).appendChild(div2);
-					//<em>1</em>
-					var em = document.createElement("em");
-					em.innerHTML="1";
-					document.querySelector(".one").appendChild(em);
+			mui.init();
+			var pass;
+			var classpass;
+			mui.post('http://81.70.23.51:5555/paiming', {}, function(data) {
+				console.log("从服务端返回数据,准备判断");
+				//console.log(JSON.stringify(data));
+				pass = data;
+			}, 'json');
+			
+			mui.post('http://81.70.23.51:5555/classpaiming', {}, function(data) {
+				console.log("从服务端返回数据,准备判断");
+				console.log(JSON.stringify(data));
+				classpass=data;
+			}, 'json');
+
+			setTimeout(function() {
+				var div = document.createElement("div");
+				div.className = "tab-panel-item tab-active";
+				document.querySelector(".tab-panel").appendChild(div);
+				// console.log(pass[1]['name']);
+				for (var i in pass) {
+
+					//console.log(i);
+					var div1 = document.createElement("div");
+					div1.className = "aui-flex b-line" + i;
+					document.querySelector(".tab-active").appendChild(div1);
+
+					if (i == 0) {
+						var div2 = document.createElement("div");
+						div2.className = "aui-ranking-text one";
+						document.querySelector(".b-line" + i).appendChild(div2);
+						//<em>1</em>
+						var em = document.createElement("em");
+						em.innerHTML = "1";
+						document.querySelector(".one").appendChild(em);
+					}
+					if (i == 1) {
+						var div21 = document.createElement("div");
+						div21.className = "aui-ranking-text two";
+						document.querySelector(".b-line" + i).appendChild(div21);
+						//<em>1</em>
+						var em = document.createElement("em");
+						em.innerHTML = "2";
+						document.querySelector(".two").appendChild(em);
+					}
+					if (i == 2) {
+
+						var div22 = document.createElement("div");
+						div22.className = "aui-ranking-text three";
+						document.querySelector(".b-line" + i).appendChild(div22);
+						//<em>1</em>
+						var em = document.createElement("em");
+						em.innerHTML = "3";
+						document.querySelector(".three").appendChild(em);
+					}
+
+					if (i > 2) {
+
+						var j = Number(i) + 1;
+						// <div class="aui-ranking-text">
+						// 	<em>4</em>
+						// </div>
+						var div224 = document.createElement("div");
+						div224.className = "aui-ranking-text";
+						div224.innerHTML = "<em>" + j + "</em>"
+						document.querySelector(".b-line" + i).appendChild(div224);
+						//<em>1</em>
+						// var em = document.createElement("em");
+						// em.innerHTML=i+1;
+						//document.querySelector("px"+i).appendChild(em);
+					}
+
+					//img占位
+					var divimg = document.createElement("div");
+					divimg.className = "aui-ranking-img";
+					document.querySelector(".b-line" + i).appendChild(divimg);
+					var name1 = document.createElement("div");
+					name1.className = "aui-ranking-name aui-flex-box";
+					name1.innerHTML = "<h2>" + pass[i]['name'] + "<h2>" + "<p>" + pass[i]['username'] + "<p>"
+					document.querySelector(".b-line" + i).appendChild(name1);
+					// <div class="aui-ranking-num">50000</div>
+
+					var jifneg1 = document.createElement("div");
+					jifneg1.className = "aui-ranking-num1";
+					jifneg1.innerHTML = pass[i]['duanwei']
+					document.querySelector(".b-line" + i).appendChild(jifneg1);
+
+
+					// var divimg = document.createElement("div");
+					// divimg.className = "aui-ranking-img1";
+					// document.querySelector(".b-line"+i).appendChild(divimg);
+
+					var jifneg = document.createElement("div");
+					jifneg.className = "aui-ranking-num";
+					jifneg.innerHTML = pass[i]['jifeng']
+					document.querySelector(".b-line" + i).appendChild(jifneg);
+					var name2 = document.createElement("div");
+					name2.className = "aui-ranking-icon";
+					document.querySelector(".b-line" + i).appendChild(name2);
+
 				}
-				if(i==1)
-				{
-					var div21 = document.createElement("div");
-					div21.className = "aui-ranking-text two";
-					document.querySelector(".b-line"+i).appendChild(div21);
-					//<em>1</em>
-					var em = document.createElement("em");
-					em.innerHTML="2";
-					document.querySelector(".two").appendChild(em);
-				}
-				if(i==2)
-				{
+				//前123特殊
+			}, 500);
+			
+			
+			setTimeout(function() {
+				var classdiv = document.createElement("div");
+				classdiv.className = "tab-panel-item tab-active classtab";
+				document.querySelector(".classpass").appendChild(classdiv);
+				
+				for (var xa in classpass){
+					var classdiv1 = document.createElement("div");
+					classdiv1.className = "aui-flex b-line classb" + xa;
+					document.querySelector(".classtab").appendChild(classdiv1);
 					
-					var div22 = document.createElement("div");
-					div22.className = "aui-ranking-text three";
-					document.querySelector(".b-line"+i).appendChild(div22);
-					//<em>1</em>
-					var em = document.createElement("em");
-					em.innerHTML="3";
-					document.querySelector(".three").appendChild(em);
-				}
-				
-				if(i>2)
-				{
+					if (xa == 0) {
+						var classdiv2 = document.createElement("div");
+						classdiv2.className = "aui-ranking-text one classone";
+						document.querySelector(".classb" + xa).appendChild(classdiv2);
+						//<em>1</em>
+						var em = document.createElement("em");
+						em.innerHTML = "1";
+						document.querySelector(".classone").appendChild(em);
+					}
 					
-					var j=Number(i)+1;
-					// <div class="aui-ranking-text">
-					// 	<em>4</em>
-					// </div>
-					var div224 = document.createElement("div");
-					div224.className = "aui-ranking-text";
-					div224.innerHTML="<em>"+j+"</em>"
-					document.querySelector(".b-line"+i).appendChild(div224);
-					//<em>1</em>
-					// var em = document.createElement("em");
-					// em.innerHTML=i+1;
-					//document.querySelector("px"+i).appendChild(em);
+					if (xa == 1) {
+						var classdiv21 = document.createElement("div");
+						classdiv21.className = "aui-ranking-text two classtwo";
+						document.querySelector(".classb" + xa).appendChild(classdiv21);
+						//<em>1</em>
+						var em = document.createElement("em");
+						em.innerHTML = "2";
+						document.querySelector(".classtwo").appendChild(em);
+					}
+					if (xa == 2) {
+					
+						var classdiv22 = document.createElement("div");
+						classdiv22.className = "aui-ranking-text three classthree";
+						document.querySelector(".classb" + xa).appendChild(classdiv22);
+						//<em>1</em>
+						var em = document.createElement("em");
+						em.innerHTML = "3";
+						document.querySelector(".classthree").appendChild(em);
+					}
+					
+					if (xa > 2) {
+						var j = Number(xa) + 1;
+						var classdiv224 = document.createElement("div");
+						classdiv224.className = "aui-ranking-text classtext";
+						classdiv224.innerHTML = "<em>" + j + "</em>"
+						document.querySelector(".classb" + xa).appendChild(classdiv224);
+						//<em>1</em>
+						// var em = document.createElement("em");
+						// em.innerHTML=i+1;
+						//document.querySelector("px"+i).appendChild(em);
+					}
+					
+					//img占位
+					var divimg = document.createElement("div");
+					divimg.className = "aui-ranking-img";
+					document.querySelector(".classb" + xa).appendChild(divimg);
+					
+					
+					var name1 = document.createElement("div");
+					name1.className = "aui-ranking-name aui-flex-box classbox";
+					name1.innerHTML = "<h2>" + classpass[xa]['class'] + "<h2>" + "<p>" +"人数"+classpass[xa]['people'] + "<p>"
+					document.querySelector(".classb" + xa).appendChild(name1);
+					
+					
+					var jifneg = document.createElement("div");
+					jifneg.className = "aui-ranking-num classnum";
+					jifneg.innerHTML = classpass[xa]['average']
+					document.querySelector(".classb" + xa).appendChild(jifneg);
+					
+					var name2 = document.createElement("div");
+					name2.className = "aui-ranking-icon";
+					document.querySelector(".classb" + xa).appendChild(name2);
 				}
 				
-				//img占位
-				var divimg = document.createElement("div");
-				divimg.className = "aui-ranking-img";
-				document.querySelector(".b-line"+i).appendChild(divimg);
-				var name1 = document.createElement("div");
-				name1.className = "aui-ranking-name aui-flex-box";
-				name1.innerHTML="<h2>"+pass[i]['name']+"<h2>"+"<p>"+pass[i]['username']+"<p>"
-				document.querySelector(".b-line"+i).appendChild(name1);
-				// <div class="aui-ranking-num">50000</div>
-				var jifneg = document.createElement("div");
-				jifneg.className = "aui-ranking-num";
-				jifneg.innerHTML=pass[i]['jifeng']
-				document.querySelector(".b-line"+i).appendChild(jifneg);
-				var name2 = document.createElement("div");
-				name2.className = "aui-ranking-icon";
-				document.querySelector(".b-line"+i).appendChild(name2);
-				
+				//前123特殊
+			}, 500);
+		</script>
+		<script>
+			function show1() {
+				document.getElementById("div1").style.display = "block";
+				document.getElementById("div2").style.display = "none";
+			};
+
+			function show2() {
+				document.getElementById("div2").style.display = "block";
+				document.getElementById("div1").style.display = "none";
+
 			}
-			//前123特殊
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		}, 500);
-		
-		
-		
+		</script>
+		<!-- 自动选中第一个点击事件 -->
+		<script>
+			window.onload = function() {
+				show1();
+			}
 		</script>
 	</body>
 </html>
