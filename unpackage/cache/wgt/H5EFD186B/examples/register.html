@@ -3,7 +3,8 @@
 
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="../css/mui.min.css" rel="stylesheet" />
 		<link href="../css/style.css" rel="stylesheet" />
@@ -11,52 +12,103 @@
 			.area {
 				margin: 20px auto 0px auto;
 			}
+
 			.mui-input-group:first-child {
 				margin-top: 20px;
 			}
+
 			.mui-input-group label {
-				width: 22%;
+				width: 30%;
 			}
+
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 78%;
+				width: 70%;
 			}
-			.mui-checkbox input[type=checkbox],
+
+			/* .mui-checkbox input[type=checkbox],
 			.mui-radio input[type=radio] {
 				top: 6px;
-			}
+			} */
 			.mui-content-padded {
 				margin-top: 25px;
 			}
+
 			.mui-btn {
 				padding: 10px;
 			}
-			
+
+			.dsfwer {
+				background-color: #007aff;
+
+			}
+
+			.das23ad {
+				color: white;
+			}
+
+			.retd {
+				color: white;
+			}
+
+			.mui-badge1 {
+				padding: 0px;
+				width: 65%;
+				float: right;
+				line-height: 42px;
+				font-size: 14px;
+			}
+			.lingwei{
+				width: 30%;
+			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">欢迎注册</h1>
+		<header class="mui-bar mui-bar-nav dsfwer">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left retd"></a>
+			<h1 class="mui-title das23ad">欢迎注册</h1>
 		</header>
+
 		<div class="mui-content">
 			<form class="mui-input-group">
 				<div class="mui-input-row">
-					<label>账号</label>
-					<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+					<label>账号类型</label>
+					<label >老师<input type="radio" name="lixi" value="0" /></label>
+					<label >学生<input type="radio" name="lixi" value="1" /></label>
 				</div>
 				<div class="mui-input-row">
-					<label>密码</label>
+					<label>选择班级</label>
+					<a class="mui-navigate-right">
+						<span class="mui-badge1">
+							<select class="mui-h5" style="margin:auto; color:#000;" id="test">
+								<option value="">点击展开</option>
+								<option value="计算机1班">计算机1班</option>
+								<option value="计算机2班">计算机2班</option>
+								<option value="网络安全1班">网络安全1班</option>
+								<option value="网络安全1班">网络安全1班</option>
+								<option value="冶金1班">冶金1班</option>
+								<option value="冶金2班">冶金2班</option>
+								<option value="我是老师">我是老师</option>
+							</select>
+						</span>
+					</a>
+				</div>
+				<div class="mui-input-row">
+					<label>账号/学号</label>
+					<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号/学号">
+				</div>
+				<div class="mui-input-row">
+					<label>输入密码</label>
 					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
 				<div class="mui-input-row">
-					<label>密码</label>
+					<label>确认密码</label>
 					<input id='againpassword' type="password" class="mui-input-clear mui-input" placeholder="请再次确认密码">
 				</div>
 				<div class="mui-input-row">
-					<label>昵称</label>
+					<label>输入昵称</label>
 					<input id='name' type="text" class="mui-input-clear mui-input" placeholder="请填写昵称">
 				</div>
 			</form>
@@ -67,31 +119,65 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/app.js"></script>
 		<script>
+			//下拉列表
+
+			function getSelectedValue(name){
+			var obj=document.getElementById(name);
+			return obj.value;      //如此简单，直接用其对象的value属性便可获取到
+			}
+
+			//单选框
+			function getRadioValue(args) {
+				
+				var element = document.getElementsByName(args);
+				// 通过获取到name属性=hero的所dom对象
+				for (var i = 0; i < element.length; i++) {
+					// 判断该单选框是否处于选中状态
+					if (element[i].checked) {
+						return element[i].value;
+					}
+				}
+			}
+
+
 			mui.init();
+			// var flag;
+			// var list = document.querySelector('.mui-table-view.mui-table-view-radio');
+			// list.addEventListener('selected',function(e){
+			// 	flag=e.detail.el.innerText;
+
+			// });
+
 			document.getElementById('reg').addEventListener('tap', function() {
-				console.log("注册按钮");
+				var checkElement = getRadioValue("lixi");
+				var xxx=getSelectedValue("test");
+				console.log(xxx);
+				console.log(checkElement);
+
 				var username = document.getElementById("username").value;
 				var password = document.getElementById("password").value;
 				var againpassword = document.getElementById("againpassword").value;
-				var name=document.getElementById("name").value;
+				var name = document.getElementById("name").value;
 				//提交
 				mui.post('http://81.70.23.51:5555/register', {
 					"username": username,
 					"password": password,
-					"againpassword":againpassword,
-					"name":name,
+					"againpassword": againpassword,
+					"name": name,
+					"lixing": checkElement,
+					"class":xxx,
 				}, function(data) {
 					console.log("从服务端返回数据,准备判断");
 					console.log(data.mag);
 					mui.toast(data.mag);
-						mui.openWindow({
-							url: "./login.html",
-							id: "./login.html",
-							createNew: false
-						});
-					
-					
-					
+					mui.openWindow({
+						url: "./login.html",
+						id: "./login.html",
+						createNew: false
+					});
+
+
+
 				}, 'json');
 			})
 		</script>

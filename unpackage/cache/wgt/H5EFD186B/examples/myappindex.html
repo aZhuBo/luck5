@@ -11,9 +11,9 @@
 		<!--App自定义的css-->
 		<link rel="stylesheet" type="text/css" href="../css/myappindex.css" />
 		<style>
-		#wsbiand{
-			background-color: #149de4;
-		}
+			#wsbiand {
+				background-color: #149de4;
+			}
 		</style>
 	</head>
 
@@ -28,7 +28,7 @@
 		<div class="nav-bottom">
 			<div class="new-mine">
 				<div class="mine-photo min-photo-bgimg">
-					<img src="../images/myappindex1.jpg" /> 
+					<img src="../images/myappindex1.jpg" />
 					<h4><span id="name"></span></h4>
 					<ul class="mine-photo-list">
 						<li><a>
@@ -49,7 +49,7 @@
 
 			<div class="jianxi">
 			</div>
-			
+
 			<ul class="mui-table-view" id="">
 				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list5.png" width="20px">
@@ -57,7 +57,7 @@
 				</li>
 				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list1.png" width="20px">
-						<a class="mui-navigate-right" id="pai_hang">排行榜</a>
+					<a class="mui-navigate-right" id="pai_hang">排行榜</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list2.png" width="20px">
@@ -66,19 +66,27 @@
 				<div class="jianxi">
 				</div>
 				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list6.png" width="20px">
+					<a class="mui-navigate-right" id="backstage">后台(老师)</a>
+				</li>
+				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list4.png" width="20px">
-						<a class="mui-navigate-right" id="about">关于我们</a>
+					<a class="mui-navigate-right" id="about">关于我们</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list3.png" width="20px">
-						<a class="mui-navigate-right" id="login_out">退出登录</a>
+					<a class="mui-navigate-right" id="login_out">退出登录</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list3.png" width="20px">
+					<a class="mui-navigate-right" id="cheshi">开发测试</a>
 				</li>
 			</ul>
 		</div>
 		<div id='div'></div>
 		<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- 		<script type="text/javascript">
+		<!-- 		<script type="text/javascript">
 			//禁止返回登录页面
 			mui.init({
 				beforeback: function() {
@@ -101,9 +109,11 @@
 
 		<script type="text/jscript">
 			mui.init();
+			var lingshi;
 			mui.post('http://81.70.23.51:5555/myappindex', {}, function data1(data) {
 				console.log("后端返回数据,准备判断");
-				console.log(JSON.stringify(data));
+				//console.log(JSON.stringify(data));
+				lingshi = data.lixing;
 				var a = data.jifen;
 				var b = data.duanwei;
 				var c = data.name;
@@ -112,7 +122,11 @@
 				document.getElementById('duanwei').innerHTML = b;
 				document.getElementById('name').innerHTML = c;
 				document.getElementById('username').innerHTML = d;
+				//data12(JSON.stringify(data));
+
+
 			}, 'json');
+
 			document.getElementById('login_out').addEventListener('tap', function() {
 				console.log("登出按钮");
 				mui.post('http://81.70.23.51:5555/login_out', {
@@ -126,17 +140,25 @@
 				mui.openWindow({
 					createNew: true,
 					url: './login.html', //通过URL传参
-					
-					
+
+
 				})
 			});
-			
+
+			//测试
+			document.getElementById('cheshi').addEventListener('tap', function() {
+				
+				mui.openWindow({
+					url: './cheshi.html', //通过URL传参
+
+				})
+			});
 			//排行榜
 			document.getElementById('pai_hang').addEventListener('tap', function() {
 				console.log("排行榜");
 				mui.openWindow({
 					url: './paihang.html', //通过URL传参
-					
+
 				})
 			});
 			//通知
@@ -144,26 +166,43 @@
 				console.log("通知");
 				mui.openWindow({
 					url: './tong_zhi.html', //通过URL传参
-					
+
 				})
 			});
 
 			// 关于我们
+
 			document.getElementById('about').addEventListener('tap', function() {
 				console.log("关于我们");
 				mui.openWindow({
 					url: './about.html', //通过URL传参
-					
+
 				})
 			});
-			
+			// 后台
+			setTimeout(function() {
+				document.getElementById('backstage').addEventListener('tap', function() {
+
+					if (String(lingshi) == '0') {
+						mui.openWindow({
+							url: './backstage.html', //通过URL传参
+
+						})
+
+					} else {
+						mui.toast("只有老师才能进入后台哦！");
+					}
+				});
+			}, 500);
+
+
 			//我的信息
 			document.getElementById('mylist').addEventListener('tap', function() {
 				console.log("我的信息");
 				mui.openWindow({
 
 					url: './mylist.html', //通过URL传参
-					
+
 				})
 			});
 		</script>
