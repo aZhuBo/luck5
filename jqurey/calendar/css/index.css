@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.items-scroll {
+  display: flex;
+  display: -webkit-flex;
+  white-space: nowrap;
+  align-items: center;
+  width: 100vw;
+  height: 8vh;
+  overflow: scroll;
+  border-bottom: 1px solid #f5F8Fa;
+}
+.calendar {
+  padding-bottom: 4vw;
+}
+.dateDay {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4vw;
+}
+
+.td {
+  width: .38rem;
+  height: 6vh;
+  line-height: 6vh;
+  text-align: center;
+  font-weight: 700;
+}
+
+.date_Dates {
+  display: flex;
+  padding: 0 4vw;
+  margin-top: 4vw;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.date_Date {
+  font-size: .12rem;
+  height: 7vh;
+  display: flex;
+  flex-wrap: wrap;
+  color: #E3E6E9;
+  flex-direction: column;
+  justify-content: center;
+  width: .38rem;
+  border: 1px solid #E3E6E9;
+}
+
+.date_Date2 {
+  font-size: .12rem;
+  height: 7vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  width: .38rem;
+}
+
+.date_Date4 {
+  font-size: .12rem;
+  height: 7vh;
+  display: flex;
+  flex-wrap: wrap;
+  color: #1D223E;
+  flex-direction: column;
+  justify-content: center;
+  width: .38rem;
+  border: 1px solid #E3E6E9;
+}
+
+.date_Date3 {
+  font-size: .12rem;
+  height: 7vh;
+  display: flex;
+  flex-wrap: wrap;
+  color: #00CBDB;
+  flex-direction: column;
+  justify-content: center;
+  width: .38rem;
+  border: 1px solid #00CBDB;
+  background-color: #E0F8F8;
+}
+.item {
+  margin-left: 4vw;
+  height: 6vh;
+  line-height: 6vh;
+  text-align: center;
+}
+.kong {
+  width: 100%;
+  height: 20vh;
+  text-align: center;
+  line-height: 20vh;
+}
+
+.course_state {
+  transform: scale(0.8);
+  color: #0081FF;
+  padding-top: .05rem;
+}
+
+.course_state2 {
+  transform: scale(0.8);
+  padding-top: .05rem;
+  color: #FF871A
+}
+
+.course_state4 {
+  transform: scale(0.8);
+  color: #ADAFBE;
+  padding-top: .05rem;
+}
+.type {
+  color: #0081FF;
+}
+
+.normal {
+  width: 0;
+}
+
+.wink {
+  margin: 0 auto;
+  transition: width 0.5s;
+  width: 12vw;
+  height: 3px;
+  background-color: #007DDB;
+}

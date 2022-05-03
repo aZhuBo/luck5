@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head> 
+	<head>   
 		<meta charset="UTF-8">
 		<title>首页</title>
 		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
@@ -75,20 +75,20 @@
 							<div class="swiper-wrapper adat">
 								<div class="swiper-slide">
 									<div class="css-palace css-palace-one">
-										<a href="javascript:;" class="css-palace-grid" id="school">
-											<div class="css-palace-grid-icon">
-												<img src="../images/one1.png" alt="">
-											</div>
-											<div class="css-palace-grid-text">
-												<h2>学校官网</h2>
-											</div>
-										</a>
 										<a href="javascript:;" class="css-palace-grid" id="about">
 											<div class="css-palace-grid-icon">
 												<img src="../images/one2.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
 												<h2>关于我们</h2>
+											</div>
+										</a>
+										<a href="javascript:;" class="css-palace-grid" id="library">
+											<div class="css-palace-grid-icon">
+												<img src="../images/one5.png" alt="">
+											</div>
+											<div class="css-palace-grid-text">
+												<h2>师资力量</h2> 
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="zhiwang">
@@ -107,20 +107,53 @@
 												<h2>IMUSTCTF</h2>
 											</div>
 										</a>
-										<a href="javascript:;" class="css-palace-grid" id="library">
-											<div class="css-palace-grid-icon">
-												<img src="../images/one5.png" alt="">
-											</div>
-											<div class="css-palace-grid-text">
-												<h2>师资力量</h2> 
-											</div>
-										</a>
+										
 										<a href="javascript:;" class="css-palace-grid" id="sign">
 											<div class="css-palace-grid-icon">
 												<img src="../images/one6.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
 												<h2>签到</h2> 
+											</div>
+										</a>
+										<a href="javascript:;" class="css-palace-grid" id="calendar">
+											<div class="css-palace-grid-icon">
+												<img src="../images/one7.png" alt="">
+											</div>
+											<div class="css-palace-grid-text">
+												<h2>日历</h2> 
+											</div>
+										</a>
+										<a href="javascript:;" class="css-palace-grid" id="paihang">
+											<div class="css-palace-grid-icon">
+												<img src="../images/one8.png" alt="">
+											</div>
+											<div class="css-palace-grid-text">
+												<h2>排行榜</h2> 
+											</div>
+										</a>
+										<a href="javascript:;" class="css-palace-grid" id="game">
+											<div class="css-palace-grid-icon">
+												<img src="../images/one9.png" alt="">
+											</div>
+											<div class="css-palace-grid-text">
+												<h2>休闲娱乐</h2> 
+											</div>
+										</a>
+										<a href="javascript:;" class="css-palace-grid" id="translate">
+											<div class="css-palace-grid-icon">
+												<img src="../images/one10.png" alt="">
+											</div>
+											<div class="css-palace-grid-text">
+												<h2>翻译</h2> 
+											</div>
+										</a>
+										<a href="javascript:;" class="css-palace-grid" id="weather">
+											<div class="css-palace-grid-icon">
+												<img src="../images/one11.png" alt="">
+											</div>
+											<div class="css-palace-grid-text">
+												<h2>天气</h2>
 											</div>
 										</a>
 									</div>
@@ -144,7 +177,7 @@
 						</div>
 						<div class="css-flex css-flex-ad">
 							<div class="css-flex-box">
-								<span id="lianxi_everyday"><img src="../images/ad_03.gif" alt=""></span>
+								<span id="pack"><img src="../images/ad_03.gif" alt=""></span>
 							</div>
 							<div class="css-flex-box">
 								<span id="dati_everyday"><img src="../images/ad_02.gif" alt=""></span>
@@ -156,7 +189,7 @@
 						</div>
 						<div class="css-flex css-flex-ad">
 							<div class="css-flex-box">
-								<span id="ches_everyday"><img src="../images/lianxi1.gif" alt=""></span>
+								<span id="lianxi_xuanzhe"><img src="../images/lianxi1.gif" alt=""></span>
 						
 							</div>
 							<div class="css-flex-box">
@@ -182,35 +215,50 @@
 	</script>
 	<script type="text/javascript">
 		mui.init();
-		// 测试
-		document.getElementById('ches_everyday').addEventListener('tap', function() {
-			console.log("每日练习");
-			mui.openWindow({
-				createNew: true,
-				url: './ches_questionPage.html', //通过URL传参  
-			})
-		});
-		// 每日练习
+		// // 测试
+		// document.getElementById('ches_everyday').addEventListener('tap', function() {
+		// 	console.log("每日练习");
+		// 	mui.openWindow({
+		// 		createNew: true,
+		// 		url: './ches_questionPage.html', //通过URL传参  
+		// 	})
+		// });
+		// 单元检查
 		document.getElementById('lianxi_everyday').addEventListener('tap', function() {
-			console.log("每日练习");
+			
 			mui.openWindow({
 				createNew: true,
 				url: './unit.html', //通过URL传参
 			})
 		});
-		// 每日答题
+		// 选择专项
 		document.getElementById('dati_everyday').addEventListener('tap', function() {
-			console.log("每日答题");
 			mui.openWindow({
 				createNew: true,
 				url: './questionPage_sum.html', //通过URL传参
 			})
 		});
-		//学校
-		document.getElementById('school').addEventListener('tap', function() {
-			console.log("学校");
+		// 填空专项pack
+		
+		document.getElementById('pack').addEventListener('tap', function() {
 			mui.openWindow({
-				url: './school.html',
+				createNew: true,
+				url: './fillquestion.html', //通过URL传参
+			})
+		});
+		// 练习—选择
+		document.getElementById('lianxi_xuanzhe').addEventListener('tap', function() {
+			
+			mui.openWindow({
+				createNew: true,
+				url: './lianxi_questionPage.html', //通过URL传参
+			})
+		});
+		//天气
+		document.getElementById('weather').addEventListener('tap', function() {
+			
+			mui.openWindow({
+				url: '../jqurey/weather/wer/weather.html',
 				createNew: true
 			})
 		});
@@ -252,6 +300,37 @@
 			mui.openWindow({
 				url: '../jqurey/sign/index.html', //通过URL传参	
 				createNew: true
+			})
+		}); 
+		
+		//calendar 日历
+		document.getElementById('calendar').addEventListener('tap', function() {
+			mui.openWindow({
+				url: '../jqurey/calendar/index.html', //通过URL传参	
+				createNew: true
+			})
+		});  
+		
+		//排行榜
+		document.getElementById('paihang').addEventListener('tap', function() {
+			mui.openWindow({
+				url: './paihang.html', //通过URL传参
+			
+			})
+		}); 
+		// 小游戏
+		document.getElementById('game').addEventListener('tap', function() {
+			mui.openWindow({
+				url: '../jqurey/game/index.html', //通过URL传参
+			
+			})
+		}); 
+		
+		//翻译
+		document.getElementById('translate').addEventListener('tap', function() {
+			mui.openWindow({
+				url: '../jqurey/translate/translate.html', //通过URL传参
+			
 			})
 		}); 
 	</script>
