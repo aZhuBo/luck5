@@ -48,7 +48,12 @@
 								<span>班级排行榜</span>
 							</a>
 						</li>
-
+						
+						<li class="tab-nav-item ">
+							<a onclick="show3()">
+								<span>游戏挑战排行榜</span>
+							</a>
+						</li>
 
 					</ul>
 
@@ -60,6 +65,12 @@
 					</div>
 					<div id="div2">
 						<div class="tab-panel classpass">
+							
+						</div>
+					</div>
+					
+					<div id="div3">
+						<div class="tab-panel gamepass">
 							
 						</div>
 					</div>
@@ -78,6 +89,7 @@
 			mui.init();
 			var pass;
 			var classpass;
+			var gamepass;
 			mui.post('http://81.70.23.51:5555/paiming', {}, function(data) {
 				console.log("从服务端返回数据,准备判断");
 				//console.log(JSON.stringify(data));
@@ -88,6 +100,12 @@
 				console.log("从服务端返回数据,准备判断");
 				//console.log(JSON.stringify(data));
 				classpass=data;
+			}, 'json');
+			
+			mui.post('http://81.70.23.51:5555/game_paiming', {}, function(data) {
+				console.log("从服务端返回数据,准备判断");
+				//console.log(JSON.stringify(data));
+				gamepass=data;
 			}, 'json');
 
 			setTimeout(function() {
@@ -256,17 +274,101 @@
 				
 				//前123特殊
 			}, 500);
+		
+		setTimeout(function() {
+			var gamediv = document.createElement("div");
+			gamediv.className = "tab-panel-item tab-active gametab";
+			document.querySelector(".gamepass").appendChild(gamediv);
+			
+			for (var xa1 in gamepass)
+			{
+				var gamediv1 = document.createElement("div");
+				gamediv1.className = "aui-flex b-line gameb" + xa1;
+				document.querySelector(".gametab").appendChild(gamediv1);
+				
+				if (xa1 == 0) {
+					var gamediv2 = document.createElement("div");
+					gamediv2.className = "aui-ranking-text one gameone";
+					document.querySelector(".gameb" + xa1).appendChild(gamediv2);
+					//<em>1</em>
+					var em = document.createElement("em");
+					em.innerHTML = "1";
+					document.querySelector(".gameone").appendChild(em);
+				}
+				if (xa1 == 1) {
+					var gamediv21 = document.createElement("div");
+					gamediv21.className = "aui-ranking-text two gametwo";
+					document.querySelector(".gameb" + xa1).appendChild(gamediv21);
+					//<em>1</em>
+					var em = document.createElement("em");
+					em.innerHTML = "2";
+					document.querySelector(".gametwo").appendChild(em);
+				}
+				if (xa1 == 2) {
+				
+					var gamediv22 = document.createElement("div");
+					gamediv22.className = "aui-ranking-text three gamethree";
+					document.querySelector(".gameb" + xa1).appendChild(gamediv22);
+					//<em>1</em>
+					var em = document.createElement("em");
+					em.innerHTML = "3";
+					document.querySelector(".gamethree").appendChild(em);
+				}
+				
+				if (xa1 > 2) {
+					var j = Number(xa1) + 1;
+					var gamediv224 = document.createElement("div");
+					gamediv224.className = "aui-ranking-text gametext";
+					gamediv224.innerHTML = "<em>" + j + "</em>"
+					document.querySelector(".gameb" + xa1).appendChild(gamediv224);
+					//<em>1</em>
+					// var em = document.createElement("em");
+					// em.innerHTML=i+1;
+					//document.querySelector("px"+i).appendChild(em);
+				}
+				
+				
+				//img占位
+				var divimg = document.createElement("div");
+				divimg.className = "aui-ranking-img";
+				document.querySelector(".gameb" + xa1).appendChild(divimg);
+				
+				var name1 = document.createElement("div");
+				name1.className = "aui-ranking-name aui-flex-box gamebox";
+				name1.innerHTML = "<h2>" + gamepass[xa1]['name'] + "<h2>" + "<p>" +gamepass[xa1]['username'] + "<p>"
+				document.querySelector(".gameb" + xa1).appendChild(name1);
+				
+				var jifneg = document.createElement("div");
+				jifneg.className = "aui-ranking-num gamenum";
+				jifneg.innerHTML = gamepass[xa1]['game']
+				document.querySelector(".gameb" + xa1).appendChild(jifneg);
+				
+				var name2 = document.createElement("div");
+				name2.className = "aui-ranking-icon";
+				document.querySelector(".gameb" + xa1).appendChild(name2);
+			};
+			
+			
+			
+			
+			}, 500);
 		</script>
 		<script>
 			function show1() {
 				document.getElementById("div1").style.display = "block";
 				document.getElementById("div2").style.display = "none";
+				document.getElementById("div3").style.display = "none";
 			};
 
 			function show2() {
 				document.getElementById("div2").style.display = "block";
 				document.getElementById("div1").style.display = "none";
-
+				document.getElementById("div3").style.display = "none";
+			}
+			function show3() {
+				document.getElementById("div3").style.display = "block";
+				document.getElementById("div1").style.display = "none";
+				document.getElementById("div2").style.display = "none";
 			}
 		</script>
 		<!-- 自动选中第一个点击事件 -->

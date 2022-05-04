@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			.mui-input-group label {
+				width: 20%;
+			}
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 80%;
+			}
+			/* .mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			} */
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">后台(添加填空题)</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>题目</label>
+					<input id='title' type="text" class="mui-input-clear mui-input" placeholder="请输入题目">
+				</div>
+				<div class="mui-input-row">
+					<label>单元</label>
+					<input id='unit' type="text" class="mui-input-clear mui-input" placeholder="请输入阿拉伯数字">
+				</div>
+				<div class="mui-input-row">
+					<label>答案</label>
+					<input id='answer' type="text" class="mui-input-clear mui-input" placeholder="请输入答案">
+				</div>
+				<div class="mui-input-row">
+					<label>解析</label>
+					<input id='jiexi' type="text" class="mui-input-clear mui-input" placeholder="请输入解析">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<button id='fill' class="mui-btn mui-btn-block mui-btn-primary">添加题目</button>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			document.getElementById('fill').addEventListener('tap',function(){
+				
+				var title=document.getElementById("title").value;
+				var answer =document.getElementById("answer").value;
+				var jiexi=document.getElementById("jiexi").value;
+				var unit = unit.getElementById("unit").value;
+				
+				mui.post('http://81.70.23.51:5555/savefill',{
+					"title":title,
+					"answer":answer,
+					"jiexi":jiexi,
+					"unit":unit,
+				},function(data){
+					console.log("从服务端返回数据,准备判断");
+					console.log(data.mag);
+					mui.toast(data.mag);
+						mui.openWindow({
+							url: "./backstage.html",
+							id: "./backstage.html",
+							createNew: false
+						});
+				},'json');
+				
+			})
+		</script>
+	</body>
+
+</html>
