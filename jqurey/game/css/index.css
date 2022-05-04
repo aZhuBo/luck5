@@ -72,6 +72,21 @@ body,html{
     color: #333333;
     font-weight: bold;
 }
+.startxx{
+    position: absolute;
+    width: 4rem;
+    height: 1.2rem;
+    line-height: 1.15rem;
+    border: .1rem solid #000;
+    text-align: center;
+    font-size: .8rem;
+    left: 10%;
+    bottom: 3rem;
+    transform: translateX(-50%);
+    border-radius: .5rem;
+    color: #333333;
+    font-weight: bold;
+}
 #start .help{
     position: absolute;
     left: 50%;

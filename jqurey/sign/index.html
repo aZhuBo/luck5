@@ -156,8 +156,6 @@
 					};
 					
 				}
-				
-				
 				// mui.openWindow({
 				// 	url: "./login.html",
 				// 	id: "./login.html",
@@ -177,6 +175,10 @@
 	// 关闭弹窗
 	$('.dialog-close,.dialog .mask').click(function(){
 		$('.dialog').fadeOut()
+		mui.openWindow({
+			createNew: true,
+			url: '../../index.html', //通过URL传参
+		})
 	})	
 	// 关闭弹窗
 	// $('.dialog-close,.dialog .mask').click(function() {
