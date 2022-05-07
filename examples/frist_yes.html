@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>   
+	<head>
 		<meta charset="UTF-8">
 		<title>首页</title>
 		<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
@@ -12,22 +12,23 @@
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<style>
-		.sdgtrer{
-			background-color: #ffffff;
-		}
-		.aetaw {
-			/* background-color: blue;
+			.sdgtrer {
+				background-color: #ffffff;
+			}
+
+			.aetaw {
+				/* background-color: blue;
 			opacity: 0.0; */
-			margin: 0px;
-			padding: 0px;
-			height: 20px;
-		}
+				margin: 0px;
+				padding: 0px;
+				height: 20px;
+			}
 		</style>
 	</head>
 	<body>
- 
+
 		<section class="css-flexView ">
-			
+
 			<header class="mui-bar mui-bar-nav aetaw">
 				<header class="css-navBar css-navBar-fixed ">
 					<a href="javascript:;" class="css-navBar-item">
@@ -35,7 +36,7 @@
 					</a>
 					<div class="css-center">
 						<div class="css-search-box">
-				
+
 							<input type="text" placeholder="大家都在搜索">
 						</div>
 					</div>
@@ -44,8 +45,8 @@
 					</a>
 				</header>
 			</header>
-			
-			
+
+
 			<div class="mui-content">
 				<section class="css-scrollView">
 					<div class="m-slider" data-ydui-slider="">
@@ -68,8 +69,8 @@
 						</div>
 						<div class="slider-pagination"></div>
 					</div>
-				
-					
+
+
 					<div class="sdgtrer">
 						<div class="swiper-container">
 							<div class="swiper-wrapper adat">
@@ -88,7 +89,7 @@
 												<img src="../images/one5.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
-												<h2>师资力量</h2> 
+												<h2>师资力量</h2>
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="zhiwang">
@@ -107,13 +108,13 @@
 												<h2>IMUSTCTF</h2>
 											</div>
 										</a>
-										
+
 										<a href="javascript:;" class="css-palace-grid" id="sign">
 											<div class="css-palace-grid-icon">
 												<img src="../images/one6.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
-												<h2>签到</h2> 
+												<h2>签到</h2>
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="calendar">
@@ -121,7 +122,7 @@
 												<img src="../images/one7.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
-												<h2>日历</h2> 
+												<h2>日历</h2>
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="paihang">
@@ -129,7 +130,7 @@
 												<img src="../images/one8.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
-												<h2>排行榜</h2> 
+												<h2>排行榜</h2>
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="game">
@@ -137,7 +138,7 @@
 												<img src="../images/one9.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
-												<h2>休闲娱乐</h2> 
+												<h2>休闲娱乐</h2>
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="translate">
@@ -145,7 +146,7 @@
 												<img src="../images/one10.png" alt="">
 											</div>
 											<div class="css-palace-grid-text">
-												<h2>翻译</h2> 
+												<h2>翻译</h2>
 											</div>
 										</a>
 										<a href="javascript:;" class="css-palace-grid" id="weather">
@@ -158,12 +159,12 @@
 										</a>
 									</div>
 								</div>
-						
+
 							</div>
 							<!-- Add Pagination -->
 							<div class="swiper-pagination"></div>
 						</div>
-						
+
 						<div class="css-title">
 							<h2>答题专区</h2>
 						</div>
@@ -183,24 +184,32 @@
 								<span id="dati_everyday"><img src="../images/ad_022.gif" alt=""></span>
 							</div>
 						</div>
-						
+
 						<div class="css-title">
 							<h2>练习专区</h2>
 						</div>
 						<div class="css-flex css-flex-ad">
 							<div class="css-flex-box">
-								<span id="lianxi_xuanzhe"><img src="../images/lianxi1.gif" alt=""></span>
-						
+								<span id="lianxi_zhangjie"><img src="../images/lian1.gif" alt=""></span>
 							</div>
 							<div class="css-flex-box">
-								<img src="../images/ches.gif" alt="">
+								<span id="lianxi2"><img src="../images/lianxi2.gif" alt=""></span>
+							</div>
+
+						</div>
+						<div class="css-flex css-flex-ad">
+							<div class="css-flex-box">
+								<span id="lianxi3"><img src="../images/lianxi3.gif" alt=""></span>
+							</div>
+							<div class="css-flex-box">
+								<span id="lianxi4"><img src="../images/lianxi3.gif" alt=""></span>
 							</div>
 						</div>
 					</div>
-					
+
 				</section>
 			</div>
-			
+
 		</section>
 	</body>
 	<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
@@ -225,7 +234,7 @@
 		// });
 		// 单元检查
 		document.getElementById('lianxi_everyday').addEventListener('tap', function() {
-			
+
 			mui.openWindow({
 				createNew: true,
 				url: './unit.html', //通过URL传参
@@ -239,7 +248,7 @@
 			})
 		});
 		// 填空专项pack
-		
+
 		document.getElementById('pack').addEventListener('tap', function() {
 			mui.openWindow({
 				createNew: true,
@@ -247,16 +256,32 @@
 			})
 		});
 		// 练习—选择
-		document.getElementById('lianxi_xuanzhe').addEventListener('tap', function() {
-			
+		document.getElementById('lianxi2').addEventListener('tap', function() {
+
 			mui.openWindow({
 				createNew: true,
-				url: './lianxi_questionPage.html', //通过URL传参
+				url: './lian_xuanzhe.html', //通过URL传参
+			})
+		});
+		//练习——章节
+		document.getElementById('lianxi_zhangjie').addEventListener('tap', function() {
+
+			mui.openWindow({
+				createNew: true,
+				url: './lianxi_zhangjie.html', //通过URL传参
+			})
+		}); 
+		//练习-填空
+		document.getElementById('lianxi3').addEventListener('tap', function() {
+		
+			mui.openWindow({
+				createNew: true,
+				url: './lianxi_fillquestion.html', //通过URL传参
 			})
 		});
 		//天气
 		document.getElementById('weather').addEventListener('tap', function() {
-			
+
 			mui.openWindow({
 				url: '../jqurey/weather/wer/weather.html',
 				createNew: true
@@ -293,45 +318,45 @@
 				url: '../jqurey/faculty/index.html', //通过URL传参	
 				createNew: true
 			})
-		}); 
-		
+		});
+
 		//签到
 		document.getElementById('sign').addEventListener('tap', function() {
 			mui.openWindow({
 				url: '../jqurey/sign/index.html', //通过URL传参	
 				createNew: true
 			})
-		}); 
-		
+		});
+
 		//calendar 日历
 		document.getElementById('calendar').addEventListener('tap', function() {
 			mui.openWindow({
 				url: '../jqurey/calendar/index.html', //通过URL传参	
 				createNew: true
 			})
-		});  
-		
+		});
+
 		//排行榜
 		document.getElementById('paihang').addEventListener('tap', function() {
 			mui.openWindow({
 				url: './paihang.html', //通过URL传参
-			
+
 			})
-		}); 
+		});
 		// 小游戏
 		document.getElementById('game').addEventListener('tap', function() {
 			mui.openWindow({
 				url: '../jqurey/game/index.html', //通过URL传参
-			
+
 			})
-		}); 
-		
+		});
+
 		//翻译
 		document.getElementById('translate').addEventListener('tap', function() {
 			mui.openWindow({
 				url: '../jqurey/translate/translate.html', //通过URL传参
-			
+
 			})
-		}); 
+		});
 	</script>
 </html>
