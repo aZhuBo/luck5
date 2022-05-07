@@ -88,6 +88,10 @@
 			.sferq{
 				color: white;
 			}
+			.asdqwe{
+				position : fixed ;
+				bottom : 10px;
+			}
 		</style>
 	</head>
 	<body>
@@ -112,7 +116,7 @@
 				<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a
 						id='forgetPassword'>忘记密码</a>
 				</div>
-				<div class="link-area"><small >如果登录注册系统报错_(服务器问题)联系朱博<span>15047422887</small></a> <span class="spliter"></a>
+				<div class="link-area asdqwe"><small ><hr>测试版本开发者寄语：<br/>本软件经过我们的深度使用测试优化暂时没有发现bug。如果出现报错或者功能/软件不能正常使用请第一时间联系我们。<span><br/>开发者联系方式：<br/>朱博 15047422887&nbsp;&nbsp;241900086@qq.com<br/>郭洪全 15326722754&nbsp;&nbsp;3390205563@qq.com<br/>张钰 18647077731&nbsp;&nbsp;983769116@qq.com<br/>还请各位手下留情不要发起攻击。</small></a> <span class="spliter"></a>
 				</div>
 			</div>
 			<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
@@ -168,6 +172,14 @@
 			mui.openWindow({
 				createNew: true,
 				url: './register.html', //通过URL传参
+			})
+		});
+		//忘记密码forgetPassword
+		document.getElementById('forgetPassword').addEventListener('tap', function() {
+			console.log("注册按钮");
+			mui.openWindow({
+				createNew: true,
+				url: './forgetPassword.html', //通过URL传参
 			})
 		});
 	</script>

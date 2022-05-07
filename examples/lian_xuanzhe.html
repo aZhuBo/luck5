@@ -102,7 +102,7 @@
 <div class="topic">
     <header class="mui-bar mui-bar-nav">
         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-        <h1 class="mui-title">选择专项<small>(选中也会自动跳转哦!)</small></h1>
+        <h1 class="mui-title">选择练习<small>(选中也会自动跳转哦!)</small></h1>
     </header>
     <br/><br/>
 
@@ -116,11 +116,10 @@
 </div>
 </body>
 <script src="../js/mui.js"></script>
-<script src="../js/questionIndex.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/lianxi_questionIndex.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     var unit = location.search;
     // 数据处理
-
 
     mui.init();
     mui.post('http://81.70.23.51:5555/questionBack_sum', {}, function data1(data1) {
