@@ -8,15 +8,25 @@ import datetime
 app = Flask(__name__)
 # js跨域问题解决
 CORS(app, supports_credentials=True)
-
 # session密匙
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
 # 登录
 @app.route("/login",methods=['POST','GET'])
 def login():
     # 将前端获取到的值转为字典
     user_info=request.form.to_dict()
+    #5.5朱博_防sql注入攻击
+    string1 = ["select", "union", "all", "distinct", "update", "delete", "insert"]
+    string2 = "~`!@#$%^&*()_+=-|[]{}';:?/.,><"
+    strflag =1
+    for kk in string1:
+        if kk in request.form['username']:
+            strflag = 0
+    for i in string2:
+        if i in request.form['username']:
+            strflag = 0
+    if (strflag == 0):
+        return jsonify({"code": 1,"msg":"您输入的用户名不合法，请不要发起攻击。","status": 200})
     #find为找到与没找到返回bool
     find=db.mongo.find_one(user_info)
     #print(find)
@@ -92,6 +102,18 @@ def register():
     name=request.form.get('name')
     lixing=request.form.get('lixing')
     class_=request.form.get('class')
+    #5.5朱博_防注入攻击
+    string1 = ["select", "union", "all", "distinct", "update", "delete", "insert"]
+    string2 = "~`!@#$%^&*()_+=-|[]{}';:?/.,><"
+    strflag =1
+    for kk in string1:
+        if kk in request.form['username']:
+            strflag = 0
+    for i in string2:
+        if i in request.form['username']:
+            strflag = 0
+    if (strflag == 0):
+        return jsonify({"mag":"您输入的用户名不合法，请不要发起攻击。","status": 200})
     #print(lixing)
     #将用户名和密码做为一个字典集，方便在数据库寻找现在用户名里有没有这个用户
     ches={
@@ -107,7 +129,7 @@ def register():
     if(password!=againpassword):
         return jsonify({"stayus": 200,"mag":"俩次输入的密码不相同！"})
     #符合条件存入数据库
-    if(password==againpassword and find==None and class_!=""):
+    if(password==againpassword and find==None and class_!="" and strflag == 1):
         collection= db['test']
         dier={
             "username":username,
@@ -118,7 +140,8 @@ def register():
             'time_tian': {'time1': ['0', '0'], 'time2': ['0', '0'], 'time3': ['0', '0']},
             'lixing':lixing,
             "class":class_,
-            "duanwei":"未登录"
+            "duanwei":"未登录",
+            "game":0,
         }
         db.mongo.insert_one(dier)
         return jsonify({"stayus": 200,"mag":"恭喜您，注册成功！"})
@@ -391,6 +414,52 @@ def savechoice():
     db.questions.insert_one(yyds)
     return jsonify({"stayus":200,"mag":"成功添加题目！"})
 
+
+#存入混合题目
+@app.route("/savemix", methods=['POST', 'GET'])
+def savemix():
+    collection = db.questions
+    count=collection.estimated_document_count()
+    lixing = request.form.get('lixing')
+    title = request.form.get('title')
+    choice = request.form.get('choice')
+    jiexi = request.form.get('jiexi')
+    if lixing==1:
+        A = request.form.get('A')
+        B = request.form.get('B')
+        C = request.form.get('C')
+        D = request.form.get('D')
+        yyds = {
+            "id": str(count + 1),
+            "choice": choice,
+            "title": title,
+            "xuanxiang": [
+                A,
+                B,
+                C,
+                D
+            ],
+            "jiexi": jiexi,
+            # 1为填空题
+            "lixing": "1",
+        }
+        db.questions.insert_one(yyds)
+        return jsonify({"stayus": 200, "mag": "成功添加选择题！"})
+    elif lixing==2:
+        haha = {
+            "id": str(count + 1),
+            "choice": choice,
+            "title": title,
+            "jiexi": jiexi,
+            # 2为填空题
+            "lixing": "2",
+        }
+        db.fillbound.insert_one(haha)
+        return jsonify({"stayus": 200, "mag": "成功添加填空题！"})
+    else:
+        return jsonify({"stayus": 200, "mag": "请选择题目类型！"})
+
+
 # 个人排名
 @app.route("/paiming",methods=['POST','GET'])
 def paiming():
@@ -489,6 +558,79 @@ def sign():
              }
         )
         return jsonify({"stayus":200,"mag":"成功签到，计入积分！","flagx":'1'})
+
+
+#找回密码
+@app.route("/retwordx",methods=['POST','GET'])
+def retwordx():
+    username = request.form.get('username')
+    name = request.form.get('name')
+    class1 = request.form.get('class1')
+    find=db.mongo.find_one({'username':username})
+    if find:
+        if(name==find['name'] and class1==find['class']):
+            return jsonify({"stayus":200,"mag":"输入正确，正在为您跳转！","flag":1})
+        else:
+            return jsonify({"stayus":200,"mag":"信息不正确","flag":0})
+
+    return jsonify({"stayus":200,"mag":"该用户不存在","flag":0})
+#newpassword
+@app.route("/newpassword",methods=['POST','GET'])
+def newpassword():
+    name = request.form.get('name')
+    password = request.form.get('password')
+    againpassword= request.form.get('againpassword')
+    find=db.mongo.find_one({'username':name})
+    if(password!=againpassword):
+        return jsonify({"stayus":200,"mag":"俩次密码不一致","flag":0})
+    elif find:
+        db.mongo.update_one(
+            {'username':name},
+            {'$set':{"password":password}
+             }
+        )
+        return jsonify({"stayus":200,"mag":"成功修改密码","flag":1})
+
+    return jsonify({"stayus":200,"mag":"错误","flag":0})
+
+
+
+# 游戏积分排行榜
+@app.route("/game",methods=['POST','GET'])
+def game():
+    score = request.form.get('score')
+    print(score)
+    find_name={"username":session['username']}
+
+    find=db.mongo.find_one(find_name)
+    if(find['game']==None):
+        db.mongo.update_one(
+            find_name,
+            {'$set':{"game":score}
+             }
+        )
+        return jsonify({"stayus":200,"mag":"挑战记录成功，计入游戏积分！"})
+    else:
+        if(int(score)>int(find['game'])):
+            db.mongo.update_one(
+                find_name,
+                {'$set':{"game":int(score)}
+                 }
+            )
+            return jsonify({"stayus":200,"mag":"挑战记录成功，计入游戏积分！"})
+        else:
+            return jsonify({"stayus":200,"mag":"成功完成本局，没有创造记录，继续加油哦！"})
+#游戏排名
+@app.route("/game_paiming",methods=['POST','GET'])
+def game_paiming():
+    find=db.mongo.find({}).sort([("game", -1)])
+    append=[]
+    for i in find :
+        append.append(i)
+
+    return json.dumps(append,cls=JSONEncoder)
+
+
 
 if __name__=='__main__':
     app.run("0.0.0.0",5555,debug=True)
