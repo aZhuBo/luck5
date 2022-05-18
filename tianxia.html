@@ -35,15 +35,13 @@
 						<p class="img-title ">{{item.title}}</p>
 					</div>
 				</div>
-				<!-- 分页器 -->
 				<div class="swiper-pagination"></div>
-				<!--自定义分页选择器-->
+			
 				<div class="app-slider-transition-action" v-show="top_items.length>0"></div>
 			</app-banner>
 			<!--文章列表-->
 			<div class="messages-wrapper" v-for="items in list_items" :key="items.date">
 				<p ref="date">{{formatDate(items.date)}}</p>
-				<!--传递参数给组件 并绑定原生事件-->
 				<app-list :message="item" :loadimg="'img/translate.png'" v-for="(item,index) in items.stories" @click.native="openDetails($event,item.id,index)"></app-list>
 			</div>
 			<!--遮罩层-->

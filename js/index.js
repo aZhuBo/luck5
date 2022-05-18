@@ -30,7 +30,7 @@ var news = new Vue({
 			var dailyDate = new Date(dateStr);
 			var presentDate = new Date();
 			if(presentDate.toDateString() === dailyDate.toDateString()) {
-				return '今日热闻'
+				return '题小满邀您看尽今日天下事'
 			} else {
 				var day = dailyDate.getDay();
 				var weekAry = new Array('星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');

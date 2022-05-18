@@ -1,6 +1,6 @@
 from flask import Flask,request,jsonify,session
 from setting import db
-from Question import questionGet,questionGet_sum
+from Question import questionGet,questionGet_sum,fillGet_sum
 from bson import ObjectId
 from flask_cors import CORS
 import json
@@ -115,6 +115,7 @@ def register():
             "name":name,
             "jifeng":0,
             'time': {'time1': ['0', '0'], 'time2': ['0', '0'], 'time3': ['0', '0']},
+            'time_tian': {'time1': ['0', '0'], 'time2': ['0', '0'], 'time3': ['0', '0']},
             'lixing':lixing,
             "class":class_,
             "duanwei":"未登录"
@@ -170,7 +171,7 @@ def mylist():
     #db.mongo.update_one(myquery,newvalues)
     #print(db.mongo.update_one(myquery,newvalues))
 
-# 积分处理模块
+# 选择专项积分处理模块
 @app.route("/jifeng",methods=['POST','GET'])
 def jifeng():
     res={"username":session['username']}
@@ -205,7 +206,7 @@ def jifeng():
     )
     #今天答题已经上限了，不计入分数
     if(flag1==0):
-        return jsonify({"stayus":200,"mag":"今天答题已经上限了，本次不计入分数！"})
+        return jsonify({"stayus":200,"mag":"今天选择专项已经上限了，本次不计入分数！"})
     #今天未上限
     if(falg==3 and flag1==1):
         if(int(find['time']['time3'][1])>int(find['time']['time2'][1])and int(find['time']['time3'][1])>int(find['time']['time1'][1])):
@@ -215,7 +216,7 @@ def jifeng():
                 {'$set':{"jifeng":int(muqianjifen)}
                  }
             )
-        return jsonify({"stayus":200,"mag":"成功计入分数,"+"今天已经完成3次答题任务了哦。"})
+        return jsonify({"stayus":200,"mag":"成功计入分数,"+"今天已经完成3次选择专项任务了哦。"})
     if(falg<3):
         if(falg==1):
             muqianjifen=int(muqianjifen)+int(find['time']['time1'][1])
@@ -228,8 +229,68 @@ def jifeng():
              }
         )
         #print("+++",muqianjifen,"+++")
-        return jsonify({"stayus":200,"mag":"成功计入分数,"+"今天已经完成"+str(falg)+"次答题了。"})
+        return jsonify({"stayus":200,"mag":"成功计入分数,"+"今天已经完成"+str(falg)+"次选择专项答题了。"})
 
+
+# 填空专项积分处理模块
+@app.route("/jifeng_tiankong",methods=['POST','GET'])
+def jifeng_tiankong():
+    res={"username":session['username']}
+    # 以username为主键，找到数据库里对应的那行
+    find=db.mongo.find_one(res)
+    muqianjifen=find['jifeng']
+    now = datetime.date.today()
+    jifeng=request.form.get('jifeng')
+    #print(find['time'])
+    maxjifen='0'
+
+    flag='time'
+    falg=0
+    flag1=0
+    for i in range(1,4):
+        falg=falg+1
+        #print(find['time'][flag+str(i)])
+        if(str(now)!=str(find['time_tian'][flag+str(i)][0])):
+            flag1=1
+            find['time_tian'][flag+str(i)][0]=str(now)
+            find['time_tian'][flag+str(i)][1]=str(jifeng)
+            break
+        else:
+            continue
+
+    #print(find)
+
+    db.mongo.update_one(
+        {'username':find['username']},
+        {'$set':find
+         }
+    )
+    #今天答题已经上限了，不计入分数
+    if(flag1==0):
+        return jsonify({"stayus":200,"mag":"今天填空专项已经上限了，本次不计入分数！"})
+    #今天未上限
+    if(falg==3 and flag1==1):
+        if(int(find['time_tian']['time3'][1])>int(find['time_tian']['time2'][1])and int(find['time_tian']['time3'][1])>int(find['time_tian']['time1'][1])):
+            muqianjifen=int(muqianjifen)-max(int(find['time_tian']['time2'][1]),int(find['time_tian']['time1'][1]))+int(find['time_tian']['time3'][1])
+            db.mongo.update_one(
+                {'username':find['username']},
+                {'$set':{"jifeng":int(muqianjifen)}
+                 }
+            )
+        return jsonify({"stayus":200,"mag":"成功计入分数,"+"今天已经完成3次填空专项任务了哦。"})
+    if(falg<3):
+        if(falg==1):
+            muqianjifen=int(muqianjifen)+int(find['time_tian']['time1'][1])
+        if(falg==2):
+            if(int(find['time_tian']['time2'][1])>int(find['time_tian']['time1'][1])):
+                muqianjifen=int(muqianjifen)-int(find['time_tian']['time1'][1])+int(find['time_tian']['time2'][1])
+        db.mongo.update_one(
+            {'username':find['username']},
+            {'$set':{"jifeng":int(muqianjifen)}
+             }
+        )
+        #print("+++",muqianjifen,"+++")
+        return jsonify({"stayus":200,"mag":"成功计入分数,"+"今天已经完成"+str(falg)+"次填空专项答题了。"})
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
@@ -252,6 +313,21 @@ def questionBack_sum():
 
     titleList = questionGet_sum()
     #print("这是每日答题_单元",titleList)
+    return json.dumps(titleList,cls=JSONEncoder)
+
+# 填空题_测试
+@app.route("/fillBack_sum", methods=['POST', 'GET'])
+def fillBack_sum():
+    res={"username":session['username']}
+    # 以username为主键，找到数据库里对应的那行
+    find=db.mongo.find_one(res)
+    if(find['time_tian']==None):
+        db.mongo.update_one(
+            {'username':find['username']},
+            {'$set':{'time_tian': {'time1': ['0', '0'], 'time2': ['0', '0'], 'time3': ['0', '0']}}
+             }
+        )
+    titleList=fillGet_sum()
     return json.dumps(titleList,cls=JSONEncoder)
 
 
@@ -381,7 +457,38 @@ def classpaiming():
     #print(append)
     return json.dumps(append,cls=JSONEncoder)
 
+# 签到模块
+@app.route("/sign",methods=['POST','GET'])
+def sign():
+    find_name={"username":session['username']}
+    judge=db.mongo.find_one(find_name)
+    try:
+        judge['sign_day']
+    except:
+        db.mongo.update_one(
+            find_name,
+            {'$set':{"sign_day":None}
+             }
+        )
+    flag = request.form.get('flag')
+    now = str(datetime.date.today())
+    sign_str=''
+    if(now in str(judge['sign_day'])):
+        return jsonify({"stayus":200,"mag":"今天已经签到过了哦！","flagx":'0'})
+    else:
+        if(judge['sign_day']==None):
+            sign_str=now
+        elif(judge['sign_day']!=None):
+            sign_str=judge['sign_day']
+            sign_str=sign_str+";"+now
 
+        sign_jifeng=judge['jifeng']+8
+        db.mongo.update_one(
+            find_name,
+            {'$set':{"sign_day":sign_str,"jifeng":sign_jifeng}
+             }
+        )
+        return jsonify({"stayus":200,"mag":"成功签到，计入积分！","flagx":'1'})
 
 if __name__=='__main__':
     app.run("0.0.0.0",5555,debug=True)

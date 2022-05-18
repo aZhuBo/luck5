@@ -5,7 +5,7 @@ function TiMu(data1) {
 	var flag3 = 1;
 	var flag4 = 1;
 	var flag5 = 1;
-	alert("注意事项：本次答题开始，题目总数5道，答对一分，答错不得分。选择成功后自动跳转下一题。（练习赛：不计入总分）")
+	alert("注意事项：本次答题开始，题目总数5道，答对一分，答错不得分。选择成功后自动跳转下一题。")
 	var ppp = 1
 	var xiayiti=1;
 	var shangyiti=1;
