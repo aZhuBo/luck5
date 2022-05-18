@@ -25,10 +25,8 @@ def questionGet(unit):
     mubiao_list_id=[]
     for aa in resultww:
         mubiao_list.append(aa)
-
         mubiao_list_id.append(aa['id'])
     random.shuffle(mubiao_list_id)
-
     questionList=mubiao_list_id[:5]
 
     # while questionCnt < 5:
