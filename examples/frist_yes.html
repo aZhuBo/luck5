@@ -181,7 +181,7 @@
 								<span id="pack"><img src="../images/ad_03.gif" alt=""></span>
 							</div>
 							<div class="css-flex-box">
-								<span id="dati_everyday"><img src="../images/ad_022.gif" alt=""></span>
+								<span id="dati_everyday1"><img src="../images/ad_022.gif" alt=""></span>
 							</div>
 						</div>
 
@@ -202,7 +202,7 @@
 								<span id="lianxi3"><img src="../images/lianxi3.gif" alt=""></span>
 							</div>
 							<div class="css-flex-box">
-								<span id="lianxi4"><img src="../images/lianxi3.gif" alt=""></span>
+								<span id="lianxi4"><img src="../images/lianxi1.gif" alt=""></span>
 							</div>
 						</div>
 					</div>
@@ -245,6 +245,20 @@
 			mui.openWindow({
 				createNew: true,
 				url: './questionPage_sum.html', //通过URL传参
+			})
+		});
+		document.getElementById('dati_everyday1').addEventListener('tap', function() {
+			mui.openWindow({
+				createNew: true,
+				url: './lian_xuanzhe.html', //通过URL传参
+			})
+		});
+		
+		//lianxi4
+		document.getElementById('lianxi4').addEventListener('tap', function() {
+			mui.openWindow({
+				createNew: true,
+				url: './lian_xuanzhe.html', //通过URL传参
 			})
 		});
 		// 填空专项pack

@@ -107,10 +107,7 @@
 			<app-nav>
 				<!--返回按钮-->
 				<span class="mui-action-back iconfont icon-fanhui" slot="left"></span>
-				<!--分享按钮-->
-				<span class="iconfont icon-fenxiang" id="share" slot="right"></span>
-				<!--收藏按钮-->
-				<span class="iconfont icon-xingxing" @click="collection_change" :style="collection_switch?'color:yellow':'color:white'" slot="right"></span>
+				
 				<!--评论消息-->
 				<span class="count" @click="open_comment" slot="right"><i class="iconfont icon-xiaoxi " ></i>{{extra?extra.comments:' ...'}}</span>
 				<!--点赞按钮-->
@@ -426,16 +423,16 @@
 				main = plus.android.runtimeMainActivity();
 				openbrowser();
 
-			});
-			document.getElementById("share").addEventListener('click', function(event) {
-				event.stopPropagation();
-				var intent = new Intent(Intent.ACTION_SEND);
-				intent.setType("text/plain");
-				//填写需要分享的文本内容
-				intent.putExtra(Intent.EXTRA_TEXT, vm.src);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				main.startActivity(Intent.createChooser(intent, "系统分享"));
-			});
+			}); 
+			// document.getElementById("share").addEventListener('click', function(event) {
+			// 	event.stopPropagation();
+			// 	var intent = new Intent(Intent.ACTION_SEND);
+			// 	intent.setType("text/plain");
+			// 	//填写需要分享的文本内容
+			// 	intent.putExtra(Intent.EXTRA_TEXT, vm.src);
+			// 	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			// 	main.startActivity(Intent.createChooser(intent, "系统分享"));
+			// });
 			/*
 			 *  @description 拦截url跳转请求，调用系统浏览器
 			 * 

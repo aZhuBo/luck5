@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>题小满翻译</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/mui.picker.css" />
+		<link rel="stylesheet" type="text/css" href="./css/mui.poppicker.css" />
+		<!--引入公用样式-->
+		<link rel="stylesheet" type="text/css" href="./css/public.css" />
+	</head> 
+
+	<body class="dp-n" id="body">
+		<header class="mui-bar mui-bar-nav titleBar-bgcolor" id="header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left c-ff c-ff"></a>
+			<h1 class="mui-title titleBar-color">题小满<small>翻译</small></h1>
+		</header>
+		<!--这里面是content页面-->
+		<div class="mui-content">
+			<!--头部搜索框-->
+			<div class="header-search bs-bb ">
+				<!--搜索框-->
+				<div class="mui-row">
+					<div class="mui-col-xs-4 ta-c bd-bd" id="ratelbox">
+						<span class="listFontSize c-a3" id="from">中文</span>
+						<input type="text" style="display: none;" value="zh" id="ratelval" />
+					</div>
+					<div class="mui-col-xs-4 ta-c">
+						<img src="../images/fy.png" alt="" style="width:30px;" />
+					</div>
+					<div class="mui-col-xs-4 ta-c bd-bd" id="raterbox">
+						<span class="listFontSize c-a3" id="to">英语</span>
+						<input type="text" style="display: none;" value="en" id="raterval" />
+					</div>
+				</div>
+				<div class="header-title" style="margin-bottom:10px;">
+					<span class="c-a3 bdFontSize">请输入您的要翻译的单词或句子</span>
+				</div>
+				<!--搜索框-->
+				<div class="">
+					<textarea class="jyyj bs-bb listFontSize" name="" rows="4" cols="" placeholder="例子：题小满：每天学习，每天进步" id='text'></textarea>
+				</div>
+				<!--确认按键-->
+				<div class="header-btn">
+					<button class="bdFontSize c-ff" id="btn">翻&nbsp;&nbsp;&nbsp;&nbsp;译</button>
+				</div>
+			</div>
+			<!--显示内容区域-->
+			<div class="content bs-bb dp-n" id="results">
+				<div class="content-tt bs-bb">
+					<span class="ttFontSize c-a3">翻译结果</span>
+				</div>
+				<!---->
+				<!-- <div class="content-list c-a3 listFontSize mui-row">
+					<div class="mui-col-xs-3">
+						<span>结果：</span>
+					</div>
+					<div class="mui-col-xs-9">
+						<span id="jg"></span>
+					</div>
+				</div> -->
+				<!---->
+				<div class="content-list c-a3 listFontSize mui-row">
+					<div class="mui-col-xs-3">
+						<span id="from1">中文：</span>
+					</div>
+					<div class="mui-col-xs-9">
+						<span id="rz1"></span>
+					</div>
+				</div>
+				<!---->
+				<div class="content-list c-a3 listFontSize mui-row">
+					<div class="mui-col-xs-3">
+						<span id="to1">英语：</span>
+					</div>
+					<div class="mui-col-xs-9">
+						<span id="rz2"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./js/mui.min.js"></script>
+		<script src="./js/immersed.js"></script>
+		<script src="./js/mui.picker.js"></script>
+		<script src="./js/mui.poppicker.js"></script> 
+		<script src="./js/md5.js"></script>
+		<!-- <script src="../../js/mui.js" type="text/javascript" charset="utf-8"></script> -->
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				plus.nativeUI.showWaiting("加载中...");
+				var topoffset = '45px';
+				if(plus.navigator.isImmersedStatusbar()) {
+					topoffset = (Math.round(plus.navigator.getStatusbarHeight()) + 45) + 'px';
+				}
+				document.getElementById('header').style.height = (immersed + 44) + 'px';
+				document.querySelector('.mui-content').style.marginTop = (immersed) + 'px';
+				plus.nativeUI.closeWaiting();
+				document.getElementById("body").className = "";
+				/*
+				 *选择框
+				 * 
+				 **/
+				//普通示例
+				var userPicker = new mui.PopPicker();
+				var userPicker1 = new mui.PopPicker();
+				userPicker1.setData(
+				[{
+					value: 'en',
+					text: '英语'
+				}, {
+					value: 'zh',
+					text: '中文'
+				},
+				{
+					value: 'wyw',
+					text: '文言文'
+				}, {
+					value: 'jp',
+					text: '日语'
+				},{
+					value: 'cht',
+					text: '繁体中文'
+				}]
+				);
+				userPicker.setData([ {
+					value: 'zh',
+					text: '中文'
+				},{
+					value: 'en',
+					text: '英语'
+				},
+				{
+					value: 'wyw',
+					text: '文言文'
+				}, {
+					value: 'jp',
+					text: '日语'
+				},{
+					value: 'cht',
+					text: '繁体中文'
+				}]);
+				//左边选择
+				var ratelPickerButton = document.getElementById('ratelbox');
+				ratelPickerButton.addEventListener('tap', function(event) {
+					userPicker.show(function(items) {
+						document.getElementById('from').innerText = items[0].text;
+						document.getElementById('from1').innerText = items[0].text + ':';
+						document.getElementById('ratelval').value = items[0].value;
+
+					});
+				}, false);
+				//右边选择
+				var raterPickerButton = document.getElementById('raterbox');
+				raterPickerButton.addEventListener('tap', function(event) {
+					userPicker1.show(function(items) {
+						console.log(items[0].text);
+						document.getElementById('to').innerText = items[0].text;
+						document.getElementById('to1').innerText = items[0].text + ":";
+						document.getElementById('raterval').value = items[0].value;
+					});
+				}, false);
+				/*
+				 *发送请求获取值
+				 * 
+				 **/
+				document.getElementById('btn').addEventListener('tap', function(event) {
+					//获取要翻译的值
+					var val = document.getElementById('text').value;
+					if(val == '') {
+						plus.nativeUI.toast("请输入要翻译的单词或句子！");
+						return;
+					}
+					var ratel = document.getElementById('ratelval').value;
+					var rater = document.getElementById('raterval').value;
+					console.log(val);
+					console.log(ratel);
+					console.log(rater);
+					//获取一个随机数ss
+					//应用id
+					var appKey = "20220503001201262";
+					//应用密钥
+					var miyao = "xBBvQg_w2F3BJwQ8WuFk";
+					//混合md5值
+					var md5data = "20220503001201262" + val + "121212xBBvQg_w2F3BJwQ8WuFk";
+					var stringMD5 = md5(md5data);
+					var url = "http://api.fanyi.baidu.com/api/trans/vip/translate?q=" + val + "&from=" + ratel + "&to=" + rater + "&appid=20220503001201262&salt=121212&sign=" + stringMD5;
+					//判断是否为空
+					if(val != 'wo') {
+						plus.nativeUI.showWaiting("加载中...");
+						mui.ajax(url, {
+							dataType: 'json', //服务器返回json格式数据
+							type: 'post', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							success: function(data) {
+								plus.nativeUI.closeWaiting();
+								console.log(JSON.stringify(data))
+								try {
+									var dat = data.trans_result[0];
+									//赋值
+									document.getElementById('rz1').innerText = dat.src;
+									document.getElementById('rz2').innerText = dat.dst;
+									//document.getElementById('jg').innerText = dat.dst;
+									document.getElementById("results").className = "content bs-bb";
+								} catch(e) {
+									plus.nativeUI.toast("翻译结果出错，请重试！");
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								plus.nativeUI.closeWaiting();
+							}
+						});
+					} else {
+						
+					}
+
+				})
+			})
+			//重写back
+			var oldBack = mui.back;
+			mui.back = function() {
+				document.getElementById("results").className = "content bs-bb dp-n";
+				document.getElementById('rz1').innerText = '';
+				document.getElementById('rz2').innerText = '';
+				//document.getElementById('jg').innerText = '';
+				oldBack();
+			};
+
+			function encodeUnicode(str) {
+				var res = [];
+				for(var i = 0; i < str.length; i++) {
+					res[i] = ("00" + str.charCodeAt(i).toString(16)).slice(-4);
+				}
+				return "\\u" + res.join("\\u");
+			}
+		</script>
+	</body>
+
+</html>

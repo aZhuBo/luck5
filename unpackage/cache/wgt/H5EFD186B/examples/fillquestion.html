@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>填空题</title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<!--标准mui.css-->
+
+		<style type="text/css">
+			body {
+				padding: 20px;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				border: 0;
+				box-sizing: border-box;
+			}
+
+			.answer_input {
+				margin: 20px auto;
+				border-bottom: 1px dotted gray;
+				overflow: hidden;
+				clear: both;
+			}
+
+			.answer_input span {
+				margin: 0 2px;
+				padding: 0;
+				display: inline-block;
+				text-align: center;
+				vertical-align: middle;
+				background: #ffffff;
+				border: 2px solid #cccccc;
+				border-radius: 4px;
+				font-size: 16px;
+				color: #da2d20;
+				width: 30px;
+				height: 30px;
+				line-height: 26px;
+			}
+
+			.answer_input span:active {
+				background-color: #f1f1f1;
+			}
+
+			.answer_input span.span_focus {
+				border-color: #da2d20;
+			}
+
+			.h_input {
+				width: 1px;
+				height: 0px;
+			}
+
+			/* .ibutton {
+				margin: 0 auto;
+				width: 100%;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				line-height: 25px;
+				-moz-transition: all 0.2s ease-out 0s;
+				-webkit-transition: all 0.2s ease-out 0s;
+				transition: all 0.2s ease-out 0s;
+				padding: 12px 36px;
+				font-size: 18px;
+				font-weight: bold;
+			} */
+			.ibutton {
+				margin: 0 auto;
+				width: 30%;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				line-height: 25px;
+				-moz-transition: all 0.2s ease-out 0s;
+				-webkit-transition: all 0.2s ease-out 0s;
+				transition: all 0.2s ease-out 0s;
+				padding: 12px 36px;
+				font-size: 18px;
+				font-weight: bold;
+			}
+
+			.btn-blue {
+				color: #ffffff;
+				background-color: #428bca;
+				border-color: #357ebd;
+			}
+		</style>
+		<script type="text/javascript">
+			/*  */
+			setTimeout(function() {
+				var ResultJson;
+				$().ready(function() {
+					var uid, span_val, span_maxlength;
+					//当点击后回答后，
+					$(".answer_input").click(function() {
+						uid = $(this).attr("v");
+						span_val = $("#Q_" + uid).val();
+						span_maxlength = $("#u_" + uid + " span").length;
+						$("#h_input").attr("maxlength", span_maxlength);
+
+						$("#h_input").val("").focus().val(span_val);
+
+						GetSpanFocus();
+					});
+
+					$(".h_input").on("input propertychange", function() {
+						span_val = $("#h_input").val();
+						$("#u_" + uid + " span").text("");
+						var arr = span_val.split("");
+
+						$.each(arr, function(i, value) {
+							$("#u_" + uid + " span:eq(" + i + ")").text(value);
+						});
+
+						$("#Q_" + uid).val(span_val);
+
+						GetSpanFocus();
+					});
+
+					$(".h_input").blur(function() {
+						$(".answer_input span").removeClass("span_focus");
+					});
+
+					function GetSpanFocus() {
+						$(".answer_input span").removeClass("span_focus");
+
+						var h_input_curlength = span_val.length;
+						if (h_input_curlength > span_maxlength - 1) {
+							h_input_curlength = span_maxlength - 1;
+						}
+
+						$("#u_" + uid + " span:eq(" + h_input_curlength + ")").addClass("span_focus");
+					}
+
+					/*				//ibutton标签，点击后执行此功能
+									$("#ibutton").click(function() {
+
+										var f_id, f_result = "",
+											ResultJson = "";
+
+										$(".answer_input").each(function() {
+											f_id = $(this).attr("v");
+											f_result = $(this).find("#Q_" + f_id).val();
+											ResultJson += '{"q_id":"' + f_id + '","q_result":"' + f_result + '"},';
+										});
+
+										ResultJson = ResultJson.substring(0, ResultJson.length - 1);
+										ResultJson = '[' + ResultJson + ']';
+										
+					
+				
+										//alert(ResultJson);
+									});*/
+
+					//如果有初始值，遍历填充
+					$(".answer_input").each(function() {
+						var uid = $(this).attr("v");
+						var span_val = $("#Q_" + uid).val();
+
+						if (span_val != "") {
+							var arr = span_val.split("");
+							$.each(arr, function(i, value) {
+								$("#u_" + uid + " span:eq(" + i + ")").text(value);
+							});
+						}
+					});
+				});
+			}, 500);
+		</script>
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+
+	</head>
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">填空题专项</h1>
+		</header>
+		<input id="h_input" class="h_input" type="text" style="height: 0px;">
+		<!-- 		<div class="answer_input" id="u_1001" v="1001">
+			第 1 题：1930年5月， 毛泽东在《<span></span><span></span><span></span><span></span><span></span><span></span>》一文中，深刻阐明了坚持马克思主义的思想路线，坚持理论与实际相结合原则的极端重要性，提出了“没有调查，没有发言权”的重要思想。
+			<input id="Q_1001" type="hidden" />
+		</div>
+		
+		<div class="answer_input" id="u_1002" v="1002">
+			第 2 题：2016年G20峰会在<span></span><span></span>召开。
+			<input id="Q_1002" type="hidden" />
+		</div> 
+
+		<button id="ibutton" class="ibutton btn-blue">提交</button>-->
+		<script src="../js/fillquestion.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.post('http://81.70.23.51:5555/fillBack_sum', {}, function data(data) {
+				//运行题目函数
+				timu(data);
+			}, 'json');
+		</script>
+
+
+	</body>
+</html>

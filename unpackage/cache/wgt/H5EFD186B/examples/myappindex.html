@@ -18,6 +18,8 @@
 	</head>
 
 	<body class="mui-plus mui-statusbar ">
+		<!--下拉刷新容器-->
+		
 		<!-- 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">标题</h1>
@@ -25,6 +27,8 @@
 		<header class="mui-bar mui-bar-nav" id="wsbiand">
 			<h1 class="mui-title">个人中心</h1>
 		</header>
+
+
 		<div class="nav-bottom">
 			<div class="new-mine">
 				<div class="mine-photo min-photo-bgimg">
@@ -52,8 +56,12 @@
 
 			<ul class="mui-table-view" id="">
 				<li class="mui-table-view-cell">
+					<img class="mui-pull-left" src="../images/list1.png" width="20px">
+					<a class="mui-navigate-right" id="shuaxing">现在就要刷新我的信息<small>原:5分钟自动刷新</small></a>
+				</li>
+				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list5.png" width="20px">
-					<a class="mui-navigate-right" id="mylist">我的信息</a>
+					<a class="mui-navigate-right" id="mylist">修改信息</a>
 				</li>
 				<li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list1.png" width="20px">
@@ -77,14 +85,16 @@
 					<img class="mui-pull-left" src="../images/list3.png" width="20px">
 					<a class="mui-navigate-right" id="login_out">退出登录</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<!-- <li class="mui-table-view-cell">
 					<img class="mui-pull-left" src="../images/list3.png" width="20px">
 					<a class="mui-navigate-right" id="cheshi">开发测试</a>
-				</li>
+				</li> -->
 			</ul>
+
+
 		</div>
 		<div id='div'></div>
-		<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<!-- 		<script type="text/javascript">
 			//禁止返回登录页面
@@ -107,11 +117,15 @@
 			}
 		</script>
 
+		<script>
+
+		</script>
+
 		<script type="text/jscript">
 			mui.init();
 			var lingshi;
 			mui.post('http://81.70.23.51:5555/myappindex', {}, function data1(data) {
-				console.log("后端返回数据,准备判断");
+				
 				//console.log(JSON.stringify(data));
 				lingshi = data.lixing;
 				var a = data.jifen;
@@ -145,14 +159,14 @@
 				})
 			});
 
-			//测试
-			document.getElementById('cheshi').addEventListener('tap', function() {
-				
-				mui.openWindow({
-					url: './cheshi.html', //通过URL传参
+			// //测试
+			// document.getElementById('cheshi').addEventListener('tap', function() {
 
-				})
-			});
+			// 	mui.openWindow({
+			// 		url: './cheshi.html', //通过URL传参
+
+			// 	})
+			// });
 			//排行榜
 			document.getElementById('pai_hang').addEventListener('tap', function() {
 				console.log("排行榜");
@@ -207,5 +221,13 @@
 			});
 		</script>
 		<script src="../js/mui.min.js"></script>
+		<script language="JavaScript"> 
+		setTimeout(function(){location.reload()},50000); //指定1秒刷新一次
+		document.getElementById('shuaxing').addEventListener('tap', function() {
+			
+			location.reload();
+		});
+		</script>
+
 	</body>
 </html>

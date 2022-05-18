@@ -83,11 +83,25 @@
 			.oauth-area .oauth-btn.disabled {
 				background-color: #ddd;
 			}
+
+			.aedqw {
+				background-color: #007aff;
+			}
+
+			.sferq {
+				color: white;
+			}
+
+			.asdqwe {
+				position: fixed;
+				bottom: 10px;
+			}
 		</style>
+		
 	</head>
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">登录</h1>
+		<header class="mui-bar mui-bar-nav aedqw">
+			<h1 class="mui-title sferq">登录_题小满</h1>
 		</header>
 		<div class="mui-content">
 			<form id='login-form' class="mui-input-group">
@@ -107,13 +121,38 @@
 				<div class="link-area"><a id='reg'>注册账号</a> <span class="spliter">|</span> <a
 						id='forgetPassword'>忘记密码</a>
 				</div>
+				<span onclick="show1()">
+					<div class="link-area ">
+						 <small><a >如果出现报错或者功能/软件不能正常使用请点击此行文字！</a></small>
+						</a> <span class="spliter"></a>
+					</div>
+					<div id="div1">
+						<div class="link-area asdqwe"><small>
+								<hr>开发者寄语：<br />本软件经过我们的深度使用测试优化暂时没有发现bug。如果出现报错或者功能/软件不能正常使用请第一时间联系我们。<span><br />开发者联系方式：<br />朱博
+									15047422887&nbsp;&nbsp;241900086@qq.com<br />郭洪全
+									15326722754&nbsp;&nbsp;3390205563@qq.com<br />张钰
+									18647077731&nbsp;&nbsp;983769116@qq.com<br />还请各位手下留情不要发起攻击。
+							</small></a> <span class="spliter"></a>
+						</div>
+					</div>
+					<div id="div2">
+						
+					</div>
+				</span>
+				<span onclick="show2()">
+					
+				</span>
+
 			</div>
 			<script src="../js/mui.js" type="text/javascript" charset="utf-8"></script>
 			<script type="text/javascript">
 				mui.init()
 			</script>
 	</body>
-
+<script>
+		document.getElementById("div1").style.display = "none";
+		document.getElementById("div2").style.display = "block";
+		</script>
 	<script type="text/javascript">
 		//禁止返回登录页面
 		// mui.init({
@@ -121,14 +160,13 @@
 		// 		return false;
 		// 	}
 		// });
-		
+
 		mui.init({
 			//该属性禁用了当前页面的返回功能，但是还是有双击退出app的功能
 			keyEventBind: {
-				backbutton: false  //关闭back按键监听
+				backbutton: false //关闭back按键监听
 			}
 		});
-
 	</script>
 	<script>
 		mui.init();
@@ -150,7 +188,7 @@
 					mui.openWindow({
 						createNew: true,
 						url: "../index.html",
-						
+
 					})
 				}
 			}, 'json');
@@ -163,5 +201,18 @@
 				url: './register.html', //通过URL传参
 			})
 		});
+		//忘记密码forgetPassword
+		document.getElementById('forgetPassword').addEventListener('tap', function() {
+			console.log("注册按钮");
+			mui.openWindow({
+				createNew: true,
+				url: './forgetPassword.html', //通过URL传参
+			})
+		});
+		function show1() {
+			document.getElementById("div1").style.display = "block";
+			document.getElementById("div2").style.display = "none";
+			
+		};
 	</script>
 </html>

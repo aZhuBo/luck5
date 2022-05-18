@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>每日练习</title>
+    <title>选择专项</title>
 
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -102,7 +102,7 @@
 <div class="topic">
     <header class="mui-bar mui-bar-nav">
         <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-        <h1 class="mui-title">每日答题</h1>
+        <h1 class="mui-title">选择专项<small>(选中也会自动跳转哦!)</small></h1>
     </header>
     <br/><br/>
 
@@ -120,7 +120,7 @@
 <script type="text/javascript">
     var unit = location.search;
     // 数据处理
-    unit = unit.slice(unit.indexOf("=") + 1)
+
 
     mui.init();
     mui.post('http://81.70.23.51:5555/questionBack_sum', {}, function data1(data1) {
